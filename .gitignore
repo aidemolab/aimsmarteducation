@@ -1,0 +1,16 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Local tooling (never deployed)
+node_modules/
+.claude/
+*.log
+
+# Secrets must never be committed
+.env
+.env.*

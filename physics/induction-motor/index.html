@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inside an Induction Motor | AIM Smart Learning</title>
+  <meta name="description" content="An interactive 3D explainer showing how a three-phase AC induction motor works: stator, windings, rotating magnetic field, squirrel-cage rotor, induced currents, torque and slip.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./shell/shell.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/0.170.0/three.module.min.js",
+      "three/addons/": "./vendor/three/0.170.0/addons/"
+    }
+  }
+  </script>
+  <script type="module" src="./shell/main.js"></script>
+</head>
+<body>
+  <div class="aim-app" id="aim-app"
+       data-scene="./scenes/induction-motor.js"
+       data-stages="./scenes/induction-motor.stages.json">
+
+    <header class="aim-header">
+      <h1 class="aim-title">Inside an Induction Motor</h1>
+      <p class="aim-credit">AIM Smart Learning — by AIM Smart Education</p>
+    </header>
+
+    <main class="aim-main">
+      <section class="aim-viewport" aria-label="Interactive 3D model of an induction motor">
+        <div class="aim-poster" aria-hidden="true">
+          <span class="aim-poster-title">Inside an Induction Motor</span>
+        </div>
+        <div class="aim-loading" role="status" aria-live="polite">Loading 3D model…</div>
+        <div class="aim-error" role="alert" hidden>
+          <h2>The 3D model could not be shown</h2>
+          <p class="aim-error-detail"></p>
+          <p>The explanation on this page still covers everything the model shows.</p>
+        </div>
+        <div class="aim-overlay"></div>
+        <p class="aim-notice">Educational visualisation, not an electromagnetic simulation.</p>
+        <ul class="aim-badges" aria-label="About this view"></ul>
+      </section>
+
+      <aside class="aim-panel">
+        <section class="aim-controls" aria-label="Controls"></section>
+        <section class="aim-intro" aria-labelledby="aim-intro-heading">
+          <h2 id="aim-intro-heading">About this explainer</h2>
+          <p>Induction motors are used in industry, household appliances and some electric vehicles.</p>
+          <p>This model shows the main parts of a three-phase induction motor and how a rotating magnetic field makes the rotor turn. It is a simplified educational visualisation, not an electromagnetic simulation.</p>
+        </section>
+        <nav class="aim-stage-nav" aria-label="Stages"></nav>
+        <section class="aim-stage" aria-live="polite"></section>
+      </aside>
+    </main>
+
+    <section class="aim-all-stages" aria-label="Stage-by-stage explanation"></section>
+
+    <noscript>
+      <p class="aim-noscript">The interactive 3D model needs JavaScript. The written explanation is still available on this page.</p>
+    </noscript>
+  </div>
+</body>
+</html>

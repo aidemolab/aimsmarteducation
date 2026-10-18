@@ -1,0 +1,182 @@
+{
+  "topic": "Inside an Induction Motor",
+  "ui": {
+    "chartTitle": "Supply currents",
+    "dialTitle": "Combined field",
+    "fieldSpeed": "Field speed",
+    "rotorSpeed": "Rotor speed",
+    "slip": "Slip",
+    "relativeNote": "Speeds relative to the field"
+  },
+  "stages": [
+    {
+      "id": "components",
+      "title": "The main parts",
+      "body": [
+        "An induction motor has two main parts. The stator is the stationary outer part. The rotor is the part that turns.",
+        "The stator is a stack of thin steel sheets called laminations, with copper windings set into slots. There are three groups of windings, labelled A, B and C.",
+        "The rotor is a ‘squirrel cage’: metal bars joined at each end by end rings, set in a laminated steel core. It has no permanent magnets and no electrical connection to the supply.",
+        "The rotor is fixed to the shaft, which carries the turning motion out of the motor. Bearings let the shaft turn smoothly."
+      ],
+      "notes": [
+        "The laminations reduce the energy lost as heat in the steel."
+      ],
+      "badges": [],
+      "highlights": [
+        {
+          "part": "stator",
+          "caption": "Stator: stays still"
+        },
+        {
+          "part": "windings",
+          "caption": "Windings A, B and C"
+        },
+        {
+          "part": "rotor",
+          "caption": "Rotor: squirrel cage, turns"
+        },
+        {
+          "part": "shaft",
+          "caption": "Shaft and bearings"
+        }
+      ]
+    },
+    {
+      "id": "supply",
+      "title": "Three-phase supply",
+      "body": [
+        "The motor is connected to a three-phase alternating supply. Each winding group carries its own alternating current.",
+        "The three currents have the same shape and size, but each one peaks a third of a cycle after the one before. They are 120 electrical degrees apart.",
+        "The chart shows the three currents. Winding A peaks first, then B, then C, and the pattern repeats. The glow on each winding group follows the size of its current."
+      ],
+      "notes": [
+        "Shown in slow motion. A 50 Hz supply, as in UK mains, completes 50 cycles every second."
+      ],
+      "badges": [
+        "Slow motion"
+      ]
+    },
+    {
+      "id": "field",
+      "title": "Rotating magnetic field",
+      "body": [
+        "Each winding group produces a magnetic field across the inside of the stator. Its strength and direction follow its current.",
+        "Added together, the three fields make one combined field of steady strength that turns smoothly around the stator. Nothing physical has to move for this: the field turns because the currents rise and fall in sequence.",
+        "The order in which the currents peak, A → B → C, sets the direction of rotation. Here the field turns anticlockwise, seen from the shaft end. Swapping any two supply connections reverses the sequence, and the motor runs the other way.",
+        "In this simplified two-pole motor, the field makes one complete turn for every cycle of the supply."
+      ],
+      "notes": [
+        "The arrow and field lines are illustrative. They show the direction of the combined field, not a measured field pattern."
+      ],
+      "badges": [
+        "Illustrative",
+        "Slow motion"
+      ]
+    },
+    {
+      "id": "induction",
+      "title": "Induced rotor currents",
+      "body": [
+        "The field turns slightly faster than the rotor, so it sweeps past the rotor bars. A magnetic field moving past a conductor induces a current in it. This is electromagnetic induction.",
+        "The currents are strongest in the bars under the field’s poles, and they flow in opposite directions on opposite sides of the rotor. The end rings complete the circuit.",
+        "Because the field moves relative to the rotor, the pattern of currents also moves round the rotor, at the difference between the two speeds."
+      ],
+      "legend": [
+        {
+          "swatch": "#ffa040",
+          "text": "Current flowing towards the shaft end"
+        },
+        {
+          "swatch": "#a98bff",
+          "text": "Current flowing away from the shaft end"
+        }
+      ],
+      "notes": [
+        "Current highlights are illustrative, not calculated values."
+      ],
+      "badges": [
+        "Illustrative",
+        "Slow motion"
+      ]
+    },
+    {
+      "id": "torque",
+      "title": "Torque and slip",
+      "body": [
+        "A current-carrying bar in a magnetic field feels a force. The forces on the bars add up to a turning effect, called torque, in the same direction as the field’s rotation.",
+        "So the rotor turns the same way as the field, but slightly slower. The difference is called slip: s = (field speed − rotor speed) / field speed.",
+        "If the rotor turned at the field’s speed, there would be no relative motion between them, so no induced current and no torque (in this idealised picture). During normal motoring, the rotor always runs a little slower than the field.",
+        "In many modern drives, an inverter controls the frequency and voltage of the supply, and therefore the speed of the field."
+      ],
+      "notes": [
+        "Slip exaggerated for visibility: 15% here. Real motors usually run with much less slip."
+      ],
+      "badges": [
+        "Illustrative",
+        "Slip exaggerated for visibility",
+        "Slow motion"
+      ],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "Predict, then test it",
+        "question": "What happens if the rotor reaches the field’s speed?",
+        "prompt": "Make a prediction first. Then drag the slider towards the field’s speed and watch the rotor bars and the torque arrow.",
+        "slider": {
+          "option": "rotorSpeed",
+          "label": "Rotor speed (as a fraction of field speed)",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.85
+        },
+        "revealLabel": "Reveal the answer",
+        "reveal": [
+          "At the field’s speed there is no relative motion between the field and the rotor bars. No current is induced in the bars, so there is no force on them and no torque.",
+          "Without torque, friction and the load slow the rotor down. Slip returns, currents are induced again and the torque comes back. That is why a motoring induction motor always runs slightly slower than its field."
+        ],
+        "revealNote": "Idealised picture. Real motors also have friction and other losses, so even with no load they settle a little below the field’s speed."
+      }
+    }
+  ],
+  "controls": {
+    "playLabel": "Play",
+    "pauseLabel": "Pause",
+    "restartLabel": "Restart",
+    "speedLabel": "Animation speed",
+    "speedHint": "Changes how fast the animation plays, not the motor speed.",
+    "tourLabel": "Guided tour",
+    "stopTourLabel": "Stop tour",
+    "resetCameraLabel": "Reset camera",
+    "labelsLabel": "Labels",
+    "hint": "Drag to orbit. Scroll or pinch to zoom.",
+    "toggles": [
+      {
+        "option": "cutaway",
+        "label": "Cutaway",
+        "value": true
+      },
+      {
+        "option": "exploded",
+        "label": "Exploded view",
+        "value": false
+      },
+      {
+        "option": "fieldEffects",
+        "label": "Field effects",
+        "value": true
+      }
+    ]
+  },
+  "labels": {
+    "stator": "Stator (laminated core)",
+    "windingA": "Winding A",
+    "windingB": "Winding B",
+    "windingC": "Winding C",
+    "rotor": "Rotor core",
+    "rotorBars": "Rotor bars",
+    "endRing": "End ring",
+    "shaft": "Shaft",
+    "bearing": "Bearing",
+    "housing": "Housing"
+  }
+}
