@@ -3,84 +3,180 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AIM Smart Education | Interactive science explainers</title>
-  <meta name="description" content="Interactive 3D explainers that help KS3, GCSE and A-level students see how science really works.">
+  <title>AIM Smart Education | Understand it properly. Then ace the exam.</title>
+  <meta name="description" content="Interactive 3D explainers and revision for KS3, GCSE and A-level students, aligned to AQA, Edexcel, OCR and WJEC/Eduqas specifications.">
   <link rel="icon" href="data:,">
-  <link rel="preload" href="./assets/fonts/lexend/lexend-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/fonts/atkinson-hyperlegible/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/manrope/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./assets/fonts/source-sans-3/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./assets/css/site.css">
+  <script type="module" src="./assets/js/search.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="./">AIM Smart Education</a>
+      <a class="brand" href="./" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
       <nav class="site-nav" aria-label="Main">
         <ul>
-          <li><a href="./" aria-current="page">Home</a></li>
           <li><a href="./physics/">Physics</a></li>
+          <li><a href="./#subjects">Maths</a></li>
+          <li><a href="./physics/#explainers">3D explainers</a></li>
+          <li><a href="./#teachers">For teachers</a></li>
         </ul>
       </nav>
+      <a class="button button-primary header-cta" href="./#subjects">Browse topics</a>
     </div>
   </header>
 
   <main id="main">
     <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">For KS3, GCSE and A-level students</p>
-        <h1>See how science works, from the inside.</h1>
-        <p class="lede">Our interactive 3D explainers let you take things apart, slow them down and look from every angle. Explore at your own pace, one clear step at a time.</p>
-        <div class="button-row">
-          <a class="button button-try" href="./physics/induction-motor/">Try the induction motor</a>
-          <a class="button button-secondary" href="./physics/">Browse Physics</a>
-        </div>
-      </div>
-    </section>
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">KS3, GCSE and A-level</p>
+          <h1>Understand it properly. Then ace the exam.</h1>
+          <p class="lede">Interactive 3D explainers that show you how things really work, step by step, so the exam questions make sense.</p>
 
-    <section class="section" aria-labelledby="new-heading">
-      <div class="wrap">
-        <h2 id="new-heading">New explainer</h2>
-        <div class="card-grid">
-          <article class="card card-feature">
-            <div class="card-media" aria-hidden="true">
-              <svg viewBox="0 0 120 120" fill="none" stroke-linecap="round">
-                <circle cx="60" cy="60" r="52" stroke="#C8CFDA" stroke-width="6"/>
-                <circle cx="60" cy="60" r="40" stroke="#F2B33D" stroke-width="3" stroke-dasharray="14 9"/>
-                <circle cx="60" cy="60" r="26" stroke="#C8CFDA" stroke-width="3"/>
-                <path d="M60 34v52M34 60h52M42 42l36 36M78 42 42 78" stroke="#C8CFDA" stroke-width="2" opacity="0.6"/>
-                <circle cx="60" cy="60" r="6" fill="#F2B33D" stroke="none"/>
-              </svg>
+          <div class="search" role="search">
+            <label for="topic-search">Find a topic</label>
+            <div class="search-field">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="topic-search" type="search" autocomplete="off" spellcheck="false"
+                     placeholder="Search topics, e.g. motor"
+                     aria-controls="topic-results" aria-describedby="topic-status"
+                     data-topic-search data-root="./" data-status="topic-status">
             </div>
-            <div class="card-body">
-              <ul class="badges" aria-label="Tags">
-                <li class="badge badge-physics">Physics</li>
-                <li class="badge badge-level">A-level</li>
-              </ul>
-              <h3><a href="./physics/induction-motor/">Inside an Induction Motor</a></h3>
-              <p>Watch a rotating magnetic field drag a squirrel-cage rotor round, and find out where torque and slip come from.</p>
-              <a class="button button-try" href="./physics/induction-motor/" tabindex="-1" aria-hidden="true">Try it</a>
+            <ul id="topic-results" class="search-results" hidden></ul>
+            <p id="topic-status" class="visually-hidden" aria-live="polite"></p>
+            <div class="search-hints">
+              <span>Popular:</span>
+              <button class="chip" type="button" data-search-hint="induction motor">Induction motor</button>
+              <button class="chip" type="button" data-search-hint="magnetic field">Magnetic fields</button>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="subjects-heading">
-      <div class="wrap">
-        <h2 id="subjects-heading">Subjects</h2>
-        <div class="subject-grid">
-          <a class="subject-tile tile-physics" href="./physics/">
-            <h3>Physics</h3>
-            <p>Forces, fields, electricity and the machines that use them.</p>
-          </a>
-          <div class="subject-tile tile-maths is-soon">
-            <h3>Maths</h3>
-            <p>Coming soon.</p>
           </div>
-          <div class="subject-tile tile-biology is-soon">
-            <h3>Biology</h3>
-            <p>Coming soon.</p>
+        </div>
+
+        <article class="card card-feature" aria-labelledby="featured-title">
+          <div class="card-media" aria-hidden="true">
+            <span class="media-label">Interactive 3D</span>
+            <svg viewBox="0 0 120 120" fill="none" stroke-linecap="round">
+              <circle cx="60" cy="60" r="52" stroke="#B9BCCB" stroke-width="6"/>
+              <circle cx="60" cy="60" r="40" stroke="#8C90E6" stroke-width="3" stroke-dasharray="14 9"/>
+              <circle cx="60" cy="60" r="26" stroke="#B9BCCB" stroke-width="3"/>
+              <path d="M60 34v52M34 60h52M42 42l36 36M78 42 42 78" stroke="#B9BCCB" stroke-width="2" opacity="0.6"/>
+              <circle cx="60" cy="60" r="6" fill="#EEEEFB" stroke="none"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <ul class="badges" aria-label="Tags">
+              <li class="badge badge-physics">Physics</li>
+              <li class="badge badge-level">A-level</li>
+            </ul>
+            <h3 id="featured-title"><a class="card-link" href="./physics/induction-motor/">Inside an Induction Motor</a></h3>
+            <p>Watch a rotating magnetic field drag a squirrel-cage rotor round, and see exactly where torque and slip come from.</p>
+            <ul class="card-facts">
+              <li>5 stages</li>
+              <li>Rotate, explode and pause</li>
+            </ul>
+            <a class="button button-primary" href="./physics/induction-motor/" tabindex="-1" aria-hidden="true">Open the explainer</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="boards-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="boards-heading">Choose your exam board</h2>
+          <p>Revise the way your specification puts it. Board pages are on their way.</p>
+        </div>
+        <ul class="board-grid" role="list">
+          <li class="board-tile"><h3>AQA</h3><p>GCSE and A-level</p><span class="badge badge-soon">Coming soon</span></li>
+          <li class="board-tile"><h3>Edexcel</h3><p>GCSE and A-level</p><span class="badge badge-soon">Coming soon</span></li>
+          <li class="board-tile"><h3>OCR</h3><p>GCSE and A-level</p><span class="badge badge-soon">Coming soon</span></li>
+          <li class="board-tile"><h3>WJEC/Eduqas</h3><p>GCSE and A-level</p><span class="badge badge-soon">Coming soon</span></li>
+          <li class="board-tile"><h3>KS3</h3><p>Years 7 to 9</p><span class="badge badge-soon">Coming soon</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="subjects" aria-labelledby="subjects-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="subjects-heading">Browse by subject</h2>
+          <p>Start with a subject, then pick a topic to explore.</p>
+        </div>
+        <div class="subject-grid">
+          <div class="subject-tile tile-physics">
+            <span class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>
+            </span>
+            <div>
+              <h3><a class="card-link" href="./physics/">Physics</a></h3>
+              <p>Forces, fields, electricity and the machines that use them.</p>
+              <span class="badge badge-level">1 explainer</span>
+            </div>
+          </div>
+          <div class="subject-tile tile-maths">
+            <span class="subject-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 7h6M8 4v6M14 7h5M5 17h6M14 15h5M14 19h5M16.5 13v0"/></svg>
+            </span>
+            <div>
+              <h3>Maths</h3>
+              <p>Algebra, geometry and graphs you can turn and test.</p>
+              <span class="badge badge-soon">Coming soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="steps-heading">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="steps-heading">Revise in three steps</h2>
+          <p>Short, focused and active. That's what makes it stick.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number" aria-hidden="true">1</span>
+            <h3>Explore the model</h3>
+            <p>Turn it, take it apart and slow it down until you can see what each part does.</p>
+          </li>
+          <li class="step step-predict">
+            <span class="step-number" aria-hidden="true">2</span>
+            <h3>Predict, then check</h3>
+            <p>Say what you think will happen next before you press play. Being wrong is how you learn it.</p>
+          </li>
+          <li class="step">
+            <span class="step-number" aria-hidden="true">3</span>
+            <h3>Explain it in exam words</h3>
+            <p>Put it into the language your mark scheme rewards, then try a past-paper question.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="teachers" aria-labelledby="teachers-heading">
+      <div class="wrap">
+        <div class="teacher-panel">
+          <div>
+            <p class="eyebrow">For teachers</p>
+            <h2 id="teachers-heading">Use it in your lessons</h2>
+            <p>Every explainer works on a classroom screen with no logins, no cookies and no tracking. Project it, pause on any stage and let students predict what happens next.</p>
+          </div>
+          <div class="teacher-links">
+            <a class="teacher-link is-placeholder" aria-disabled="true">
+              <span>Lesson packs on TES</span>
+              <small>Link coming soon</small>
+            </a>
+            <a class="teacher-link is-placeholder" aria-disabled="true">
+              <span>Lesson packs on TPT</span>
+              <small>Link coming soon</small>
+            </a>
           </div>
         </div>
       </div>
@@ -88,8 +184,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <p>© 2026 AIM Smart Education. No cookies, no tracking, just learning.</p>
+    <div class="wrap footer-grid">
+      <a class="brand" href="./" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <div>
+        <p>Our resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or WJEC/Eduqas.</p>
+        <p>© 2026 AIM Smart Education. No cookies, no tracking, just learning.</p>
+      </div>
     </div>
   </footer>
 </body>
