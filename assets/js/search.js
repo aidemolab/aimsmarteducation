@@ -12,9 +12,9 @@ const TOPICS = [
   {
     title: 'Lines in 3D: meet, parallel or skew?',
     subject: 'Maths',
-    level: 'A-level',
+    level: 'Further Maths',
     path: 'maths/lines-in-3d/',
-    keywords: 'lines in 3d three dimensions vector equation of a line vectors direction vector position vector intersect intersection meet parallel skew lines shortest distance closest points pure maths',
+    keywords: 'lines in 3d three dimensions vector equation of a line vectors direction vector position vector intersect intersection meet parallel skew lines shortest distance closest points pure maths further maths a-level pure 3',
   },
 ];
 

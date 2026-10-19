@@ -371,6 +371,7 @@ main { flex: 1; }
 .badge-physics { background: var(--physics); color: #FFFFFF; }
 .badge-maths { background: var(--maths); color: #FFFFFF; }
 .badge-level { color: var(--ink-muted); box-shadow: inset 0 0 0 1px var(--ink-muted); }
+.badge-note { background: var(--brand-soft); color: var(--brand-strong); }
 .badge-soon { background: var(--paper); color: var(--ink-muted); box-shadow: inset 0 0 0 1px var(--line); }
 
 /* Cards */
@@ -487,7 +488,6 @@ a.card, .card:has(.card-link) { transition: border-color 0.15s ease; }
 .subject-tile p { margin: 0 0 12px; color: var(--ink-muted); }
 .tile-physics { --tile-colour: var(--physics); }
 .tile-maths { --tile-colour: var(--maths); }
-.subject-tile .tile-spec { margin: 0; font-size: 0.95rem; line-height: 24px; }
 
 /* Three steps */
 .steps {
