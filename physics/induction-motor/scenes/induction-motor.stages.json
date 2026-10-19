@@ -149,6 +149,11 @@
     "resetCameraLabel": "Reset camera",
     "labelsLabel": "Labels",
     "hint": "Drag to orbit. Scroll or pinch to zoom.",
+    "layout": [
+      ["play", "restart", "speed"],
+      ["toggle:cutaway", "toggle:exploded", "toggle:fieldEffects", "labels"],
+      ["tour", "resetCamera"]
+    ],
     "toggles": [
       {
         "option": "cutaway",

@@ -1,0 +1,103 @@
+/* Label styles for the Lines in 3D scene (labels sit on the dark ink stage). */
+
+/* Axis names, O and tick numbers: plain text centred on the anchor, no marker dot */
+.aim-label-axis::before,
+.aim-label-tick::before,
+.aim-label-line::before,
+.aim-label-vector::before { display: none; }
+.aim-label-axis span,
+.aim-label-tick span {
+  left: 0; bottom: auto; top: 0; transform: translate(-50%, -50%);
+  padding: 0; border: 0; background: none; text-shadow: 0 0 4px #14161F, 0 0 2px #14161F;
+}
+.aim-theme-premium .aim-label-axis span { font-size: 1.05rem; font-style: italic; font-weight: 600; color: #E3E5EE; background: none; }
+.aim-theme-premium .aim-label-tick span { font-size: 0.72rem; font-weight: 400; color: #9A9EB0; background: none; }
+
+/* Line names: pill outlined in the line's colour */
+.aim-label-line span { left: 8px; bottom: 4px; font-weight: 700; }
+.aim-theme-premium .aim-label-L1 span { border-color: #FFB38A; color: #FFB38A; }
+.aim-theme-premium .aim-label-L2 span { border-color: #3D8EF0; color: #8CBBF7; }
+.aim-theme-premium .aim-label-L3 span { border-color: #3FAF74; color: #86D3A9; }
+.aim-theme-premium .aim-label-L4 span { border-color: #B47CFF; color: #CFAEFF; }
+
+/* Vector names (bold, as in printed vectors) */
+.aim-label-vector span { left: 6px; bottom: 2px; font-weight: 700; font-size: 0.95rem; }
+
+/* Points: marker dot plus coordinates */
+.aim-label-point span { font-variant-numeric: tabular-nums; }
+
+/* Label placed to the left of its anchor (keeps a clear of b) */
+.aim-label-left span { left: auto; right: 8px; }
+
+/* ---- Maths notation (stage text and overlay) ---- */
+/* Column vectors built with CSS: entries stacked, brackets drawn with borders. */
+.mv-col {
+  display: inline-grid; grid-auto-flow: row; vertical-align: middle; position: relative;
+  padding: 1px 7px; margin: 2px 1px; text-align: center; line-height: 1.15;
+}
+.mv-col::before, .mv-col::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 5px; border: 1.5px solid currentColor;
+}
+.mv-col::before { left: 0; border-right: 0; border-radius: 5px 0 0 5px; }
+.mv-col::after { right: 0; border-left: 0; border-radius: 0 5px 5px 0; }
+.mv-entry { min-width: 1.4em; font-variant-numeric: tabular-nums; }
+.mv-vec { font-weight: 700; }
+.mv-eq { white-space: nowrap; }
+.mv-steps { display: block; margin: 4px 0; }
+.mv-step { display: block; margin: 6px 0; }
+.mv-step .mv-row { display: block; padding-left: 1.2em; font-variant-numeric: tabular-nums; }
+.mv-step-check-ok, .mv-step-check-fail { font-weight: 600; }
+.aim-theme-premium .aim-panel .mv-step,
+.aim-theme-premium .aim-all-stages .mv-step { color: var(--ink); }
+
+/* ---- Equation readout: a card below the 3D view (never covers the view) ---- */
+.aim-stage-col { display: grid; gap: 16px; min-width: 0; align-content: start; }
+.aim-scene-panel:empty { display: none; }
+.aim-theme-premium .aim-scene-panel {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card);
+  padding: 12px 16px; color: var(--ink); overflow-x: auto;
+}
+.ml-readout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4px 24px; font-size: 1rem; line-height: 1.3; }
+.ml-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 2px 0; }
+.ml-small { color: var(--ink-muted); }
+.ml-param { color: var(--ink-muted); margin: 0 0 6px; font-variant-numeric: tabular-nums; }
+.ml-param-value { color: var(--ink); font-weight: 700; }
+.ml-sign { display: inline-block; min-width: 0.8em; text-align: center; }
+.mv-live .mv-entry { color: var(--ink); font-weight: 700; min-width: 3.4em; }
+/* Line names: colour swatch plus text (colour is never the only cue) */
+.ml-line { font-weight: 700; display: inline-flex; align-items: center; gap: 5px; margin-right: 4px; }
+.ml-line::before { content: ""; width: 12px; height: 12px; border-radius: 3px; background: var(--ml-swatch); }
+.ml-line-L1 { --ml-swatch: #FFB38A; }
+.ml-line-L2 { --ml-swatch: #3D8EF0; }
+.ml-line-L3 { --ml-swatch: #3FAF74; }
+.ml-line-L4 { --ml-swatch: #B47CFF; }
+.ml-method { grid-column: 1 / -1; padding-top: 8px; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.ml-step { margin: 3px 0; transition: opacity 0.3s ease; }
+.ml-step .mv-row { display: block; padding-left: 1em; }
+.ml-step.is-dim { opacity: 0.3; }
+@media (prefers-reduced-motion: reduce) { .ml-step { transition: none; } }
+
+/* Moving point, meeting point and gap labels */
+.aim-theme-premium .aim-label-moving span { font-variant-numeric: tabular-nums; border-color: rgba(255, 255, 255, 0.7); }
+.aim-theme-premium .aim-label-meet span { border-color: #fff; }
+.aim-theme-premium .aim-label-gap span { border-color: #B9BCCB; color: #E3E5EE; }
+/* Meeting point highlight: a ring that always faces the viewer */
+.aim-label-meet::before {
+  left: -13px; top: -13px; width: 26px; height: 26px; background: transparent;
+  border: 2.5px solid #fff; box-shadow: 0 0 0 2px rgba(20, 22, 31, 0.8);
+}
+
+@media (max-width: 600px) {
+  .ml-readout { grid-template-columns: 1fr; font-size: 0.9rem; }
+  .aim-theme-premium .aim-scene-panel { padding: 10px 12px; }
+  .mv-live .mv-entry { min-width: 3em; }
+}
+
+/* Empty labels (a point giving way to another label) are not drawn */
+.aim-label span:empty { display: none; }
+.aim-label:has(span:empty)::before { display: none; }
+/* Label placed below its anchor */
+.aim-label-below span { bottom: auto; top: 6px; }
+/* Distance label sits below the dashed PQ, without a marker dot of its own */
+.aim-label-gap::before { display: none; }
+.aim-label-gap span { left: 0; transform: translateX(-50%); }

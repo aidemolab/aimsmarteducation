@@ -5,6 +5,55 @@
 
 const ease = (x) => (x < 0.5 ? 2 * x * x : 1 - ((-2 * x + 2) ** 2) / 2);
 
+// Single smooth camera move to a view ({ position, target }), orbiting round the
+// target in the same way as the tour. Used by scenes (via context.view.flyTo),
+// e.g. for a reveal. User camera input stops it; onDone runs only if it finishes.
+export function createCameraMove(api) {
+  const { THREE, camera, controls } = api;
+  const sFrom = new THREE.Spherical();
+  const sTo = new THREE.Spherical();
+  const s = new THREE.Spherical();
+  const offset = new THREE.Vector3();
+  const target = new THREE.Vector3();
+  let move = null;
+
+  const stop = () => { move = null; };
+  controls.addEventListener('start', stop);
+
+  api.addHook('pre', (dt) => {
+    if (!move) return;
+    move.time += dt;
+    const u = Math.min(move.time / move.seconds, 1);
+    const e = ease(u);
+    target.lerpVectors(move.from, move.to.target, e);
+    s.radius = sFrom.radius + (sTo.radius - sFrom.radius) * e;
+    s.phi = sFrom.phi + (sTo.phi - sFrom.phi) * e;
+    s.theta = sFrom.theta + (sTo.theta - sFrom.theta) * e;
+    camera.position.setFromSpherical(s).add(target);
+    controls.target.copy(target);
+    if (u >= 1) {
+      const done = move.onDone;
+      move = null;
+      done?.();
+    }
+  });
+
+  return {
+    flyTo(view, seconds = 2.5, onDone) {
+      api.tour?.stop();
+      const to = api.fittedView(view);
+      sFrom.setFromVector3(offset.subVectors(camera.position, controls.target));
+      sTo.setFromVector3(offset.subVectors(to.position, to.target));
+      let d = sTo.theta - sFrom.theta;
+      d = Math.atan2(Math.sin(d), Math.cos(d));
+      sTo.theta = sFrom.theta + d;
+      move = { from: controls.target.clone(), to, seconds: Math.max(seconds, 1e-3), time: 0, onDone };
+    },
+    stop,
+    get active() { return !!move; },
+  };
+}
+
 export function createCameraTour(api, keyframes) {
   const { THREE, camera, controls } = api;
   const listeners = new Set();

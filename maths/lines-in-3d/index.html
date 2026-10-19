@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lines in 3D: meet, parallel or skew? | AIM Smart Education</title>
+  <meta name="description" content="An interactive 3D explainer for A-level students: write the vector equation of a line in 3D, then decide whether two lines intersect, are parallel or are skew.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./shell/shell.css">
+  <link rel="stylesheet" href="./assets/premium-theme.css">
+  <link rel="stylesheet" href="./scenes/maths-lines-3d.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/0.170.0/three.module.min.js",
+      "three/addons/": "./vendor/three/0.170.0/addons/"
+    }
+  }
+  </script>
+  <script type="module" src="./shell/main.js"></script>
+</head>
+<body class="aim-theme-premium">
+  <div class="aim-app" id="aim-app"
+       data-scene="./scenes/maths-lines-3d.js"
+       data-stages="./scenes/maths-lines-3d.stages.json">
+
+    <header class="aim-header">
+      <div class="aim-brand">
+        <span class="aim-brand-mark" aria-hidden="true">A</span>
+        <span class="aim-brand-name">AIM Smart Education</span>
+      </div>
+      <h1 class="aim-title">Lines in 3D: meet, parallel or skew?</h1>
+      <ul class="aim-page-badges" aria-label="Subject and level">
+        <li class="aim-subject-badge aim-subject-maths">Maths</li>
+        <li class="aim-level-badge">A-level</li>
+        <li class="aim-spec-ref">Spec: [board and spec reference]</li>
+      </ul>
+    </header>
+
+    <main class="aim-main">
+      <div class="aim-stage-col">
+      <section class="aim-viewport" aria-label="Interactive 3D view of lines in three dimensions">
+        <div class="aim-poster" aria-hidden="true">
+          <span class="aim-poster-title">Lines in 3D</span>
+        </div>
+        <div class="aim-loading" role="status" aria-live="polite">Loading 3D view…</div>
+        <div class="aim-error" role="alert" hidden>
+          <h2>The 3D view could not be shown</h2>
+          <p class="aim-error-detail"></p>
+          <p>The explanation on this page still covers everything the 3D view shows.</p>
+        </div>
+        <div class="aim-overlay"></div>
+        <ul class="aim-badges" aria-label="About this view"></ul>
+      </section>
+      <!-- Live equations for the current stage (filled by the scene; the same maths is in the stage text). -->
+      <section class="aim-scene-panel" aria-label="Equations"></section>
+      </div>
+
+      <aside class="aim-panel">
+        <section class="aim-controls" aria-label="Controls"></section>
+        <section class="aim-intro" aria-labelledby="aim-intro-heading">
+          <h2 id="aim-intro-heading">About this explainer</h2>
+          <p>Write the vector equation of a line in 3D, then decide whether two lines meet, are parallel or are skew. Every value is calculated exactly; moving values are shown to 2 decimal places.</p>
+        </section>
+        <nav class="aim-stage-nav" aria-label="Stages"></nav>
+        <section class="aim-stage" aria-live="polite"></section>
+      </aside>
+    </main>
+
+    <section class="aim-all-stages" aria-label="Stage-by-stage explanation"></section>
+
+    <noscript>
+      <p class="aim-noscript">The interactive 3D view needs JavaScript. The written explanation is still available on this page.</p>
+    </noscript>
+  </div>
+</body>
+</html>

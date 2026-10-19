@@ -1,0 +1,105 @@
+{
+  "textModule": "./maths-lines-3d.text.js",
+  "stages": [
+    {
+      "id": "position-vectors",
+      "title": "Points and position vectors",
+      "body": [
+        "A point in 3D has three coordinates: how far along the x-, y- and z-axes it is. The point A is {{pt:L1.a}}.",
+        "The position vector of A goes from the origin O to A. We call it {{v:a}} and write it as a column vector: {{v:a}} = {{col:L1.a}}.",
+        "Each entry is the distance to move parallel to one axis, in the order x, y, z."
+      ],
+      "badges": []
+    },
+    {
+      "id": "vector-equation",
+      "title": "The vector equation of a line",
+      "body": [
+        "A line is fixed by one point on it and a direction. Here the point is A, with position vector {{v:a}}, and the direction vector is {{v:b}} = {{col:L1.b}}.",
+        "Every point on the line has a position vector {{v:r}} of the form {{v:r}} = {{v:a}} + λ{{v:b}}. For this line, {{eq:L1}}.",
+        "The parameter λ picks the point. λ = 0 gives A itself, and each extra 1 added to λ moves one step of {{v:b}} along the line. Negative values go the other way.",
+        "Drag the λ slider and watch the point and its coordinates."
+      ],
+      "legend": [{ "swatch": "#FFB38A", "text": "L₁" }],
+      "notes": ["{{v:b}} sets the direction. Any non-zero multiple of {{v:b}} describes the same direction."],
+      "badges": []
+    },
+    {
+      "id": "parallel",
+      "title": "Parallel lines",
+      "body": [
+        "Here is a second line, {{eq:L3}}.",
+        "Its direction vector is a multiple of the direction of L₁: {{multiple:L3,L1}}. So L₁ and L₃ point the same way. They are parallel.",
+        "Parallel lines could still be the same line, so test one point. {{notOn:L3,L1}} So L₁ and L₃ are parallel and distinct: they never meet."
+      ],
+      "legend": [{ "swatch": "#FFB38A", "text": "L₁" }, { "swatch": "#3FAF74", "text": "L₃" }],
+      "notes": ["Two lines are parallel when their direction vectors are multiples of each other."],
+      "badges": []
+    },
+    {
+      "id": "intersecting",
+      "title": "Intersecting lines",
+      "body": [
+        "Now compare L₁ with {{eq:L2}}.",
+        "Their directions are not multiples of each other, so they are not parallel. If the lines meet, some value of λ and some value of μ give the same point. Set the two position vectors equal:",
+        "{{method:L1,L2:x,y,z}}",
+        "So the lines meet at {{meet:L1,L2}}, where λ = {{p1:L1,L2}} and μ = {{p2:L1,L2}}. Set both sliders to these values and the two points coincide."
+      ],
+      "legend": [{ "swatch": "#FFB38A", "text": "L₁" }, { "swatch": "#3D8EF0", "text": "L₂" }],
+      "notes": ["Solve two of the equations, then always check the third. The check decides whether the lines really meet."],
+      "badges": []
+    },
+    {
+      "id": "skew",
+      "title": "Skew lines",
+      "body": [
+        "The last line is {{eq:L4}}.",
+        "Compare it with L₁. Are the lines parallel? Do they meet?"
+      ],
+      "legend": [{ "swatch": "#FFB38A", "text": "L₁" }, { "swatch": "#B47CFF", "text": "L₄" }],
+      "badges": [],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "Predict, then reveal",
+        "question": "From this view, L₁ and L₄ seem to cross. Do they actually meet?",
+        "prompt": "Make your prediction first. Then reveal the answer and watch the view turn.",
+        "revealLabel": "Reveal the answer",
+        "revealOption": "revealed",
+        "revealDelay": 2.6,
+        "reveal": [
+          "No, they never meet. The directions {{col:L1.b}} and {{col:L4.b}} are not multiples of each other, so the lines are not parallel either.",
+          "{{method:L1,L4:y,z,x}}",
+          "The three equations have no common solution, so there is no point on both lines. Lines that are not parallel and do not meet are called skew.",
+          "Skew lines can only happen in 3D. In a flat plane, two lines that are not parallel always meet. From one particular view they can look as if they cross, but turning the view shows the gap."
+        ],
+        "revealNote": "Going further: the shortest distance between L₁ and L₄ is {{dist:L1,L4}}. The closest points are {{closest:L1,L4}}. The segment PQ is parallel to {{pq:L1,L4}}, which is perpendicular to both lines."
+      }
+    }
+  ],
+  "controls": {
+    "playLabel": "Play",
+    "pauseLabel": "Pause",
+    "restartLabel": "Restart",
+    "speedLabel": "Animation speed",
+    "speedHint": "Changes how fast the point moves along the line.",
+    "resetCameraLabel": "Reset camera",
+    "labelsLabel": "Labels",
+    "labelsStartOn": true,
+    "hint": "Drag to orbit. Scroll or pinch to zoom. Moving a slider pauses the animation.",
+    "layout": [
+      ["play", "restart", "speed"],
+      ["slider:lambda", "slider:mu"],
+      ["toggle:grid", "labels", "toggle:directionVectors"],
+      ["resetCamera"]
+    ],
+    "toggles": [
+      { "option": "grid", "label": "Grid", "value": true },
+      { "option": "directionVectors", "label": "Direction vectors", "value": true }
+    ],
+    "sliders": [
+      { "option": "lambda", "label": "λ (point on L₁)", "min": -3, "max": 4, "step": 0.1, "value": 0, "digits": 2, "stages": [1, 2, 3, 4], "pausesPlayback": true },
+      { "option": "mu", "label": "μ (point on L₂)", "min": -3, "max": 4, "step": 0.1, "value": 0, "digits": 2, "stages": [3], "pausesPlayback": true }
+    ]
+  },
+  "labels": {}
+}

@@ -9,6 +9,13 @@ const TOPICS = [
     path: 'physics/induction-motor/',
     keywords: 'induction motor ac three-phase three phase rotating magnetic field stator rotor squirrel cage induced current electromagnetic induction torque slip faraday lenz electromagnetism',
   },
+  {
+    title: 'Lines in 3D: meet, parallel or skew?',
+    subject: 'Maths',
+    level: 'A-level',
+    path: 'maths/lines-in-3d/',
+    keywords: 'lines in 3d three dimensions vector equation of a line vectors direction vector position vector intersect intersection meet parallel skew lines shortest distance closest points pure maths',
+  },
 ];
 
 function normalise(text) {

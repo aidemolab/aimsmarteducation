@@ -487,6 +487,7 @@ a.card, .card:has(.card-link) { transition: border-color 0.15s ease; }
 .subject-tile p { margin: 0 0 12px; color: var(--ink-muted); }
 .tile-physics { --tile-colour: var(--physics); }
 .tile-maths { --tile-colour: var(--maths); }
+.subject-tile .tile-spec { margin: 0; font-size: 0.95rem; line-height: 24px; }
 
 /* Three steps */
 .steps {

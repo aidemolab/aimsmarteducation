@@ -11,6 +11,8 @@
   --aim-danger: #ff8a7a;
   --aim-radius: 12px;
   --aim-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* 3D stage background. Each page sets its own; this is the motor's navy. */
+  --aim-stage-bg: radial-gradient(ellipse at 50% 42%, #1a2d50 0%, #0d1830 48%, #070f1e 100%);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -52,8 +54,7 @@ html, body {
   height: min(78vh, 820px);
   border-radius: var(--aim-radius);
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 42%, #1a2d50 0%, #0d1830 48%, #070f1e 100%);
+  background: var(--aim-stage-bg);
   border: 1px solid var(--aim-border);
 }
 
@@ -276,6 +277,10 @@ html, body {
 .aim-reveal-btn { margin-top: 8px; }
 .aim-reveal { margin-top: 8px; }
 .aim-reveal[hidden] { display: none; }
+/* Scene-declared sliders in the control panel */
+.aim-ctrl-sliders { display: grid; gap: 4px; }
+.aim-ctrl-sliders .aim-slider-label { margin-top: 0; }
+.aim-ctrl-sliders[hidden], .aim-ctrl-slider[hidden] { display: none; }
 .aim-reveal-static summary { cursor: pointer; color: var(--aim-accent); }
 
 /* Full stage-by-stage text */
@@ -315,3 +320,7 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .aim-poster { transition: none; }
 }
+
+/* Labels that flip side near the view's edges (anchor.userData.labelAutoFlip) */
+.aim-label.aim-label-flip-x span { left: auto; right: 10px; }
+.aim-label.aim-label-flip-y span { bottom: auto; top: 6px; }

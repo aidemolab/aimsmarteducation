@@ -6,7 +6,7 @@ import { createStudioEnvironment } from './environment.js';
 import { createStageSystem } from './stage-system.js';
 import { createControls } from './controls.js';
 import { createLabels } from './labels.js';
-import { createCameraTour } from './camera-tour.js';
+import { createCameraTour, createCameraMove } from './camera-tour.js';
 
 const MAX_FRAME_DT = 0.1; // seconds; clamps long gaps (tab switch, breakpoint)
 
@@ -64,11 +64,15 @@ export async function bootShell(root) {
   if (stages) {
     api.stages = stages;
     stages.setOnOption((name, value) => api.setOption(name, value));
-    stages.setOnChange((i, stage, data) => api.setStage(i, stage, data));
+    stages.setOnChange((i, stage, data) => {
+      api.setStage(i, stage, data);
+      api.controlsUi?.setStage(i);
+    });
     try {
       api.labels = createLabels(viewport, api, stages.data.labels || {});
       api.tour = createCameraTour(api, api.sceneInfo.cameraTour || []);
       api.controlsUi = createControls(root, api, stages.data.controls || {});
+      api.controlsUi?.setStage(stages.index);
     } catch (err) {
       console.error('[aim-shell] controls:', err);
     }
@@ -119,8 +123,23 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   scene.add(topicRoot);
 
   const overlay = viewport.querySelector('.aim-overlay');
-  const sceneInfo = sceneModule.init({ THREE, scene, root: topicRoot, camera, renderer, controls, overlay, quality: qualityLevel }) || {};
-  const defaultView = sceneInfo.defaultView || { position: [6, 3.5, 7], target: [0, 0, 0] };
+  // Optional page area outside the 3D view for scene readouts (e.g. equations).
+  const panel = root.querySelector('.aim-scene-panel');
+  // Camera and UI helpers for the scene. They are bound once the shell API
+  // exists, so a scene may keep them from init() but should call them later.
+  const view = {
+    // Sets the view that Reset camera returns to; snap = true also moves there now.
+    setDefault(v, snap = false) { defaultView = v; if (snap) { api?.cameraMove?.stop(); resetCamera(); } },
+    // Smooth camera move (seconds of real time); stops on user input.
+    flyTo(v, seconds, onDone) { api?.cameraMove?.flyTo(v, seconds, onDone); },
+    get moving() { return !!api?.cameraMove?.active; },
+  };
+  const ui = {
+    // Shows a value on a scene-declared slider without moving the slider's option.
+    showSliderValue(option, value) { api?.controlsUi?.showSliderValue(option, value); },
+  };
+  const sceneInfo = sceneModule.init({ THREE, scene, root: topicRoot, camera, renderer, controls, overlay, panel, quality: qualityLevel, view, ui }) || {};
+  let defaultView = sceneInfo.defaultView || { position: [6, 3.5, 7], target: [0, 0, 0] };
   // Views are authored for a landscape viewport, where the vertical field of view
   // limits the framing. On narrower viewports the horizontal field of view is
   // smaller, so move the camera back just enough to keep the same framing sphere.
@@ -147,8 +166,11 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
     controls.enableDamping = damping;
   };
 
+  let api = null;
+
   // Simulation clock: the only source of animation time.
-  const state = { stage: 0, options: {}, uiDt: 0 };
+  // playing: whether the clock is running (a scene may show a manual value while paused).
+  const state = { stage: 0, options: {}, uiDt: 0, playing: false };
   // Hooks: 'pre' runs before controls update (camera tour), 'post' after rendering (labels).
   const hooks = { pre: [], post: [] };
   const sim = { t: 0, playing: !reducedMotion, speed: 1 };
@@ -183,6 +205,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   // The simulation itself depends only on sim.t.
   const renderFrame = (uiDt = 0) => {
     state.uiDt = uiDt;
+    state.playing = sim.playing;
     sceneModule.update(sim.t, state);
     renderer.render(scene, camera);
     for (const h of hooks.post) h(uiDt);
@@ -227,7 +250,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   root.classList.add('aim-ready');
   schedule();
 
-  const api = {
+  api = {
     THREE, scene, camera, renderer, controls, sim, state, sceneModule, sceneInfo,
     resetCamera,
     fittedView,
@@ -235,6 +258,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
     setStage(n, stage, data) { state.stage = n; sceneModule.setStage?.(n, stage, data); },
     setOption(name, value) { state.options[name] = value; sceneModule.setOption?.(name, value); },
   };
+  api.cameraMove = createCameraMove(api);
 
   // Test and capture hook. Read-only inspection plus deterministic stepping.
   window.__aimDebug = {

@@ -1,6 +1,14 @@
 // Stage system: loads <topic>.stages.json, renders stage navigation, the
 // current stage's text, viewport badges, and the full stage-by-stage text
 // as ordinary HTML (readable without WebGL).
+//
+// Optional "textModule" in stages.json: a module (path relative to the stages
+// file) exporting render(text) → Node. Every stage string (body, notes,
+// question, prompt, reveal) goes through it, so a topic can put computed
+// values and maths layout (e.g. column vectors) into its text. It must not
+// need WebGL.
+
+let renderText = (s) => document.createTextNode(s);
 
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -16,7 +24,7 @@ function el(tag, attrs = {}, children = []) {
 function stageContent(stage, headingTag, index) {
   const frag = document.createDocumentFragment();
   frag.append(el(headingTag, { text: `Stage ${index + 1}: ${stage.title}` }));
-  for (const p of stage.body || []) frag.append(el('p', { text: p }));
+  for (const p of stage.body || []) frag.append(el('p', {}, [renderText(p)]));
   if (stage.legend?.length) {
     const ul = el('ul', { class: 'aim-legend' });
     for (const item of stage.legend) {
@@ -26,25 +34,27 @@ function stageContent(stage, headingTag, index) {
     }
     frag.append(ul);
   }
-  for (const n of stage.notes || []) frag.append(el('p', { class: 'aim-note', text: n }));
+  for (const n of stage.notes || []) frag.append(el('p', { class: 'aim-note' }, [renderText(n)]));
   return frag;
 }
 
 // Static version of a predict-then-reveal block for the full-text section.
 function interactionText(ix) {
   const details = el('details', { class: 'aim-reveal-static' }, [el('summary', { text: ix.revealLabel })]);
-  for (const p of ix.reveal || []) details.append(el('p', { text: p }));
-  if (ix.revealNote) details.append(el('p', { class: 'aim-note', text: ix.revealNote }));
-  return el('div', {}, [el('p', { class: 'aim-question', text: ix.question }), details]);
+  for (const p of ix.reveal || []) details.append(el('p', {}, [renderText(p)]));
+  if (ix.revealNote) details.append(el('p', { class: 'aim-note' }, [renderText(ix.revealNote)]));
+  return el('div', {}, [el('p', { class: 'aim-question' }, [renderText(ix.question)]), details]);
 }
 
-// Live predict-then-reveal block: question, slider bound to a scene option, reveal button.
+// Live predict-then-reveal block: question, optional slider bound to a scene
+// option, reveal button. With revealOption set, revealing also sets that scene
+// option to true (e.g. to move the camera).
 function interactionBlock(ix, setOption) {
   const id = `aim-ix-${Math.random().toString(36).slice(2, 8)}`;
   const box = el('section', { class: 'aim-interaction', 'aria-labelledby': `${id}-h` });
   box.append(el('h3', { id: `${id}-h`, text: ix.heading || '' }));
-  box.append(el('p', { class: 'aim-question', text: ix.question }));
-  if (ix.prompt) box.append(el('p', { text: ix.prompt }));
+  box.append(el('p', { class: 'aim-question' }, [renderText(ix.question)]));
+  if (ix.prompt) box.append(el('p', {}, [renderText(ix.prompt)]));
 
   const s = ix.slider;
   if (s) {
@@ -61,13 +71,24 @@ function interactionBlock(ix, setOption) {
 
   const answer = el('div', { class: 'aim-reveal', id: `${id}-a` });
   answer.hidden = true;
-  for (const p of ix.reveal || []) answer.append(el('p', { text: p }));
-  if (ix.revealNote) answer.append(el('p', { class: 'aim-note', text: ix.revealNote }));
+  for (const p of ix.reveal || []) answer.append(el('p', {}, [renderText(p)]));
+  if (ix.revealNote) answer.append(el('p', { class: 'aim-note' }, [renderText(ix.revealNote)]));
   const btn = el('button', { type: 'button', class: 'aim-step-btn aim-reveal-btn', 'aria-expanded': 'false', 'aria-controls': `${id}-a`, text: ix.revealLabel });
   btn.addEventListener('click', () => {
-    answer.hidden = false;
     btn.setAttribute('aria-expanded', 'true');
     btn.disabled = true;
+    if (ix.revealOption) setOption?.(ix.revealOption, true);
+    // revealDelay (seconds): let a scene animation (e.g. a camera move) play
+    // before the answer text appears. Skipped with prefers-reduced-motion.
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // A reveal that animates the scene must be seen: bring the 3D view into
+    // sight (the shell pauses rendering while the view is off screen).
+    if (ix.revealOption) {
+      box.closest('.aim-app')?.querySelector('.aim-viewport')?.scrollIntoView({ block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+    }
+    const delay = reduce ? 0 : (ix.revealDelay || 0) * 1000;
+    if (delay) setTimeout(() => { if (answer.isConnected) answer.hidden = false; }, delay);
+    else answer.hidden = false;
   });
   box.append(btn, answer);
   return box;
@@ -76,6 +97,10 @@ function interactionBlock(ix, setOption) {
 export async function createStageSystem(root, onChange) {
   const url = new URL(root.dataset.stages, document.baseURI);
   const data = await (await fetch(url)).json();
+  if (data.textModule) {
+    const mod = await import(new URL(data.textModule, url).href);
+    renderText = mod.render;
+  }
   const stages = data.stages;
 
   const nav = root.querySelector('.aim-stage-nav');
@@ -115,8 +140,9 @@ export async function createStageSystem(root, onChange) {
     i = Math.max(0, Math.min(stages.length - 1, i));
     if (i === index) return;
     // Leaving a stage with a slider: put its option back to the default.
-    const leaving = stages[index]?.interaction?.slider;
-    if (leaving) setOption?.(leaving.option, leaving.value);
+    const leaving = stages[index]?.interaction;
+    if (leaving?.slider) setOption?.(leaving.slider.option, leaving.slider.value);
+    if (leaving?.revealOption) setOption?.(leaving.revealOption, false);
     index = i;
     const s = stages[i];
     buttons.forEach((b, j) => {
