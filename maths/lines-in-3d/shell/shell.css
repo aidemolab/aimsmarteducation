@@ -324,3 +324,26 @@ html, body {
 /* Labels that flip side near the view's edges (anchor.userData.labelAutoFlip) */
 .aim-label.aim-label-flip-x span { left: auto; right: 10px; }
 .aim-label.aim-label-flip-y span { bottom: auto; top: 6px; }
+
+/* Showcase mode (?showcase=1, see showcase.js): the 3D view alone, full window */
+html.aim-showcase, html.aim-showcase body { height: 100%; margin: 0; overflow: hidden; }
+html.aim-showcase .aim-showcase-off { display: none !important; }
+html.aim-showcase .aim-viewport {
+  position: fixed; inset: 0; width: auto; height: auto; min-height: 0;
+  border: 0; border-radius: 0; z-index: 1;
+}
+html.aim-showcase .aim-overlay,
+html.aim-showcase .aim-notice { display: none !important; }
+html.aim-showcase .aim-badges { top: auto; bottom: 10px; left: 12px; right: 12px; max-width: none; justify-content: flex-start; }
+html.aim-showcase .aim-canvas { cursor: grab; }
+html.aim-showcase .aim-canvas:active { cursor: grabbing; }
+html.aim-showcase-touch .aim-canvas { cursor: pointer; }
+.aim-showcase-link {
+  position: absolute; left: 12px; top: 12px; padding: 6px 12px; border-radius: 8px;
+  background: var(--aim-bg-panel); color: var(--aim-text); font-weight: 600; text-decoration: none;
+  transform: translateY(-200%);
+}
+.aim-showcase-link:focus { transform: none; outline: 3px solid var(--aim-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  html.aim-showcase .aim-canvas { cursor: default; }
+}

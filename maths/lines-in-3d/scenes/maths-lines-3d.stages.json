@@ -101,5 +101,13 @@
       { "option": "mu", "label": "μ (point on L₂)", "min": -3, "max": 4, "step": 0.1, "value": 0, "digits": 2, "stages": [3], "pausesPlayback": true }
     ]
   },
+  "showcase": {
+    "stage": 5,
+    "labels": true,
+    "options": {
+      "revealed": false
+    },
+    "time": 0
+  },
   "labels": {}
 }

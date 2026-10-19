@@ -12,8 +12,9 @@ export function initialQualityLevel() {
   return 2;
 }
 
-export function pixelRatioFor(level) {
-  return Math.min(window.devicePixelRatio || 1, PIXEL_RATIO_CAP[level]);
+// maxRatio: optional extra cap (e.g. 1.5 in showcase mode).
+export function pixelRatioFor(level, maxRatio = Infinity) {
+  return Math.min(window.devicePixelRatio || 1, PIXEL_RATIO_CAP[level], maxRatio);
 }
 
 // Watches frame times and calls onDrop(newLevel) when frames are persistently slow.

@@ -478,42 +478,45 @@ a.card, .card:has(.card-link) { transition: border-color 0.15s ease; }
 .button-light { background: #FFFFFF; color: var(--brand); }
 .button-light:hover { background: var(--brand-soft); color: var(--brand-strong); }
 
-/* Hero 3D stage card */
+/* Hero 3D stage card: the live showcase (iframe) with its poster on top until it is ready */
+.stage-col { display: grid; justify-items: center; gap: var(--space-2); justify-self: center; width: 100%; max-width: 480px; }
 .stage-card {
   position: relative;
-  display: grid;
-  place-items: center;
   aspect-ratio: 1 / 1;
-  max-width: 480px;
   width: 100%;
-  justify-self: center;
-  padding: var(--space-4);
+  overflow: hidden;
   background: var(--ink);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-feature);
-  text-decoration: none;
+  isolation: isolate;
 }
-.stage-card:focus-visible { outline-offset: 4px; border-radius: var(--radius-card); }
-.stage-card .motor { width: 100%; height: auto; }
-.stage-tag {
-  position: absolute; top: var(--space-2); right: var(--space-2);
-  padding: 1px 8px; border-radius: var(--radius-badge);
-  background: var(--accent-soft); color: var(--ink);
-  font-size: 0.85rem; font-weight: 700; line-height: 22px;
+.stage-frame, .stage-poster {
+  position: absolute; inset: 0;
+  display: block; width: 100%; height: 100%;
+  border: 0; border-radius: inherit;
 }
+.stage-frame { background: var(--ink); }
+.stage-frame:focus-visible { outline: 3px solid var(--stage-text); outline-offset: -3px; }
+.stage-poster { object-fit: cover; pointer-events: none; transition: opacity 600ms ease; }
+.stage-card.is-live .stage-poster { opacity: 0; }
 .stage-label {
-  position: absolute; bottom: var(--space-2); left: var(--space-2);
-  color: var(--stage-text); font-size: 0.95rem; font-weight: 600;
+  /* Bottom-right, just above the showcase's own badge row (hero.js measures it) */
+  position: absolute; bottom: var(--badges-clear, 54px); right: 12px;
+  padding: 2px 10px; border-radius: var(--radius-badge);
+  background: rgba(20, 22, 31, 0.72); color: var(--stage-text);
+  font-size: 0.9rem; font-weight: 600; line-height: 24px;
+  pointer-events: none;
+  opacity: 0; transition: opacity 600ms ease;
 }
-.stage-card:hover .stage-label { color: #FFFFFF; }
-
-.spin-13, .spin-16, .spin-40 { transform-box: view-box; transform-origin: 50% 50%; animation: spin linear infinite; }
-.spin-13 { animation-duration: 13s; }
-.spin-16 { animation-duration: 16s; }
-.spin-40 { animation-duration: 40s; }
-@keyframes spin { to { transform: rotate(360deg); } }
+.stage-card.is-live .stage-label { opacity: 1; }
+.label-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .label-pointer { display: none; }
+  .label-touch { display: inline; }
+}
+.stage-open { font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; }
 @media (prefers-reduced-motion: reduce) {
-  .spin-13, .spin-16, .spin-40 { animation: none; }
+  .stage-poster, .stage-label { transition: none; }
 }
 
 /* Learning loop */

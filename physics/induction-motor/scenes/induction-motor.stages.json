@@ -172,6 +172,16 @@
       }
     ]
   },
+  "showcase": {
+    "stage": 5,
+    "labels": false,
+    "options": {
+      "fieldEffects": true,
+      "cutaway": true,
+      "exploded": false
+    },
+    "time": 0
+  },
   "labels": {
     "stator": "Stator (laminated core)",
     "windingA": "Winding A",

@@ -7,6 +7,7 @@ import { createStageSystem } from './stage-system.js';
 import { createControls } from './controls.js';
 import { createLabels } from './labels.js';
 import { createCameraTour, createCameraMove } from './camera-tour.js';
+import { isShowcase, prepareShowcasePage, startShowcase, SHOWCASE_MAX_PIXEL_RATIO } from './showcase.js';
 
 const MAX_FRAME_DT = 0.1; // seconds; clamps long gaps (tab switch, breakpoint)
 
@@ -26,6 +27,9 @@ function whenInView(el) {
 export async function bootShell(root) {
   const viewport = root.querySelector('.aim-viewport');
   const loading = root.querySelector('.aim-loading');
+  // Showcase mode (?showcase=1): only the 3D view, full window, for embedding.
+  const showcase = isShowcase();
+  if (showcase) prepareShowcasePage(root, viewport);
 
   // Stage text loads first and works even if the 3D view does not.
   const stagesPromise = createStageSystem(root).catch((err) => {
@@ -55,7 +59,7 @@ export async function bootShell(root) {
 
   let api;
   try {
-    api = startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule });
+    api = startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule, showcase });
   } catch (err) {
     showFallback(root, 'runtime', err);
     return null;
@@ -77,12 +81,20 @@ export async function bootShell(root) {
       console.error('[aim-shell] controls:', err);
     }
   }
+  if (showcase) {
+    try {
+      startShowcase(root, api, stages);
+    } catch (err) {
+      console.error('[aim-shell] showcase:', err);
+    }
+  }
   return api;
 }
 
-function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule }) {
+function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule, showcase = false }) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let qualityLevel = initialQualityLevel();
+  const maxPixelRatio = showcase ? SHOWCASE_MAX_PIXEL_RATIO : Infinity;
 
   // Renderer
   const canvas = document.createElement('canvas');
@@ -91,7 +103,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   viewport.prepend(canvas);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(pixelRatioFor(qualityLevel));
+  renderer.setPixelRatio(pixelRatioFor(qualityLevel, maxPixelRatio));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
@@ -183,8 +195,9 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     // Portrait: overlays take more room at the bottom than the top, so shift the
-    // picture up slightly to centre the model in the free space.
-    if (camera.aspect < 1) camera.setViewOffset(w, h, 0, h * 0.035, w, h);
+    // picture up slightly to centre the model in the free space (not in showcase
+    // mode, which has no overlays).
+    if (camera.aspect < 1 && !showcase) camera.setViewOffset(w, h, 0, h * 0.035, w, h);
     else camera.clearViewOffset();
     camera.updateProjectionMatrix();
   };
@@ -195,7 +208,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   // Quality monitor
   const monitor = createQualityMonitor(qualityLevel, (level) => {
     qualityLevel = level;
-    renderer.setPixelRatio(pixelRatioFor(level));
+    renderer.setPixelRatio(pixelRatioFor(level, maxPixelRatio));
     renderer.shadowMap.enabled = level > 0;
     sceneModule.setOption?.('quality', level);
     resize();
@@ -216,6 +229,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
   let last = performance.now();
   let rafId = 0;
   let failed = false;
+  let frozen = false; // true: no frame loop (showcase still frame)
   const frame = (now) => {
     rafId = 0;
     if (failed) return;
@@ -236,7 +250,7 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
     schedule();
   };
   const schedule = () => {
-    if (!rafId && onScreen && !document.hidden) rafId = requestAnimationFrame(frame);
+    if (!rafId && !frozen && onScreen && !document.hidden) rafId = requestAnimationFrame(frame);
   };
   new IntersectionObserver((entries) => {
     onScreen = entries.some((e) => e.isIntersecting);
@@ -254,6 +268,9 @@ function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule
     THREE, scene, camera, renderer, controls, sim, state, sceneModule, sceneInfo,
     resetCamera,
     fittedView,
+    renderFrame,
+    // Stops (true) or restarts (false) the frame loop. Showcase still frame only.
+    setFrozen(on) { frozen = !!on; if (!on) { last = performance.now(); schedule(); } },
     addHook(kind, fn) { hooks[kind].push(fn); },
     setStage(n, stage, data) { state.stage = n; sceneModule.setStage?.(n, stage, data); },
     setOption(name, value) { state.options[name] = value; sceneModule.setOption?.(name, value); },
