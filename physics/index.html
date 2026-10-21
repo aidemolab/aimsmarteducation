@@ -4,29 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Physics | AIM Smart Education</title>
-  <meta name="description" content="Interactive 3D physics explainers for KS3, GCSE and A-level students.">
+  <meta name="description" content="GCSE Physics, unit by unit: see it in 3D, practise it, then ace the exam questions. Start with how a DC motor works.">
   <link rel="icon" href="data:,">
   <link rel="preload" href="../assets/fonts/manrope/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/source-sans-3/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="stylesheet" href="../assets/css/site-nav.css">
+  <script src="../assets/js/site-nav.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="site-header-inner">
       <a class="brand" href="../" aria-label="AIM Smart Education home">
         <span class="brand-mark" aria-hidden="true">A</span>
         <span class="wordmark">AIM Smart Education</span>
       </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="../#subjects">Subjects</a></li>
-          <li><a href="../#loop">How it works</a></li>
-          <li><a href="../#research">Research</a></li>
-        </ul>
-      </nav>
-      <a class="button button-primary header-cta" href="../#partners">Schools &amp; partners</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../physics/" aria-current="page"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../#partners">Schools &amp; partners</a>
+      </div>
     </div>
   </header>
 
@@ -36,71 +49,123 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <ol>
             <li><a href="../">Home</a></li>
+            <li><a href="../#subjects">Subjects</a></li>
             <li><span aria-current="page">Physics</span></li>
           </ol>
         </nav>
-        <ul class="badges" aria-label="Subject">
+        <ul class="badges" aria-label="Subject and level">
           <li class="badge badge-physics">Physics</li>
+          <li class="badge badge-level">GCSE</li>
         </ul>
         <h1>Physics</h1>
-        <p class="lede">Motors, fields and forces you can turn, pause and take apart. Step through each stage until it clicks.</p>
+        <p class="lede">Work through the units in order. Each unit takes you through three steps:</p>
+        <ol class="step-pills" aria-label="The three steps in every unit">
+          <li class="pill pill-see"><span class="pill-num">1</span> See it</li>
+          <li class="pill pill-practise"><span class="pill-num">2</span> Practise it</li>
+          <li class="pill pill-ace"><span class="pill-num">3</span> Ace it</li>
+        </ol>
       </div>
     </section>
 
-    <section class="section" id="explainers" aria-labelledby="explainers-heading">
+    <section class="section" aria-labelledby="units-heading">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="explainers-heading">3D explainers</h2>
-          <p>Each one works on a phone, a laptop or a classroom screen.</p>
-        </div>
-        <div class="card-grid">
-          <article class="card" aria-labelledby="motor-title">
-            <div class="card-media" aria-hidden="true">
-              <span class="media-label">Interactive 3D</span>
-              <svg viewBox="0 0 120 120" fill="none" stroke-linecap="round">
-                <circle cx="60" cy="60" r="52" stroke="#B9BCCB" stroke-width="6"/>
-                <circle cx="60" cy="60" r="40" stroke="#8C90E6" stroke-width="3" stroke-dasharray="14 9"/>
-                <circle cx="60" cy="60" r="26" stroke="#B9BCCB" stroke-width="3"/>
-                <path d="M60 34v52M34 60h52M42 42l36 36M78 42 42 78" stroke="#B9BCCB" stroke-width="2" opacity="0.6"/>
-                <circle cx="60" cy="60" r="6" fill="#EEEEFB" stroke="none"/>
-              </svg>
-            </div>
-            <div class="card-body">
-              <ul class="badges" aria-label="Tags">
-                <li class="badge badge-physics">Physics</li>
-                <li class="badge badge-level">A-level</li>
-                <li class="badge badge-note">Going further</li>
+        <h2 id="units-heading" class="visually-hidden">Physics units, in order</h2>
+        <ol class="unit-path">
+          <li class="unit unit-current">
+            <span class="unit-node" aria-hidden="true">1</span>
+            <article class="unit-card" aria-labelledby="unit-1-title">
+              <p class="unit-label">Unit 1</p>
+              <h3 id="unit-1-title">How a DC motor works</h3>
+              <p>The motor effect and Fleming's left-hand rule, in 3D. About 45 minutes.</p>
+              <ul class="unit-tags" aria-label="What's in this unit">
+                <li class="unit-tag tag-see"><strong>See it:</strong> 3D explainer</li>
+                <li class="unit-tag tag-practise"><strong>Practise it:</strong> practice, misconception and interactive questions</li>
+                <li class="unit-tag tag-ace"><strong>Ace it:</strong> exam questions</li>
               </ul>
-              <h3 id="motor-title"><a class="card-link" href="./induction-motor/">Inside an Induction Motor</a></h3>
-              <p>See how a three-phase supply creates a rotating magnetic field, why current is induced in the squirrel-cage rotor, and how that gives torque and slip.</p>
-              <ul class="card-facts">
-                <li>5 stages</li>
-                <li>Rotate, explode and pause</li>
-              </ul>
-              <a class="button button-primary" href="./induction-motor/" tabindex="-1" aria-hidden="true">Open the explainer</a>
-            </div>
-          </article>
-        </div>
+              <button class="button button-disabled" type="button" disabled>In development</button>
+            </article>
+          </li>
+          <li class="unit unit-soon">
+            <span class="unit-node" aria-hidden="true">2</span>
+            <article class="unit-card" aria-labelledby="unit-2-title">
+              <p class="unit-label">Unit 2</p>
+              <h3 id="unit-2-title">Generators and transformers</h3>
+              <span class="badge badge-soon">Coming soon</span>
+            </article>
+          </li>
+          <li class="unit unit-soon">
+            <span class="unit-node" aria-hidden="true">3</span>
+            <article class="unit-card" aria-labelledby="unit-3-title">
+              <p class="unit-label">Unit 3</p>
+              <h3 id="unit-3-title">Particle model: states of matter and gas pressure</h3>
+              <span class="badge badge-soon">Coming soon</span>
+            </article>
+          </li>
+          <li class="unit unit-soon">
+            <span class="unit-node" aria-hidden="true">4</span>
+            <article class="unit-card" aria-labelledby="unit-4-title">
+              <p class="unit-label">Unit 4</p>
+              <h3 id="unit-4-title">Atomic structure: Rutherford's gold foil experiment</h3>
+              <span class="badge badge-soon">Coming soon</span>
+            </article>
+          </li>
+        </ol>
+
+        <p class="further-strip">
+          <span><strong>Going further (A-level):</strong> <a href="./induction-motor/">Inside an induction motor</a></span>
+        </p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="more-heading">
-      <div class="wrap">
-        <div class="info-panel">
-          <h2 id="more-heading">More on the way</h2>
-          <p>We're building more physics explainers for KS3, GCSE and A-level. Check back soon.</p>
-        </div>
+    <nav class="where-next" aria-labelledby="where-next-heading">
+      <div class="where-next-inner">
+        <h2 id="where-next-heading">Where next?</h2>
+        <ul class="where-next-list">
+          <li><a class="where-next-link" href="../maths/"><span><span class="where-next-kicker">Next subject</span><span class="where-next-title">Maths</span></span><span class="where-next-arrow" aria-hidden="true">→</span></a></li>
+        </ul>
       </div>
-    </section>
+    </nav>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <a class="brand" href="../" aria-label="AIM Smart Education home">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span class="wordmark">AIM Smart Education</span>
-      </a>
-      <div>
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="../" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="../physics/">Physics</a></li>
+              <li><a href="../maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="../#loop">Learner journey</a></li>
+              <li><a href="../#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="../#partners">Schools &amp; trusts</a></li>
+              <li><a href="../#partners">Publishers</a></li>
+              <li><a href="../#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
         <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
         <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
       </div>

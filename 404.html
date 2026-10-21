@@ -8,24 +8,37 @@
   <link rel="icon" href="data:,">
   <!-- Root-relative paths: GitHub Pages serves this page at any missing URL. -->
   <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site-nav.css">
+  <script src="/assets/js/site-nav.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="site-header-inner">
       <a class="brand" href="/" aria-label="AIM Smart Education home">
         <span class="brand-mark" aria-hidden="true">A</span>
         <span class="wordmark">AIM Smart Education</span>
       </a>
-      <nav class="site-nav" aria-label="Main">
-        <ul>
-          <li><a href="/#subjects">Subjects</a></li>
-          <li><a href="/#loop">How it works</a></li>
-          <li><a href="/#research">Research</a></li>
-        </ul>
-      </nav>
-      <a class="button button-primary header-cta" href="/#partners">Schools &amp; partners</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="/physics/"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="/maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="/#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="/#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="/#partners">Schools &amp; partners</a>
+      </div>
     </div>
   </header>
 
@@ -44,12 +57,44 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <a class="brand" href="/" aria-label="AIM Smart Education home">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span class="wordmark">AIM Smart Education</span>
-      </a>
-      <div>
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="/" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="/physics/">Physics</a></li>
+              <li><a href="/maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="/#loop">Learner journey</a></li>
+              <li><a href="/#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="/#partners">Schools &amp; trusts</a></li>
+              <li><a href="/#partners">Publishers</a></li>
+              <li><a href="/#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
         <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
         <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
       </div>

@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="./assets/premium-theme.css">
   <link rel="stylesheet" href="./scenes/maths-lines-3d.css">
   <link rel="stylesheet" href="../../assets/css/explainer-page.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <script src="../../assets/js/site-nav.js"></script>
   <script type="importmap">
   {
     "imports": {
@@ -21,34 +23,59 @@
   <script type="module" src="./shell/main.js"></script>
 </head>
 <body class="aim-theme-premium">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../physics/"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../../maths/" aria-current="true"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+  </header>
+
   <div class="aim-app" id="aim-app"
        data-scene="./scenes/maths-lines-3d.js"
        data-stages="./scenes/maths-lines-3d.stages.json">
 
-    <header class="aim-header">
-      <div class="aim-site-bar">
-        <a class="aim-brand" href="../../" aria-label="AIM Smart Education home">
-          <span class="aim-brand-mark" aria-hidden="true">A</span>
-          <span class="aim-brand-name">AIM Smart Education</span>
-        </a>
-        <nav class="aim-site-nav" aria-label="Main">
-          <ul>
-            <li><a href="../../#subjects">Subjects</a></li>
-            <li><a href="../../#loop">How it works</a></li>
-            <li><a href="../../#research">Research</a></li>
-          </ul>
-        </nav>
-        <a class="aim-site-cta" href="../../#partners">Schools &amp; partners</a>
-      </div>
+    <div class="aim-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#subjects">Subjects</a></li>
+          <li><a href="../">Maths</a></li>
+          <li><span aria-current="page">Lines in 3D</span></li>
+        </ol>
+      </nav>
+      <a class="back-link" href="../"><span aria-hidden="true">←</span> Back to Maths</a>
       <h1 class="aim-title">Lines in 3D: meet, parallel or skew?</h1>
       <ul class="aim-page-badges" aria-label="Subject and level">
         <li class="aim-subject-badge aim-subject-maths">Maths</li>
         <li class="aim-level-badge">Further Maths</li>
       </ul>
       <p class="aim-page-spec">Level: A-level Further Maths (UK) · Cambridge International A Level Maths, Pure 3. Spec: [board references to confirm]</p>
-    </header>
+    </div>
 
-    <main class="aim-main">
+    <main class="aim-main" id="main">
       <div class="aim-stage-col">
       <section class="aim-viewport" aria-label="Interactive 3D view of lines in three dimensions">
         <div class="aim-poster" aria-hidden="true">
@@ -84,10 +111,58 @@
       <p class="aim-noscript">The interactive 3D view needs JavaScript. The written explanation is still available on this page.</p>
     </noscript>
   </div>
-  <footer class="aim-site-footer">
-    <div class="aim-site-footer-inner">
-      <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
-      <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
+
+  <nav class="where-next" aria-labelledby="where-next-heading">
+    <div class="where-next-inner">
+      <h2 id="where-next-heading">Where next?</h2>
+      <ul class="where-next-list">
+        <li><a class="where-next-link" href="../"><span><span class="where-next-kicker">Back to Maths</span><span class="where-next-title">Maths: all topics</span></span><span class="where-next-arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="../../" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="../../physics/">Physics</a></li>
+              <li><a href="../../maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="../../#loop">Learner journey</a></li>
+              <li><a href="../../#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="../../#partners">Schools &amp; trusts</a></li>
+              <li><a href="../../#partners">Publishers</a></li>
+              <li><a href="../../#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
+      </div>
     </div>
   </footer>
 </body>
