@@ -3,11 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-65nA/ySJ98JGOrUBExrPBWhvwIVppBM9WZe5RvJkOko='; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://www.aimsmarteducation.co.uk/maths/lines-in-3d/">
   <title>Lines in 3D: meet, parallel or skew? | AIM Smart Education</title>
   <meta name="description" content="An interactive 3D explainer for A-level students: write the vector equation of a line in 3D, then decide whether two lines intersect, are parallel or are skew.">
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./shell/shell.css">
-  <link rel="stylesheet" href="./assets/premium-theme.css">
+  <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
+  <link rel="stylesheet" href="../../assets/css/premium-theme.css">
   <link rel="stylesheet" href="./scenes/maths-lines-3d.css">
   <link rel="stylesheet" href="../../assets/css/explainer-page.css">
   <link rel="stylesheet" href="../../assets/css/site-nav.css">
@@ -15,12 +18,12 @@
   <script type="importmap">
   {
     "imports": {
-      "three": "./vendor/three/0.170.0/three.module.min.js",
-      "three/addons/": "./vendor/three/0.170.0/addons/"
+      "three": "../../assets/vendor/three/0.170.0/three.module.min.js",
+      "three/addons/": "../../assets/vendor/three/0.170.0/addons/"
     }
   }
   </script>
-  <script type="module" src="./shell/main.js"></script>
+  <script type="module" src="../../assets/explainer-shell/main.js"></script>
 </head>
 <body class="aim-theme-premium">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -72,7 +75,7 @@
         <li class="aim-subject-badge aim-subject-maths">Maths</li>
         <li class="aim-level-badge">Further Maths</li>
       </ul>
-      <p class="aim-page-spec">Level: A-level Further Maths (UK) · Cambridge International A Level Maths, Pure 3. Spec: [board references to confirm]</p>
+      <p class="aim-page-spec">Level: A-level Further Maths (UK, core pure vectors) · Cambridge International A Level Mathematics (Pure 3, vectors).</p>
     </div>
 
     <main class="aim-main" id="main">
