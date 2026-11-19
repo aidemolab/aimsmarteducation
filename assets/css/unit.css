@@ -421,3 +421,9 @@
 .dg-hammer { fill: var(--ink); }
 .dg-gong { fill: #D9DCE5; stroke: var(--ink); stroke-width: 2; }
 .dg-screw { stroke: var(--ink-muted); stroke-width: 4; fill: none; }
+
+/* Module template: placeholder boxes (templates/module/ only) */
+.placeholder { margin: 0 0 16px; padding: 16px 20px; border: 2px dashed var(--line); border-radius: var(--radius-card); background: transparent; color: var(--ink-muted); }
+.placeholder-label { margin: 0 0 4px; font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.01em; color: var(--ink-muted); }
+.placeholder p:last-child { margin-bottom: 0; }
+.placeholder-scene-label { position: absolute; inset: auto 0 40px; margin: 0; text-align: center; color: #fff; font: 800 1.1rem/1.4 var(--font-heading); opacity: 0.85; pointer-events: none; }
