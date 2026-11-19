@@ -1,0 +1,196 @@
+{
+  "topic": "How a DC motor works",
+  "ui": {
+    "forceLabel": "Force on each side",
+    "forceRule": "∝ current × turns",
+    "turning": "Turning",
+    "anticlockwise": "anticlockwise (from the front)",
+    "clockwise": "clockwise (from the front)",
+    "noTurning": "no turning effect right now",
+    "notToScale": "arrows not to scale",
+    "commOn": "Commutator on: the current reverses every half turn, so the coil keeps turning one way.",
+    "commOff": "Commutator off: the forces push the coil back at the vertical, so it rocks and stops there."
+  },
+  "stages": [
+    {
+      "id": "wire",
+      "title": "Field around a wire",
+      "body": [
+        "A current in a wire makes a magnetic field around it. The field lines are circles centred on the wire.",
+        "Move the current slider. A bigger current gives a stronger field: more rings show, and the compasses swing round further.",
+        "Look at the two rings of compasses. The outer ones turn less, because the field gets weaker further from the wire.",
+        "Drag the slider below zero to reverse the current. The field reverses too, and every compass flips round."
+      ],
+      "notes": [
+        "Everyone: AQA 4.7.2.1. Each compass needle points along the field where it sits. With no current, they all point north."
+      ],
+      "badges": ["Foundation and Higher", "Illustrative"],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "Predict, then test it",
+        "question": "What happens to the compasses if you reverse the current?",
+        "prompt": "Decide first. Then drag the slider from +2 to −2 and watch.",
+        "revealLabel": "Reveal the answer",
+        "reveal": [
+          "Every compass turns round to point the opposite way. Reversing the current reverses the direction of the magnetic field. The field's shape (circles round the wire) stays the same."
+        ]
+      }
+    },
+    {
+      "id": "solenoid",
+      "title": "Solenoid and electromagnet",
+      "body": [
+        "Wind the wire into a coil and you get a solenoid. The fields from all the turns add together.",
+        "Inside the solenoid the field is strong and uniform: the field lines are straight, parallel and close together. Outside, the field has the same shape as a bar magnet's, with a north pole at one end and a south pole at the other.",
+        "Switch on the iron core. A solenoid with an iron core is an electromagnet: the core makes the field much stronger.",
+        "Reverse the current and the poles swap ends."
+      ],
+      "notes": [
+        "Everyone: AQA 4.7.2.1. An electromagnet can be switched on and off, and its strength changed, by changing the current."
+      ],
+      "badges": ["Foundation and Higher", "Illustrative"],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "Predict, then test it",
+        "question": "Name two ways to make this electromagnet stronger.",
+        "prompt": "Think of your answer first. Then try the slider and the iron core.",
+        "revealLabel": "Reveal the answer",
+        "reveal": [
+          "Increase the current. Add an iron core (it is already part of an electromagnet). More turns of wire in the same length also strengthens the field."
+        ]
+      }
+    },
+    {
+      "id": "magnets",
+      "title": "HT · The field between magnets",
+      "body": [
+        "Now the motor. Two magnets face each other with a north pole and a south pole. Between them the field lines run straight across, from N to S.",
+        "A coil of wire sits in this field, on an axle so it can turn. There is no current yet."
+      ],
+      "notes": [
+        "Higher tier from here (AQA 4.7.2.2 and 4.7.2.3). Foundation: optional, to see your electromagnet idea in action."
+      ],
+      "badges": ["Higher tier (HT)"]
+    },
+    {
+      "id": "current",
+      "title": "HT · A current in the coil",
+      "body": [
+        "Connect the supply. A current flows from the supply through a brush, into the split-ring commutator, round the coil and out through the other brush.",
+        "Follow the orange arrows. The current goes one way along one side of the coil and the opposite way along the other side."
+      ],
+      "notes": [
+        "The split-ring commutator is not named in the AQA specification. It is here to explain continuous rotation (going further)."
+      ],
+      "badges": ["Higher tier (HT)", "Going further: commutator"]
+    },
+    {
+      "id": "force",
+      "title": "HT · A force on each side",
+      "body": [
+        "A current-carrying wire in a magnetic field feels a force. This is the motor effect.",
+        "The two long sides cross the field lines at right angles, so each feels a force (green arrows). The ends of the coil are parallel to the field here, so they feel no force.",
+        "Fleming's left-hand rule gives the direction: First finger along the Field, seCond finger along the Current, thuMb gives the Motion (force).",
+        "The size of the force is F = B I l: flux density B (tesla) × current I (amperes) × length l (metres) of wire in the field."
+      ],
+      "notes": [
+        "F = B I l is on the AQA equation sheet. It applies when the wire is at right angles to the field."
+      ],
+      "badges": ["Higher tier (HT)"]
+    },
+    {
+      "id": "turns",
+      "title": "HT · The coil turns",
+      "body": [
+        "The current flows in opposite directions in the two sides, so the forces on them act in opposite directions: one up, one down. Together they make the coil turn.",
+        "Try the controls. More current or more turns on the coil gives bigger forces, so the motor turns faster.",
+        "Reverse the current, or flip the magnets, and the motor turns the other way. Do both at once and it turns the same way as before."
+      ],
+      "badges": ["Higher tier (HT)", "Illustrative", "Slow motion"],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "What if?",
+        "question": "What if you reverse the current and flip the magnets at the same time?",
+        "prompt": "Predict first. Then switch on both toggles and watch which way the coil turns.",
+        "revealLabel": "Reveal the answer",
+        "reveal": [
+          "It turns the same way as before. Reversing the current reverses the forces; flipping the magnets reverses them again. Two reversals cancel."
+        ]
+      }
+    },
+    {
+      "id": "commutator",
+      "title": "HT · The commutator keeps it turning",
+      "body": [
+        "Watch the coil pass the vertical. At that moment the gaps in the split ring pass the brushes, and the current in the coil reverses.",
+        "That flips the forces just as the coil goes past the vertical, so they keep turning it the same way. Every half turn, the current reverses again.",
+        "Switch the commutator off. Now the current in the coil never reverses. Past the vertical, the forces push the coil back, so it rocks and stops at the vertical."
+      ],
+      "notes": [
+        "Going further: the AQA specification asks you to explain why the coil rotates, but does not name the commutator. Other boards do."
+      ],
+      "badges": ["Higher tier (HT)", "Going further", "Illustrative"],
+      "interaction": {
+        "type": "predict-reveal",
+        "heading": "Predict, then test it",
+        "question": "Without a commutator, where would the coil stop, and why?",
+        "prompt": "Decide first. Then switch the commutator off.",
+        "revealLabel": "Reveal the answer",
+        "reveal": [
+          "At the vertical. Just past the vertical, the forces would turn the coil back the other way. It rocks to and fro and settles at the vertical, where the forces have no turning effect."
+        ]
+      }
+    }
+  ],
+  "controls": {
+    "playLabel": "Play",
+    "pauseLabel": "Pause",
+    "restartLabel": "Restart",
+    "speedLabel": "Animation speed",
+    "speedHint": "Changes how fast the animation plays, not the motor speed.",
+    "tourLabel": "Guided tour",
+    "stopTourLabel": "Stop tour",
+    "resetCameraLabel": "Reset camera",
+    "labelsLabel": "Labels",
+    "hint": "Drag to orbit. Scroll or pinch to zoom.",
+    "labelsStartOn": true,
+    "layout": [
+      ["play", "restart", "speed"],
+      ["slider:current", "slider:motorCurrent", "slider:turns"],
+      ["toggle:ironCore", "toggle:reverseCurrent", "toggle:flipMagnets", "toggle:commutator", "toggle:fieldLines", "labels"],
+      ["tour", "resetCamera"]
+    ],
+    "sliders": [
+      { "option": "current", "label": "Current (A, illustrative; below 0 = reversed)", "min": -3, "max": 3, "step": 0.1, "value": 2, "digits": 1, "stages": [0, 1] },
+      { "option": "motorCurrent", "label": "Current (A, illustrative)", "min": 0.5, "max": 3, "step": 0.1, "value": 2, "digits": 1, "stages": [5, 6] },
+      { "option": "turns", "label": "Turns on the coil", "min": 1, "max": 5, "step": 1, "value": 3, "digits": 0, "stages": [5, 6] }
+    ],
+    "toggles": [
+      { "option": "ironCore", "label": "Iron core", "value": false, "stages": [1] },
+      { "option": "reverseCurrent", "label": "Reverse current", "value": false, "stages": [3, 4, 5, 6] },
+      { "option": "flipMagnets", "label": "Flip magnets", "value": false, "stages": [2, 3, 4, 5, 6] },
+      { "option": "commutator", "label": "Commutator", "value": true, "stages": [6] },
+      { "option": "fieldLines", "label": "Field lines", "value": true }
+    ]
+  },
+  "showcase": {
+    "stage": 6,
+    "labels": false,
+    "options": {},
+    "time": 0
+  },
+  "labels": {
+    "wire": "Wire carrying a current",
+    "compass": "Plotting compass",
+    "card": "Card",
+    "solenoid": "Solenoid (coil of wire)",
+    "ironCore": "Iron core",
+    "coil": "Coil",
+    "commutator": "Split-ring commutator",
+    "brush": "Brush",
+    "supply": "Supply (cell)",
+    "flemingField": "First finger: Field",
+    "flemingCurrent": "seCond finger: Current",
+    "flemingForce": "thuMb: Motion (force)"
+  }
+}

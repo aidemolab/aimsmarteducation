@@ -1,0 +1,150 @@
+/* AIM Smart Education "premium study tool" theme for explainer pages.
+   Tokens copied from the website design system (aim-3d-explainers website/
+   CLAUDE.md and assets/css/site.css). Load after shell/shell.css and put
+   class="aim-theme-premium" on <body>. The 3D stage stays dark (ink). */
+
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 700; font-display: swap; src: url("./fonts/manrope/manrope-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 800; font-display: swap; src: url("./fonts/manrope/manrope-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-700-normal.woff2") format("woff2"); }
+
+.aim-theme-premium {
+  /* Site tokens */
+  --paper: #F7F7F4;
+  --surface: #FFFFFF;
+  --line: #E3E4EA;
+  --ink: #14161F;
+  --ink-muted: #545866;
+  --brand: #3B3FB6;
+  --brand-strong: #2C2F8F;
+  --brand-soft: #EEEEFB;
+  --accent: #E9B949;
+  --accent-soft: #FDF5DD;
+  --stage-text: #B9BCCB;
+  --physics: #2F5DA8;
+  --maths: #B5462E;
+  --font-heading: "Manrope", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --radius-badge: 6px;
+  --radius-control: 10px;
+  --radius-card: 16px;
+
+  /* Shell variables mapped to the site tokens */
+  --aim-bg: var(--paper);
+  --aim-bg-raised: var(--surface);
+  --aim-bg-panel: var(--surface);
+  --aim-border: var(--line);
+  --aim-text: var(--ink);
+  --aim-text-muted: var(--ink-muted);
+  --aim-accent: var(--brand);
+  --aim-focus: var(--brand);
+  --aim-radius: var(--radius-card);
+  --aim-font: var(--font-body);
+  --aim-stage-bg: var(--ink);
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.aim-theme-premium .aim-app { max-width: 1200px; padding: 24px 16px 40px; }
+
+/* Header */
+.aim-theme-premium .aim-header { display: grid; gap: 8px; align-items: start; margin-bottom: 24px; }
+.aim-theme-premium .aim-brand { display: flex; align-items: center; gap: 10px; }
+.aim-theme-premium .aim-brand-mark {
+  width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center;
+  background: var(--brand); color: #fff; font: 800 16px/1 var(--font-heading);
+}
+.aim-theme-premium .aim-brand-name { font: 800 16px/1 var(--font-heading); letter-spacing: -0.02em; color: var(--ink); }
+.aim-theme-premium .aim-title,
+.aim-theme-premium h2,
+.aim-theme-premium h3 { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.aim-theme-premium .aim-title { font-size: clamp(1.6rem, 3.2vw, 2.4rem); line-height: 1.15; }
+.aim-theme-premium .aim-page-badges { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.aim-theme-premium .aim-subject-badge,
+.aim-theme-premium .aim-level-badge {
+  padding: 2px 10px; border-radius: var(--radius-badge); font-size: 0.85rem; font-weight: 700; line-height: 22px;
+}
+.aim-theme-premium .aim-subject-maths { background: var(--maths); color: #fff; }
+.aim-theme-premium .aim-level-badge { border: 1px solid var(--ink-muted); color: var(--ink-muted); }
+.aim-theme-premium .aim-spec-ref { font-size: 0.85rem; color: var(--ink-muted); }
+
+/* Layout and cards */
+.aim-theme-premium .aim-main { grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; }
+.aim-theme-premium .aim-viewport { border: 0; border-radius: var(--radius-card); }
+.aim-theme-premium .aim-panel { gap: 16px; }
+.aim-theme-premium .aim-panel > section,
+.aim-theme-premium .aim-stage-nav,
+.aim-theme-premium .aim-all-stages {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px;
+}
+.aim-theme-premium .aim-panel h2 { font-size: 1.1rem; }
+.aim-theme-premium .aim-panel p,
+.aim-theme-premium .aim-all-stages p { color: var(--ink-muted); }
+.aim-theme-premium .aim-all-stages { margin-top: 40px; padding: 24px; }
+
+/* Buttons and inputs: at least 44px high, brand primary, white secondary */
+.aim-theme-premium .aim-btn,
+.aim-theme-premium .aim-controls select,
+.aim-theme-premium .aim-toggle,
+.aim-theme-premium .aim-step-btn,
+.aim-theme-premium .aim-stage-btn {
+  min-height: 44px; border-radius: var(--radius-control); border: 1px solid var(--line);
+  background: var(--surface); color: var(--brand); font-family: var(--font-body); font-weight: 600;
+}
+.aim-theme-premium .aim-btn:hover,
+.aim-theme-premium .aim-toggle:hover,
+.aim-theme-premium .aim-step-btn:hover,
+.aim-theme-premium .aim-stage-btn:hover,
+.aim-theme-premium .aim-controls select:hover { border-color: var(--brand); }
+.aim-theme-premium .aim-btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.aim-theme-premium .aim-btn-primary:hover { background: var(--brand-strong); border-color: var(--brand-strong); }
+.aim-theme-premium .aim-toggle { color: var(--ink); }
+.aim-theme-premium .aim-toggle-track { background: var(--line); }
+.aim-theme-premium .aim-toggle-track::after { background: #fff; box-shadow: 0 0 0 1px var(--ink-muted); }
+.aim-theme-premium .aim-toggle[aria-pressed="true"] .aim-toggle-track { background: var(--brand); }
+.aim-theme-premium .aim-toggle[aria-pressed="true"] .aim-toggle-track::after { background: #fff; box-shadow: none; }
+.aim-theme-premium .aim-stage-btn { color: var(--ink); }
+.aim-theme-premium .aim-stage-btn[aria-current="step"] { border-color: var(--brand); background: var(--brand-soft); }
+.aim-theme-premium .aim-stage-num { background: var(--line); color: var(--ink); }
+.aim-theme-premium .aim-stage-btn[aria-current="step"] .aim-stage-num { background: var(--brand); color: #fff; }
+.aim-theme-premium .aim-step-btn:disabled { opacity: 0.45; }
+.aim-theme-premium .aim-slider-row input[type="range"] { accent-color: var(--brand); }
+.aim-theme-premium .aim-slider-value { color: var(--brand); }
+.aim-theme-premium .aim-note { border-left-color: var(--brand); }
+
+/* Predict moments use the accent, always with ink text */
+.aim-theme-premium .aim-interaction { background: var(--accent-soft); border: 1px solid var(--accent); }
+.aim-theme-premium .aim-interaction h3 { color: var(--ink); }
+.aim-theme-premium .aim-reveal-static summary { color: var(--brand); }
+
+/* Focus: 3px brand outline; stage-text on the dark stage */
+.aim-theme-premium :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.aim-theme-premium .aim-viewport :focus-visible { outline-color: var(--stage-text); }
+
+/* Text on the dark stage */
+.aim-theme-premium .aim-loading { background: rgba(20, 22, 31, 0.9); color: var(--stage-text); }
+.aim-theme-premium .aim-poster-title { color: var(--stage-text); }
+.aim-theme-premium .aim-error { background: var(--ink); }
+.aim-theme-premium .aim-error h2 { color: #fff; }
+.aim-theme-premium .aim-error p { color: var(--stage-text); }
+.aim-theme-premium .aim-badge { background: rgba(185, 188, 203, 0.12); border: 1px solid rgba(185, 188, 203, 0.5); color: var(--stage-text); border-radius: var(--radius-badge); }
+.aim-theme-premium .aim-label span { background: rgba(20, 22, 31, 0.88); border-color: rgba(185, 188, 203, 0.45); color: #fff; font-family: var(--font-body); }
+
+@media (max-width: 900px) {
+  .aim-theme-premium .aim-main { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* Wide screens: the side panel stays beside the 3D view and scrolls on its own,
+   so the view stays in sight while students read, predict and reveal. */
+@media (min-width: 901px) {
+  .aim-theme-premium .aim-panel {
+    position: sticky; top: 16px; align-self: start;
+    max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain;
+  }
+}

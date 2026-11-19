@@ -1,0 +1,1145 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="GCSE Physics Unit 1: the magnetic field around a wire and a solenoid, the motor effect, Fleming's left-hand rule and how a DC motor keeps turning. A living 3D model, then practice and exam questions, with a full Foundation route and Higher-tier (HT) sections.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./shell/shell.css">
+  <link rel="stylesheet" href="./assets/premium-theme.css">
+  <link rel="stylesheet" href="./scenes/dc-motor.css">
+  <link rel="stylesheet" href="../../assets/css/explainer-page.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../../assets/css/unit.css">
+  <script src="../../assets/js/site-nav.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/0.170.0/three.module.min.js",
+      "three/addons/": "./vendor/three/0.170.0/addons/"
+    }
+  }
+  </script>
+  <script type="module" src="./shell/main.js"></script>
+  <script src="../../assets/js/unit.js" defer></script>
+</head>
+<body class="aim-theme-premium aim-page-motor aim-unit">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../physics/" aria-current="true"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../../maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="aim-app" id="main"
+       data-scene="./scenes/dc-motor.js"
+       data-stages="./scenes/dc-motor.stages.json">
+
+    <div class="aim-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../#subjects">Subjects</a></li>
+          <li><a href="../">Physics</a></li>
+          <li><span aria-current="page">How a DC motor works</span></li>
+        </ol>
+      </nav>
+      <a class="back-link" href="../"><span aria-hidden="true">←</span> Back to Physics</a>
+      <p class="unit-meta">Unit 1 · About 45 minutes</p>
+      <h1 class="aim-title">How a DC motor works</h1>
+      <ul class="aim-page-badges" aria-label="Subject and level">
+        <li class="aim-subject-badge aim-subject-physics">Physics</li>
+        <li class="aim-level-badge">GCSE</li>
+      </ul>
+      <p class="aim-page-spec">AQA GCSE Physics (8463), 4.7.2 The motor effect (Paper 2). 4.7.2.1 Electromagnetism is for everyone. 4.7.2.2 Fleming's left-hand rule and 4.7.2.3 Electric motors are Higher tier only, marked <span class="tier-badge">HT</span>. Specification references for other exam boards are still to be confirmed.</p>
+    </div>
+
+    <!-- Unit overview and route -->
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading" class="visually-hidden">About this unit</h2>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <h3>What you'll learn</h3>
+          <ul>
+            <li><span class="tier-badge tier-badge-all">All</span> Describe and draw the magnetic field around a wire and a solenoid, and explain how to make it stronger.</li>
+            <li><span class="tier-badge">HT</span> Explain the motor effect and use Fleming's left-hand rule.</li>
+            <li><span class="tier-badge">HT</span> Use F = B I l.</li>
+            <li><span class="tier-badge">HT</span> Explain why the coil of a DC motor turns, and why it keeps turning.</li>
+          </ul>
+          <dl class="unit-facts">
+            <dt>You'll need</dt><dd>Magnetic fields between magnets; current in a circuit.</dd>
+            <dt>Key words</dt><dd>Magnetic field, solenoid, electromagnet; <abbr title="Higher tier">HT</abbr>: motor effect, magnetic flux density, Fleming's left-hand rule, F = B I l, split-ring commutator, brushes.</dd>
+            <dt>Where you'll see it</dt><dd>Electric toothbrushes, drones, car windows, computer fans, scrapyard cranes.</dd>
+          </dl>
+        </div>
+        <div class="unit-card unit-card-featured">
+          <h3 id="route-heading">Choose your route</h3>
+          <p>Which GCSE tier are you taking? You can change this at any time.</p>
+          <div class="route-switch" role="group" aria-labelledby="route-heading">
+            <button class="u-btn" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
+            <button class="u-btn" type="button" aria-pressed="true" data-route="higher">Higher</button>
+          </div>
+          <p class="route-note" role="status" data-route-note>Higher route: everything is open. Higher-tier (HT) sections are marked.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey -->
+    <nav class="journey" id="journey" aria-labelledby="journey-heading">
+      <h2 id="journey-heading" class="visually-hidden">Your learning journey: seven stages</h2>
+      <ol class="journey-phases">
+        <li class="journey-phase">
+          <h3>See it</h3>
+          <p>Understand the mechanism, not just the picture</p>
+          <ol>
+            <li><a class="journey-link" href="#stage-hook"><span class="journey-num" aria-hidden="true">1</span>Hook</a></li>
+            <li><a class="journey-link" href="#stage-explore"><span class="journey-num" aria-hidden="true">2</span>Explore</a></li>
+            <li><a class="journey-link" href="#stage-explain"><span class="journey-num" aria-hidden="true">3</span>Explain</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase">
+          <h3>Practise it</h3>
+          <p>Think it through, then prove it</p>
+          <ol>
+            <li><a class="journey-link" href="#stage-chain"><span class="journey-num" aria-hidden="true">4</span>Build the chain</a></li>
+            <li><a class="journey-link" href="#stage-trap"><span class="journey-num" aria-hidden="true">5</span>Spot the trap</a></li>
+            <li><a class="journey-link" href="#stage-do"><span class="journey-num" aria-hidden="true">6</span>Do it</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase journey-phase-ace">
+          <h3>Ace it</h3>
+          <p>Write answers that earn the marks, and remember them</p>
+          <ol>
+            <li><a class="journey-link" href="#stage-write"><span class="journey-num" aria-hidden="true">7</span>Write it and revisit it</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ================= STAGE 1: HOOK ================= -->
+    <section class="stage-section" id="stage-hook" aria-labelledby="hook-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">See it · Stage 1 of 7</p>
+        <h2 id="hook-heading">Hook</h2>
+        <p class="stage-purpose">Flick a switch and a fan starts spinning straight away. There's no engine and no fuel, just a current in some wire. What pushes the blades round?</p>
+      </div>
+
+      <div class="video-slot" role="note">
+        <strong>Hook video (20–30 seconds): coming soon</strong>
+        <p>It will open with this puzzle, with captions and a transcript. For now, warm up and make your predictions below.</p>
+      </div>
+
+      <div class="unit-card">
+        <h3>Warm-up: what do you remember?</h3>
+        <p>Answer in your head, then check.</p>
+        <ol class="qa-list">
+          <li><p>Which way do magnetic field lines point between two magnets?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>From the north pole to the south pole.</p></div></details></li>
+          <li><p>What is the unit of current?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The ampere (A).</p></div></details></li>
+          <li><p>What makes a current flow in a circuit?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>A potential difference, for example from a cell or a power supply.</p></div></details></li>
+        </ol>
+      </div>
+
+      <div class="unit-card predict q" data-q="predict">
+        <h3>Predict first <span class="tier-badge tier-badge-all">All</span></h3>
+        <p class="q-stem" id="p0-stem"><span class="what-if">What if</span> you put a compass next to a straight wire, then switch on a current in the wire?</p>
+        <div class="choice-stack" role="group" aria-labelledby="p0-stem">
+          <button class="choice" type="button" aria-pressed="false" data-value="a">Nothing happens: wires aren't magnets.</button>
+          <button class="choice" type="button" aria-pressed="false" data-value="b">The needle turns, to point round the wire.</button>
+          <button class="choice" type="button" aria-pressed="false" data-value="c">The needle turns to point straight at the wire.</button>
+        </div>
+        <div class="feedback" role="status" data-feedback></div>
+        <template data-fb="locked"><p>Prediction locked in. Now test it in the 3D model.</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Try it in 3D: field around a wire</button></p></template>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> What if…? Three motor predictions <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <p>A simple motor is turning. Predict what happens in each case, then test it in the 3D model.</p>
+          <div class="unit-card predict q" data-q="predict">
+            <p class="q-stem" id="p1-stem"><span class="what-if">What if</span> you reverse the battery connections?</p>
+            <div class="choice-row" role="group" aria-labelledby="p1-stem">
+              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
+            </div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":false}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The current is reversed, so the forces on the coil are reversed.</p></div></details></template>
+          </div>
+          <div class="unit-card predict q" data-q="predict">
+            <p class="q-stem" id="p2-stem"><span class="what-if">What if</span> you swap the magnets' poles?</p>
+            <div class="choice-row" role="group" aria-labelledby="p2-stem">
+              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
+            </div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The field is reversed, so the forces are reversed.</p></div></details></template>
+          </div>
+          <div class="unit-card predict q" data-q="predict">
+            <p class="q-stem" id="p3-stem"><span class="what-if">What if</span> you reverse the battery <strong>and</strong> swap the poles?</p>
+            <div class="choice-row" role="group" aria-labelledby="p3-stem">
+              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
+              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
+            </div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the same way as before. Two reversals cancel.</p></div></details></template>
+          </div>
+        </div>
+      </details>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 2: EXPLORE ================= -->
+    <section class="stage-section" id="stage-explore" aria-labelledby="explore-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">See it · Stage 2 of 7</p>
+        <h2 id="explore-heading">Explore</h2>
+        <p class="stage-purpose">Build your intuition: change one thing at a time and watch what happens. Use the steps beside the model, or the suggestions underneath it.</p>
+      </div>
+
+      <div class="aim-main">
+        <section class="aim-viewport" aria-label="Interactive 3D model: a wire, a solenoid and a simple DC motor">
+          <div class="aim-poster" aria-hidden="true">
+            <span class="aim-poster-title">How a DC motor works</span>
+          </div>
+          <div class="aim-loading" role="status" aria-live="polite">Loading 3D model…</div>
+          <div class="aim-error" role="alert" hidden>
+            <h2>The 3D model could not be shown</h2>
+            <p class="aim-error-detail"></p>
+            <p>The explanation on this page still covers everything the model shows. Its steps are written out under "The 3D model in words".</p>
+            <p><button class="u-btn" type="button" onclick="location.reload()">Try again</button></p>
+          </div>
+          <div class="aim-overlay"></div>
+          <p class="aim-notice">Educational visualisation, not an electromagnetic simulation.</p>
+          <ul class="aim-badges" aria-label="About this view"></ul>
+        </section>
+
+        <aside class="aim-panel" aria-label="3D model steps and controls">
+          <section class="aim-controls" aria-label="Controls"></section>
+          <nav class="aim-stage-nav" aria-label="3D model steps"></nav>
+          <section class="aim-stage" aria-live="polite"></section>
+        </aside>
+      </div>
+
+      <div class="unit-grid">
+        <div class="unit-card">
+          <h3>Try these <span class="tier-badge tier-badge-all">All</span></h3>
+          <ol>
+            <li>Slide the current from +3 to −3. What happens to the compasses?</li>
+            <li>Compare the inner and outer compasses. Where is the field stronger?</li>
+            <li>Make a solenoid, then add the iron core. Where are the poles?</li>
+          </ol>
+          <div class="button-row">
+            <button class="u-btn try3d" type="button" data-try-stage="0">Wire</button>
+            <button class="u-btn try3d" type="button" data-try-stage="1">Solenoid</button>
+            <button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Electromagnet</button>
+          </div>
+        </div>
+        <div class="unit-card">
+          <h3>Try these <span class="tier-badge">HT</span></h3>
+          <ol>
+            <li>Turn up the current, then add turns. What happens to the speed?</li>
+            <li>Reverse the current. Then flip the magnets as well.</li>
+            <li>Switch off the commutator. Where does the coil end up?</li>
+          </ol>
+          <div class="button-row">
+            <button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":false}'>Motor sandbox</button>
+            <button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>No commutator</button>
+          </div>
+          <p class="caption">Foundation: this is optional. It shows your electromagnet idea in action.</p>
+        </div>
+      </div>
+
+      <details class="model-words" data-model-words>
+        <summary>The 3D model in words: all seven steps as text</summary>
+        <section class="aim-all-stages" aria-label="The 3D model in words"></section>
+      </details>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 3: EXPLAIN ================= -->
+    <section class="stage-section" id="stage-explain" aria-labelledby="explain-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">See it · Stage 3 of 7</p>
+        <h2 id="explain-heading">Explain</h2>
+        <p class="stage-purpose">Turn what you saw into accurate science and exam vocabulary. Each step pauses with a question. Use "Try it in 3D" to jump to the same moment in the model.</p>
+      </div>
+
+      <div class="video-slot" role="note">
+        <strong>Explainer video: coming soon</strong>
+        <p>It will pause to ask you questions and jump into the 3D model at the same moment, with captions and a transcript. Until then, work through the steps below.</p>
+      </div>
+
+      <h3 class="visually-hidden">Foundation and Higher: the magnetic effect of a current</h3>
+      <div class="unit-grid">
+        <article class="unit-card">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Step A</p>
+          <h3>A current makes a magnetic field</h3>
+          <p>When a current flows through a wire, there is a magnetic field around it. The field lines are circles centred on the wire.</p>
+          <p>The field is stronger with a bigger current, and stronger closer to the wire. Reverse the current and the field reverses direction.</p>
+          <p class="q-stem">Quick check: what happens to the field if the current is reversed?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The field reverses direction. Its shape stays the same: circles round the wire.</p></div></details>
+          <button class="u-btn try3d" type="button" data-try-stage="0">Try it in 3D</button>
+        </article>
+        <article class="unit-card">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Step B</p>
+          <h3>Coil it up: the solenoid</h3>
+          <p>Shaping the wire into a coil, a solenoid, makes the field stronger. Inside a solenoid the field is strong and uniform. Outside, it has the same shape as the field of a bar magnet.</p>
+          <p>Adding an iron core makes the field stronger still. A solenoid with an iron core is an electromagnet.</p>
+          <p class="q-stem">Quick check: give two ways to make a solenoid's field stronger.</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Any two: increase the current; add an iron core; add more turns of wire in the same length.</p></div></details>
+          <button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Try it in 3D</button>
+        </article>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> How the motor works: five steps <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <article class="unit-card">
+            <p class="card-kicker">Step 1</p>
+            <h3>The magnetic field</h3>
+            <p>Two magnets face each other. Between them, the field lines run from N to S across the gap.</p>
+            <p class="q-stem">Quick check: which way do the field lines point?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>From N to S.</p></div></details>
+            <button class="u-btn try3d" type="button" data-try-stage="2">Try it in 3D</button>
+          </article>
+          <article class="unit-card">
+            <p class="card-kicker">Step 2</p>
+            <h3>A current in the coil</h3>
+            <p>The supply drives a current through the brushes, the commutator and the coil.</p>
+            <p class="q-stem">Quick check: where does the current come from?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The power supply (a cell or battery).</p></div></details>
+            <button class="u-btn try3d" type="button" data-try-stage="3">Try it in 3D</button>
+          </article>
+          <article class="unit-card">
+            <p class="card-kicker">Step 3</p>
+            <h3>A force on each side</h3>
+            <p>The two sides that cut across the field each feel a force: the motor effect. Fleming's left-hand rule gives the direction: first finger field, second finger current, thumb motion.</p>
+            <p class="q-stem">Quick check: which sides of the coil feel a force?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The two sides that cut across the field lines. Sides parallel to the field feel no force.</p></div></details>
+            <button class="u-btn try3d" type="button" data-try-stage="4">Try it in 3D</button>
+          </article>
+
+          <div class="unit-card" data-ladder>
+            <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span></p>
+            <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Why does a wire carrying a current feel a force between two magnets?</li></ul>
+            <p>Say or write your answer first. Then take hints one at a time.</p>
+            <ol class="ladder-steps">
+              <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Does a current make a magnetic field?</li>
+              <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>What happens when two magnetic fields meet?</li>
+              <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>The current makes its own magnetic field. This field interacts with the magnets' field, giving a force on the wire.</li>
+            </ol>
+            <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+            <p class="caption">Example question. The live AI tutor will ask questions like these and respond to your answer; for now, the hints are fixed.</p>
+          </div>
+
+          <article class="unit-card">
+            <p class="card-kicker">Step 4</p>
+            <h3>The coil turns</h3>
+            <p>The forces on the two sides act in opposite directions, so together they turn the coil.</p>
+            <p class="q-stem">Quick check: why do the two forces make the coil turn?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>They act in opposite directions on opposite sides, giving a turning effect.</p></div></details>
+            <button class="u-btn try3d" type="button" data-try-stage="5">Try it in 3D</button>
+          </article>
+
+          <div class="unit-card" data-ladder>
+            <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span></p>
+            <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Why do the two sides of the coil move in opposite directions?</li></ul>
+            <ol class="ladder-steps">
+              <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Trace the current around the coil.</li>
+              <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>Which way does it flow in each side?</li>
+              <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>The current flows in opposite directions in the two sides, so the forces on them are opposite.</li>
+            </ol>
+            <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+            <p class="caption">Example question. For now, the hints are fixed.</p>
+          </div>
+
+          <article class="unit-card">
+            <p class="card-kicker">Step 5 <span class="gf-badge">Going further</span></p>
+            <h3>The commutator keeps it turning</h3>
+            <p>Every half turn, the split-ring commutator reverses the current in the coil. That keeps the forces turning the coil the same way.</p>
+            <p class="q-stem">Quick check: what does the commutator do every half turn?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>It reverses the direction of the current in the coil.</p></div></details>
+            <p class="caption">The AQA specification asks you to explain why the coil rotates, but does not name the commutator.</p>
+            <button class="u-btn try3d" type="button" data-try-stage="6">Try it in 3D</button>
+          </article>
+
+          <div class="unit-grid">
+            <div class="unit-card" data-ladder>
+              <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span> <span class="gf-badge">Going further</span></p>
+              <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Without a commutator, why would the coil stop at the vertical?</li></ul>
+              <ol class="ladder-steps">
+                <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Look at the force directions just after the vertical.</li>
+                <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>Which way do they now turn the coil?</li>
+                <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>After the vertical, the forces would turn the coil back the other way, so it rocks and settles at the vertical.</li>
+              </ol>
+              <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+              <p class="caption">Example question. For now, the hints are fixed.</p>
+            </div>
+            <div class="unit-card" data-ladder>
+              <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span></p>
+              <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>How could you make the motor spin faster?</li></ul>
+              <ol class="ladder-steps">
+                <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Which quantities affect the size of the force?</li>
+                <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>What does F = B I l tell you?</li>
+                <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>Increase the current; use a stronger magnetic field; add more turns to the coil.</li>
+              </ol>
+              <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+              <p class="caption">Example question. For now, the hints are fixed.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 4: BUILD THE CHAIN ================= -->
+    <section class="stage-section" id="stage-chain" aria-labelledby="chain-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">Practise it · Stage 4 of 7</p>
+        <h2 id="chain-heading">Build the chain</h2>
+        <p class="stage-purpose">Put the ideas in order, cause to effect. Each link is a marking point, so a complete chain is the shape of a full-mark answer.</p>
+      </div>
+
+      <div class="unit-card" data-chain>
+        <h3>Making an electromagnet <span class="tier-badge tier-badge-all">All</span></h3>
+        <p>Tap the links in order, starting with the cause.</p>
+        <ol class="chain-list" data-chain-list aria-label="Your chain so far"></ol>
+        <div class="choice-stack" data-chain-pool>
+          <button class="choice" type="button" data-step="3">Winding the wire into a solenoid makes the field stronger: strong and uniform inside</button>
+          <button class="choice" type="button" data-step="1">A current flows through the wire</button>
+          <button class="choice" type="button" data-step="4">An iron core inside the solenoid makes the field stronger still: an electromagnet</button>
+          <button class="choice" type="button" data-step="2">The current makes a magnetic field around the wire</button>
+        </div>
+        <div class="feedback" role="status" data-chain-status></div>
+        <button class="u-btn" type="button" data-chain-reset>Start again</button>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Why the motor keeps turning <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card" data-chain>
+            <p>Tap the five links in order. <span class="caption">Link 5 (the commutator) goes beyond the AQA wording, but it is what makes the rotation continuous.</span></p>
+            <ol class="chain-list" data-chain-list aria-label="Your chain so far"></ol>
+            <div class="choice-stack" data-chain-pool>
+              <button class="choice" type="button" data-step="3">The forces on the two sides act in opposite directions</button>
+              <button class="choice" type="button" data-step="5">Every half turn, the split-ring commutator reverses the current, so the coil keeps turning the same way</button>
+              <button class="choice" type="button" data-step="1">A current flows in the coil, inside the magnetic field</button>
+              <button class="choice" type="button" data-step="4">Together, the forces turn the coil</button>
+              <button class="choice" type="button" data-step="2">Each side that cuts across the field feels a force (F = B I l)</button>
+            </div>
+            <div class="feedback" role="status" data-chain-status></div>
+            <button class="u-btn" type="button" data-chain-reset>Start again</button>
+          </div>
+        </div>
+      </details>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 5: SPOT THE TRAP ================= -->
+    <section class="stage-section" id="stage-trap" aria-labelledby="trap-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">Practise it · Stage 5 of 7</p>
+        <h2 id="trap-heading">Spot the trap</h2>
+        <p class="stage-purpose">Each statement hides a common mistake, or is true. Fall in, and the guide asks you a question and takes you back to the model to see why. <span class="ai-tag">✦ AI coaches the fix</span></p>
+      </div>
+
+      <div class="unit-grid">
+        <div class="unit-card q" data-q="check" data-correct="false">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> True or false?</p>
+          <p class="q-stem" id="t1-stem">"The magnetic field around a wire is strongest far away from the wire."</p>
+          <div class="choice-row" role="group" aria-labelledby="t1-stem">
+            <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ You spotted the trap. The field is strongest close to the wire and gets weaker further away.</p></template>
+          <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">Look at the outer compasses. Do they turn more or less than the inner ones?</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="false">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> True or false?</p>
+          <p class="q-stem" id="t2-stem">"Reversing the current makes the magnetic field around a wire disappear."</p>
+          <div class="choice-row" role="group" aria-labelledby="t2-stem">
+            <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ Right. The field reverses direction. Its shape and strength stay the same.</p></template>
+          <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">Drag the current below zero. Do the compasses stop pointing round the wire, or point the other way?</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="amir">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Who's right?</p>
+          <p class="q-stem" id="t3-stem">Amir: "Putting an iron core in a solenoid makes its field stronger." Jess: "An iron core blocks the field, so it gets weaker."</p>
+          <div class="choice-row" role="group" aria-labelledby="t3-stem">
+            <button class="choice" type="button" aria-pressed="false" data-value="amir">Amir</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="jess">Jess</button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ Amir is right. An iron core makes the field much stronger. That is how an electromagnet works.</p></template>
+          <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Switch the iron core on and off. What happens to the field lines?</p><p><button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Replay in 3D</button></p></template>
+        </div>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Motor traps <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-grid">
+            <div class="unit-card q" data-q="check" data-correct="false">
+              <p class="card-kicker">True or false?</p>
+              <p class="q-stem" id="m0-stem">"The coil turns because the magnets attract and repel the coil directly."</p>
+              <div class="choice-row" role="group" aria-labelledby="m0-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Right. A copper coil is not attracted to magnets. The force comes from the current in a magnetic field: the motor effect. No current, no force.</p></template>
+              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">What happens to the forces in the model if there is no current in the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="false">
+              <p class="card-kicker">True or false? <span class="gf-badge">Going further</span></p>
+              <p class="q-stem" id="m1-stem">"The split-ring commutator produces the current in the coil."</p>
+              <div class="choice-row" role="group" aria-labelledby="m1-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Right. The supply provides the current. The commutator reverses its direction every half turn.</p></template>
+              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">So what does the commutator do to the current every half turn?</p><p><button class="u-btn try3d" type="button" data-try-stage="6">Replay in 3D</button></p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="priya">
+              <p class="card-kicker">Who's right?</p>
+              <p class="q-stem" id="m2-stem">Sam: "A bigger current makes the motor turn the other way." Priya: "Reversing the current makes the motor turn the other way."</p>
+              <div class="choice-row" role="group" aria-labelledby="m2-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="sam">Sam</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="priya">Priya</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Priya is right. A bigger current makes a bigger force, so the motor turns faster, not the other way.</p></template>
+              <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Does a bigger current change the force's direction, or its size?</p><p><button class="u-btn try3d" type="button" data-try-stage="5">Replay in 3D</button></p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="leo">
+              <p class="card-kicker">Who's right?</p>
+              <p class="q-stem" id="m5-stem">Leo: "For the force on a wire in a motor, use Fleming's left-hand rule." Mia: "Use your right hand. It gives the same answer."</p>
+              <div class="choice-row" role="group" aria-labelledby="m5-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="leo">Leo</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="mia">Mia</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Leo is right. Motors use the left hand. With the same fingers, your right thumb points the opposite way.</p></template>
+              <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Try both hands: first finger to the right (field), second finger out of the page (current). Do your thumbs agree?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="false">
+              <p class="card-kicker">True or false?</p>
+              <p class="q-stem" id="m6-stem">"A wire lying parallel to a magnetic field still feels a force, as long as it carries a current."</p>
+              <div class="choice-row" role="group" aria-labelledby="m6-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Right. A wire parallel to the field feels no force. The force is biggest when the wire is at right angles to the field.</p></template>
+              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">In the model, which parts of the coil have no force arrows, and which way do they lie?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="2">
+              <p class="card-kicker">Find the error</p>
+              <p class="q-stem" id="m3-stem">A wire 5.0 cm long carries 3.0 A at right angles to a 0.20 T field. Which line is wrong?</p>
+              <div class="choice-stack" role="group" aria-labelledby="m3-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="1">Line 1: F = B I l</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="2">Line 2: F = 0.20 × 3.0 × 5.0</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="3">Line 3: F = 3.0 N</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Line 2. It uses 5.0 cm instead of 0.050 m. The correct answer is F = 0.20 × 3.0 × 0.050 = 0.030 N.</p></template>
+              <template data-fb="wrong-3"><p>Line 3 follows correctly from line 2, so the error is earlier.</p><p class="coach-line">Check the units of each number in the equation.</p></template>
+              <template data-fb="wrong"><p>Line 1 is the right equation.</p><p class="coach-line">Check the units of each number in the equation.</p></template>
+            </div>
+            <div class="unit-card q" data-q="check" data-correct="false">
+              <p class="card-kicker">True or false? <span class="gf-badge">Going further</span></p>
+              <p class="q-stem" id="m4-stem">"Without a commutator, the coil would keep spinning the same way."</p>
+              <div class="choice-row" role="group" aria-labelledby="m4-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Right. After the vertical, the forces turn the coil back. It rocks and stops at the vertical.</p></template>
+              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">Just after the vertical, which way do the forces turn the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>Replay in 3D</button></p></template>
+            </div>
+          </div>
+        </div>
+      </details>
+      <p class="caption">The guide's questions are fixed examples. The live AI coach will respond to your own reasoning.</p>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 6: DO IT ================= -->
+    <section class="stage-section" id="stage-do" aria-labelledby="do-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">Practise it · Stage 6 of 7</p>
+        <h2 id="do-heading">Do it</h2>
+        <p class="stage-purpose">Apply the rules accurately and fluently: pick, place and calculate, then say it in exam words. Everything here is marked exactly.</p>
+      </div>
+
+      <div class="unit-grid">
+        <div class="unit-card q" data-q="check" data-correct="a">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Do it</p>
+          <p class="q-stem" id="f1-stem">A long straight wire goes through a card, with the current coming up out of the card. Pick the field pattern on the card.</p>
+          <div class="choice-row" role="group" aria-labelledby="f1-stem">
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="a" aria-label="Pattern A: circles centred on the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="dg-field" cx="60" cy="45" r="12"/><circle class="dg-field" cx="60" cy="45" r="22"/><circle class="dg-field" cx="60" cy="45" r="36"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>A</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="b" aria-label="Pattern B: straight parallel lines past the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><path class="dg-field" d="M10 20H110M10 35H110M10 55H110M10 70H110"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>B</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="c" aria-label="Pattern C: straight lines spreading out from the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><path class="dg-field" d="M60 45L60 5M60 45L60 85M60 45L15 45M60 45L105 45M60 45L28 13M60 45L92 77M60 45L92 13M60 45L28 77"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>C</span></button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ A: circles centred on the wire, further apart further out where the field is weaker.</p><p><strong>Say it:</strong> "The magnetic field around a straight wire is a set of circles centred on the wire."</p></template>
+          <template data-fb="wrong"><p>Not this one.</p><p class="coach-line">Look at the compasses in the model. Do they point along lines, away from the wire, or round it?</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="a">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Do it</p>
+          <p class="q-stem" id="f2-stem">Pick the field pattern of a solenoid carrying a current.</p>
+          <div class="choice-row" role="group" aria-labelledby="f2-stem">
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="a" aria-label="Pattern A: straight parallel lines inside, looping round outside like a bar magnet">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><path class="dg-field" d="M20 40H100M20 50H100M100 40C118 40 118 12 60 12C2 12 2 40 20 40M100 50C118 50 118 78 60 78C2 78 2 50 20 50"/></svg>
+              <span>A</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="b" aria-label="Pattern B: small circles round each end, nothing inside">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><circle class="dg-field" cx="22" cy="45" r="12"/><circle class="dg-field" cx="98" cy="45" r="12"/></svg>
+              <span>B</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="c" aria-label="Pattern C: lines outside only, none inside">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><path class="dg-field" d="M10 20H110M10 70H110M10 10H110M10 80H110"/></svg>
+              <span>C</span></button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ A: strong and uniform inside (straight, parallel, close together), and shaped like a bar magnet's field outside.</p><p><strong>Say it:</strong> "Inside a solenoid the field is strong and uniform; outside it has the same shape as a bar magnet's field."</p></template>
+          <template data-fb="wrong"><p>Not this one.</p><p class="coach-line">Where are the field lines closest together in the model: inside the coil or outside it?</p><p><button class="u-btn try3d" type="button" data-try-stage="1">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="d">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> Do it</p>
+          <p class="q-stem" id="f3-stem">Which change would <strong>not</strong> make an electromagnet stronger?</p>
+          <div class="choice-stack" role="group" aria-labelledby="f3-stem">
+            <button class="choice" type="button" aria-pressed="false" data-value="a">Increase the current</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="b">Add more turns of wire</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="c">Use an iron core</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="d">Reverse the current</button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ Reversing the current swaps the poles over. The field is just as strong.</p><p><strong>Say it:</strong> "Reversing the current reverses the direction of the field, not its strength."</p></template>
+          <template data-fb="wrong"><p>That one does make it stronger.</p><p class="coach-line">Try each change in the model. Which one only swaps N and S?</p><p><button class="u-btn try3d" type="button" data-try-stage="1">Replay in 3D</button></p></template>
+        </div>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card" data-trainer='[{"field":"right","current":"out"},{"field":"right","current":"in"},{"field":"left","current":"out"},{"field":"up","current":"in"},{"field":"in","current":"right"},{"field":"down","current":"left"}]'>
+            <h3>Left-hand rule trainer</h3>
+            <p>Hold up your left hand: first finger = Field, second finger = Current, thumb = Motion (force).</p>
+            <div class="trainer-prompt">
+              <p><strong>Field:</strong> <span data-trainer-field></span></p>
+              <p><strong>Current:</strong> <span data-trainer-current></span></p>
+            </div>
+            <p class="q-stem" id="tr-stem">Which way is the force on the wire?</p>
+            <div class="choice-row" role="group" aria-labelledby="tr-stem">
+              <button class="choice" type="button" aria-pressed="false" data-dir="up">↑ Up</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="down">↓ Down</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="left">← Left</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="right">→ Right</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="out">⊙ Out of the page</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="in">⊗ Into the page</button>
+            </div>
+            <div class="feedback" role="status" data-feedback></div>
+            <p class="trainer-score" data-trainer-score></p>
+            <button class="u-btn u-btn-primary" type="button" data-trainer-next hidden>Next round</button>
+            <p class="caption">A 3D hand trainer is planned. ⊙ means towards you, ⊗ means away from you.</p>
+          </div>
+
+          <h3 class="visually-hidden">Do it, then say it</h3>
+          <div class="unit-grid">
+            <div class="unit-card q" data-q="check" data-correct="up">
+              <p class="card-kicker">Do it, then say it</p>
+              <svg class="diagram" viewBox="0 0 240 150" role="img" aria-label="Field from a north pole on the left to a south pole on the right. A wire between them carries current out of the page.">
+                <rect class="dg-mag-n" x="0" y="25" width="36" height="100" rx="4"/><text class="dg-mag-text" x="12" y="81">N</text>
+                <rect class="dg-mag-s" x="204" y="25" width="36" height="100" rx="4"/><text class="dg-mag-text" x="215" y="81">S</text>
+                <path class="dg-field" d="M44 45H196M44 75H100M140 75H196M44 105H196"/>
+                <path class="dg-field-head" d="M176 40l10 5-10 5zM176 70l10 5-10 5zM176 100l10 5-10 5z"/>
+                <circle class="dg-wire" cx="120" cy="75" r="13"/><circle class="dg-ink" cx="120" cy="75" r="3.5"/>
+              </svg>
+              <p class="q-stem" id="i1-stem">The field points right (N to S). The current in the wire flows out of the page. Which way is the force?</p>
+              <div class="choice-row" role="group" aria-labelledby="i1-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="up">↑ Up</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="down">↓ Down</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="left">← Left</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="right">→ Right</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Upwards.</p><p><strong>Say it:</strong> "A current-carrying wire in a magnetic field experiences a force; by Fleming's left-hand rule it acts upwards."</p></template>
+              <template data-fb="wrong"><p>Not this way.</p><p class="coach-line">First finger right (field), second finger towards you (current). Where does your thumb point?</p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="flat">
+              <p class="card-kicker">Do it, then say it</p>
+              <p class="q-stem" id="i2-stem">Seen from the end, the coil can sit at different angles between the magnets. Pick the position where the turning effect is greatest.</p>
+              <div class="choice-row" role="group" aria-labelledby="i2-stem">
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="flat" aria-label="Coil parallel to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="32" y1="45" x2="88" y2="45"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Parallel to field</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="tilt" aria-label="Coil at 45 degrees to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="40" y1="65" x2="80" y2="25"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At 45°</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="vertical" aria-label="Coil at right angles to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="60" y1="17" x2="60" y2="73"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At right angles</span></button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ With the plane of the coil parallel to the field lines.</p><p><strong>Say it:</strong> "The forces are furthest from the axle and at right angles to the coil, so the turning effect is greatest."</p></template>
+              <template data-fb="wrong"><p>Not the greatest.</p><p class="coach-line">The forces on the sides are always vertical. In which position are they furthest from the axle sideways?</p><p><button class="u-btn try3d" type="button" data-try-stage="5">Replay in 3D</button></p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="a">
+              <p class="card-kicker">Do it, then say it</p>
+              <svg class="diagram" viewBox="0 0 240 150" role="img" aria-label="End view of the coil, parallel to a field pointing right. Left side: current into the page, force down. Right side: current out of the page, force up.">
+                <rect class="dg-mag-n" x="0" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="9" y="81">N</text>
+                <rect class="dg-mag-s" x="210" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="219" y="81">S</text>
+                <line class="dg-coil" x1="70" y1="75" x2="170" y2="75"/><circle class="dg-axle" cx="120" cy="75" r="4"/>
+                <circle class="dg-wire" cx="70" cy="75" r="11"/><path class="dg-arrow" d="M63 68l14 14M77 68l-14 14" style="stroke-width:2"/>
+                <circle class="dg-wire" cx="170" cy="75" r="11"/><circle class="dg-ink" cx="170" cy="75" r="3"/>
+                <path class="dg-arrow" d="M70 90V125"/><path class="dg-arrow-head" d="M64 122l6 12 6-12z"/>
+                <path class="dg-arrow" d="M170 60V25"/><path class="dg-arrow-head" d="M164 28l6-12 6 12z"/>
+              </svg>
+              <p class="q-stem" id="i3-stem">Before: left side force down, right side force up. Now the current is reversed. Place the new forces.</p>
+              <div class="choice-stack" role="group" aria-labelledby="i3-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="a">Left ↑ up, right ↓ down</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="b">Left ↓ down, right ↑ up (no change)</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="c">Both ↑ up</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="d">Both ↓ down</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Both forces reverse direction.</p><p><strong>Say it:</strong> "Reversing the current reverses the forces, so the coil turns the other way."</p></template>
+              <template data-fb="wrong"><p>Not quite.</p><p class="coach-line">If the current in each side reverses, what happens to the force on each side?</p><p><button class="u-btn try3d" type="button" data-try-stage="4" data-set='{"reverseCurrent":true}'>Replay in 3D</button></p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="vertical">
+              <p class="card-kicker">Do it, then say it <span class="gf-badge">Going further</span></p>
+              <p class="q-stem" id="i4-stem">Pick the position where the commutator reverses the current.</p>
+              <div class="choice-row" role="group" aria-labelledby="i4-stem">
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="flat" aria-label="Coil parallel to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="32" y1="45" x2="88" y2="45"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Parallel to field</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="tilt" aria-label="Coil at 45 degrees to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="40" y1="65" x2="80" y2="25"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At 45°</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="vertical" aria-label="Coil at right angles to the field lines (vertical)">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="60" y1="17" x2="60" y2="73"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Vertical</span></button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ With the plane of the coil at right angles to the field: the vertical position here.</p><p><strong>Say it:</strong> "At the vertical, the commutator reverses the current, so the forces keep turning the coil the same way."</p></template>
+              <template data-fb="wrong"><p>Not here.</p><p class="coach-line">Watch the gaps in the split ring in the model. Where is the coil when they pass the brushes?</p><p><button class="u-btn try3d" type="button" data-try-stage="6">Replay in 3D</button></p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="force">
+              <p class="card-kicker">Say it: fill the gap</p>
+              <p class="q-stem" id="i5-stem">"A current-carrying wire in a magnetic field experiences a ____. This is called the motor effect."</p>
+              <div class="choice-row" role="group" aria-labelledby="i5-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="force">force</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="friction">friction</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="gravity">gravity</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="charge">charge</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Force. Use exactly these words in the exam.</p></template>
+              <template data-fb="wrong"><p>Not that word.</p><p class="coach-line">What do the green arrows in the model show?</p></template>
+            </div>
+          </div>
+
+          <h3>Practice ladder: recall to new situations</h3>
+          <ol class="qa-list">
+            <li><p><span class="q-num">L1</span>In Fleming's left-hand rule, what does each finger represent?</p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>First finger: field. Second finger: current. Thumb: motion (force).</p></div></details></li>
+            <li><p><span class="q-num">L2</span>Name the part of a DC motor that reverses the current in the coil every half turn. <span class="gf-badge">Going further</span></p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The split-ring commutator.</p></div></details></li>
+            <li><p><span class="q-num">L3</span>Give three ways to make a DC motor spin faster.</p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Increase the current; use a stronger magnetic field; use more turns on the coil.</p></div></details></li>
+          </ol>
+
+          <div class="unit-card" style="margin-top:16px">
+            <p class="card-kicker">L4 · Worked example</p>
+            <p class="exam-q">5.0 cm of wire carries 3.0 A at right angles to a 0.20 T field. Calculate the force.</p>
+            <div class="working">
+              <p>Convert the length to metres: l = 5.0 cm = 0.050 m</p>
+              <p>Write the equation: <span class="eq">F = B I l</span></p>
+              <p>Substitute: F = 0.20 × 3.0 × 0.050</p>
+              <p><strong>F = 0.030 N</strong></p>
+            </div>
+          </div>
+
+          <div class="unit-card" data-calc data-answer="0.024" data-common="2.4">
+            <p class="card-kicker">L5 · Partly worked</p>
+            <p class="exam-q">8.0 cm of wire carries 2.0 A at right angles to a 0.15 T field. Calculate the force.</p>
+            <div class="working"><p>Step 1 (done for you): l = 8.0 cm = 0.080 m</p><p>Step 2: F = B I l = 0.15 × 2.0 × 0.080</p></div>
+            <div class="calc-row"><label for="l5-in">F =</label><input class="calc-input" id="l5-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">N</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="right"><p>✓ F = 0.15 × 2.0 × 0.080 = 0.024 N.</p></template>
+            <template data-fb="common"><p>That's 100 times too big. Did you use 8.0 cm instead of 0.080 m?</p></template>
+            <template data-fb="wrong"><p>Not quite. Multiply the three numbers in step 2.</p></template>
+          </div>
+
+          <div class="unit-card" data-calc data-answer="1.5">
+            <p class="card-kicker">L6 · Rearrange</p>
+            <p class="exam-q">A 0.10 m wire at right angles to a 0.40 T field feels a force of 0.060 N. Calculate the current.</p>
+            <div class="calc-row"><label for="l6-in">I =</label><input class="calc-input" id="l6-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">A</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <details class="reveal"><summary>Need a hint?</summary><div class="reveal-body"><p>Rearrange F = B I l to I = F ÷ (B l).</p></div></details>
+            <template data-fb="right"><p>✓ I = F ÷ (B l) = 0.060 ÷ (0.40 × 0.10) = 1.5 A.</p></template>
+            <template data-fb="wrong"><p>Not quite. Rearrange first: I = F ÷ (B × l). Work out B × l, then divide.</p></template>
+          </div>
+
+          <div class="unit-card" data-calc data-answer="0.5" data-common="0.005">
+            <p class="card-kicker">L7 · Units</p>
+            <p class="exam-q">A 25 cm wire carrying 4.0 A at right angles to a field feels a force of 0.50 N. Calculate the magnetic flux density.</p>
+            <div class="calc-row"><label for="l7-in">B =</label><input class="calc-input" id="l7-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">T</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="right"><p>✓ l = 0.25 m; B = F ÷ (I l) = 0.50 ÷ (4.0 × 0.25) = 0.50 T.</p></template>
+            <template data-fb="common"><p>That's 100 times too small. Did you use 25 cm instead of 0.25 m?</p></template>
+            <template data-fb="wrong"><p>Not quite. Convert the length to metres, then use B = F ÷ (I × l).</p></template>
+          </div>
+
+          <ol class="qa-list" start="8">
+            <li><p><span class="q-num">L8</span>A loudspeaker has a coil in a magnetic field, attached to a cone. Explain why the cone moves back and forth when an alternating current flows. <span class="gf-badge">Going further</span></p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The current in the coil, in a magnetic field, gives a force (the motor effect). The current keeps reversing, so the force keeps reversing, and the cone moves back and forth.</p><p class="caption">Loudspeakers are AQA 4.7.2.4: Physics only, Higher tier.</p></div></details></li>
+          </ol>
+        </div>
+      </details>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <!-- ================= STAGE 7: WRITE IT AND REVISIT IT ================= -->
+    <section class="stage-section" id="stage-write" aria-labelledby="write-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">Ace it · Stage 7 of 7</p>
+        <h2 id="write-heading">Write it and revisit it</h2>
+        <p class="stage-purpose">Show exam-ready understanding, then make it stick. All questions are original and written in a generic GCSE style.</p>
+      </div>
+
+      <h3>Exam-style questions <span class="tier-badge tier-badge-all">All</span></h3>
+      <div class="unit-card">
+        <p class="exam-q"><span class="exam-tag">Q1 · Describe</span>Describe the magnetic field pattern around a long straight wire carrying a current. <span class="marks">[2 marks]</span></p>
+        <details class="reveal"><summary>Show the mark scheme</summary><div class="reveal-body">
+          <ul class="mark-scheme"><li>Circles (concentric) around the wire (1)</li><li>Field weaker / lines further apart further from the wire (1)</li></ul>
+          <p class="examiner-tip"><strong>Examiner tip:</strong> draw circles centred on the wire, not lines spreading out from it.</p>
+        </div></details>
+      </div>
+      <div class="unit-card">
+        <p class="exam-q"><span class="exam-tag">Q2 · Give</span>Give two ways to increase the strength of the magnetic field of a solenoid. <span class="marks">[2 marks]</span></p>
+        <details class="reveal"><summary>Show the mark scheme</summary><div class="reveal-body">
+          <ul class="mark-scheme"><li>Any two from: increase the current (1); add an iron core (1); more turns (in the same length) (1)</li></ul>
+          <p class="examiner-tip"><strong>Examiner tip:</strong> "reverse the current" scores nothing: it swaps the poles but does not change the strength.</p>
+        </div></details>
+      </div>
+      <div class="unit-card unit-card-featured" data-coach>
+        <p class="exam-q"><span class="exam-tag">Q3 · Describe</span>Describe the magnetic field inside and outside a solenoid carrying a current. <span class="marks">[3 marks]</span> <span class="ai-tag">✦ AI Exam Coach</span></p>
+        <label class="field-label" for="q3-example">Example student answer</label>
+        <textarea class="answer-box" id="q3-example" rows="3" readonly>Inside the solenoid the field is strong. Outside it looks like the field of a bar magnet.</textarea>
+        <button class="u-btn u-btn-primary" type="button" aria-expanded="false" aria-controls="q3-coach" data-coach-check>Check with the Exam Coach</button>
+        <div id="q3-coach" role="status">
+          <div data-coach-result hidden style="margin-top:12px">
+            <p class="coach-score">2 of 3 marking points</p>
+            <ul class="coach-points">
+              <li class="point-yes"><span aria-hidden="true">✓</span> The field inside is strong.</li>
+              <li class="point-no"><span aria-hidden="true">✗</span> <span class="visually-hidden">Not yet awarded. </span>Missing: what the field inside is like (its pattern).</li>
+              <li class="point-yes"><span aria-hidden="true">✓</span> Outside, the same shape as a bar magnet's field.</li>
+            </ul>
+            <p class="coach-hint">Hint: how are the field lines spaced inside the solenoid?</p>
+          </div>
+        </div>
+        <p class="caption">Example feedback. The live coach will mark against the teacher's own mark scheme and give hints, never the full answer.</p>
+        <details class="reveal"><summary>Write your own answer and mark it</summary><div class="reveal-body">
+          <label class="field-label" for="q3-own">Your answer (stays on this page; nothing is sent)</label>
+          <textarea class="answer-box" id="q3-own" rows="4"></textarea>
+          <div data-selfmark="3">
+            <p><strong>Tick each point your answer makes:</strong></p>
+            <ul class="self-mark">
+              <li><label><input type="checkbox"> Inside: the field is strong</label></li>
+              <li><label><input type="checkbox"> Inside: the field is uniform (lines straight, parallel and equally spaced)</label></li>
+              <li><label><input type="checkbox"> Outside: the same shape as a bar magnet's field</label></li>
+            </ul>
+            <p role="status" data-selfmark-score></p>
+          </div>
+        </div></details>
+      </div>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Motor exam questions <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card">
+            <p class="exam-q"><span class="exam-tag">Q4 · State</span>Give two ways to reverse the direction of rotation of a DC motor. <span class="marks">[2 marks]</span></p>
+            <details class="reveal"><summary>Show the mark scheme</summary><div class="reveal-body">
+              <ul class="mark-scheme"><li>Reverse the direction of the current (swap the supply connections) (1)</li><li>Reverse the magnetic field (swap the poles of the magnets) (1)</li></ul>
+              <p class="examiner-tip"><strong>Examiner tip:</strong> doing both at once does not reverse it. This is a common wrong answer.</p>
+            </div></details>
+          </div>
+          <div class="unit-card" data-calc data-answer="3.0" data-common="0.03">
+            <p class="exam-q"><span class="exam-tag">Q5 · Calculate</span>A 12 cm length of wire at right angles to a magnetic field of flux density 0.25 T feels a force of 0.090 N. Calculate the current in the wire. <span class="marks">[3 marks]</span></p>
+            <div class="calc-row"><label for="q5-in">I =</label><input class="calc-input" id="q5-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">A</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="right"><p>✓ 3.0 A. Now check your working against the mark scheme.</p></template>
+            <template data-fb="common"><p>That's 100 times too small. Did you leave the length in centimetres?</p></template>
+            <template data-fb="wrong"><p>Not quite. Convert the length, then rearrange F = B I l for I.</p></template>
+            <details class="reveal"><summary>Show the mark scheme</summary><div class="reveal-body">
+              <ul class="mark-scheme"><li>Converts length: l = 0.12 m (1)</li><li>Rearranges and substitutes: I = 0.090 ÷ (0.25 × 0.12) (1)</li><li>I = 3.0 A (1)</li></ul>
+              <p class="examiner-tip"><strong>Examiner tip:</strong> most lost marks come from leaving the length in centimetres.</p>
+            </div></details>
+          </div>
+          <div class="unit-card unit-card-featured" data-coach>
+            <p class="exam-q"><span class="exam-tag">Q6 · Explain</span>Explain how a simple DC motor keeps rotating in the same direction. <span class="marks">[4 marks]</span> <span class="ai-tag">✦ AI Exam Coach</span> <span class="gf-badge">Going further</span></p>
+            <label class="field-label" for="q6-example">Example student answer</label>
+            <textarea class="answer-box" id="q6-example" rows="3" readonly>The coil carries a current in a magnetic field, so each side feels a force. The forces are in opposite directions, so the coil turns. The commutator changes direction.</textarea>
+            <button class="u-btn u-btn-primary" type="button" aria-expanded="false" aria-controls="q6-coach" data-coach-check>Check with the Exam Coach</button>
+            <div id="q6-coach" role="status">
+              <div data-coach-result hidden style="margin-top:12px">
+                <p class="coach-score">2 of 4 marking points</p>
+                <ul class="coach-points">
+                  <li class="point-yes"><span aria-hidden="true">✓</span> A current-carrying coil in a magnetic field feels a force.</li>
+                  <li class="point-yes"><span aria-hidden="true">✓</span> Opposite forces on the two sides give a turning effect.</li>
+                  <li class="point-no"><span aria-hidden="true">✗</span> <span class="visually-hidden">Not yet awarded. </span>"The commutator changes direction" is too vague.</li>
+                  <li class="point-no"><span aria-hidden="true">✗</span> <span class="visually-hidden">Not yet awarded. </span>Missing: why the rotation stays in the same direction.</li>
+                </ul>
+                <p class="coach-hint">Hint: what exactly does the commutator reverse, and how often?</p>
+              </div>
+            </div>
+            <p class="caption">Example feedback. The live coach will mark against the teacher's own mark scheme and give hints, never the full answer.</p>
+            <details class="reveal"><summary>Write your own answer and mark it</summary><div class="reveal-body">
+              <label class="field-label" for="q6-own">Your answer (stays on this page; nothing is sent)</label>
+              <textarea class="answer-box" id="q6-own" rows="5"></textarea>
+              <div data-selfmark="4">
+                <p><strong>Tick each point your answer makes:</strong></p>
+                <ul class="self-mark">
+                  <li><label><input type="checkbox"> A current-carrying coil in a magnetic field experiences a force</label></li>
+                  <li><label><input type="checkbox"> The forces on the two sides act in opposite directions, causing a turning effect</label></li>
+                  <li><label><input type="checkbox"> The split-ring commutator reverses the current in the coil every half turn</label></li>
+                  <li><label><input type="checkbox"> So the forces keep turning the coil in the same direction</label></li>
+                </ul>
+                <p role="status" data-selfmark-score></p>
+              </div>
+              <p class="examiner-tip"><strong>Examiner tip:</strong> "the commutator changes direction" is too vague; say it reverses the <strong>current in the coil</strong>.</p>
+            </div></details>
+          </div>
+          <div class="unit-card">
+            <p class="exam-q"><span class="exam-tag">Q7 · Extended response</span>Explain how a simple DC motor works, and describe how its speed of rotation could be increased. <span class="marks">[6 marks]</span></p>
+            <label class="field-label" for="q7-own">Your answer (stays on this page; nothing is sent)</label>
+            <textarea class="answer-box" id="q7-own" rows="7"></textarea>
+            <details class="reveal"><summary>Show the levels and indicative content</summary><div class="reveal-body">
+              <table class="levels">
+                <thead><tr><th scope="col">Level</th><th scope="col">Marks</th><th scope="col">Descriptor</th></tr></thead>
+                <tbody>
+                  <tr><td>3</td><td>5–6</td><td>A clear, logically linked explanation of the force on the coil, the turning effect and the role of the commutator, plus at least two valid ways to increase speed</td></tr>
+                  <tr><td>2</td><td>3–4</td><td>An explanation with some links, covering the force and turning, with at least one way to increase speed</td></tr>
+                  <tr><td>1</td><td>1–2</td><td>Isolated relevant points, for example "current in a magnetic field gives a force"</td></tr>
+                  <tr><td>0</td><td>0</td><td>Nothing worthy of credit</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Indicative content:</strong> current in coil within magnetic field · force on each side (motor effect) · Fleming's left-hand rule gives direction · forces opposite on the two sides · turning effect · commutator reverses current every half turn · continuous rotation in one direction · speed increased by larger current, stronger field, more turns on the coil.</p>
+              <p class="examiner-tip"><strong>Examiner tip:</strong> the highest level needs a linked sequence (because… so…), not a list of facts. Build the chain trains exactly this.</p>
+            </div></details>
+          </div>
+        </div>
+      </details>
+
+      <h3>Knowledge organiser</h3>
+      <div class="unit-grid">
+        <div class="unit-card">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span></p>
+          <dl class="organiser">
+            <div><dt>Field around a wire</dt><dd>A current makes a magnetic field: circles centred on the wire. Stronger with more current, weaker further away. Reverse the current, reverse the field.</dd></div>
+            <div><dt>Solenoid</dt><dd>A coil of wire. Field inside strong and uniform; outside shaped like a bar magnet's field.</dd></div>
+            <div><dt>Electromagnet</dt><dd>A solenoid with an iron core. Stronger with more current, more turns or an iron core. Can be switched on and off.</dd></div>
+          </dl>
+        </div>
+        <div class="unit-card">
+          <p class="card-kicker"><span class="tier-badge">HT</span></p>
+          <dl class="organiser">
+            <div><dt>Motor effect</dt><dd>A wire carrying a current in a magnetic field experiences a force.</dd></div>
+            <div><dt>Direction</dt><dd>Fleming's left-hand rule: first finger field, second finger current, thumb motion (force).</dd></div>
+            <div><dt>Size</dt><dd><span class="eq">F = B I l</span>: F in newtons, B in tesla, I in amperes, l in metres; wire at right angles to the field.</dd></div>
+            <div><dt>DC motor</dt><dd>Forces on the two sides of the coil act in opposite directions, so the coil turns.</dd></div>
+            <div><dt>Commutator <span class="gf-badge">Going further</span></dt><dd>Reverses the current in the coil every half turn, so rotation continues in one direction.</dd></div>
+            <div><dt>Faster / reverse</dt><dd>Faster: larger current, stronger field, more turns. Reverse: reverse the current or the field (not both).</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <h3>Exit check</h3>
+      <ol class="qa-list">
+        <li><p><span class="tier-badge tier-badge-all">All</span> What shape is the magnetic field around a straight wire?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Circles centred on the wire.</p></div></details></li>
+        <li><p><span class="tier-badge tier-badge-all">All</span> What happens to the field if the current is reversed?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>It reverses direction.</p></div></details></li>
+        <li><p><span class="tier-badge tier-badge-all">All</span> What is an electromagnet?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>A solenoid with an iron core.</p></div></details></li>
+        <li><p><span class="tier-badge">HT</span> Which rule gives the direction of the force on a current-carrying wire in a magnetic field?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Fleming's left-hand rule.</p></div></details></li>
+        <li><p><span class="tier-badge">HT</span> Calculate the force on 0.20 m of wire carrying 5.0 A at right angles to a 0.10 T field.</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>F = 0.10 × 5.0 × 0.20 = 0.10 N</p></div></details></li>
+        <li><p><span class="tier-badge">HT</span> Why does a DC motor need a split-ring commutator? <span class="gf-badge">Going further</span></p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>It reverses the current every half turn, so the coil keeps turning in one direction.</p></div></details></li>
+      </ol>
+
+      <h3 style="margin-top:40px">Revisit it: come back on day 3, day 7 and day 21</h3>
+      <p>Short recall spaced out over time makes it stick until the exam. Note today's date and come back. Saved progress and reminders will arrive with student accounts.</p>
+      <div class="revisit-grid">
+        <div class="revisit-day">
+          <h4>Day 3</h4>
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span></p>
+          <ol><li>What shape is the field around a straight wire?</li><li>Where is that field strongest?</li><li>What does an iron core do to a solenoid's field?</li></ol>
+          <p class="card-kicker" style="margin-top:12px !important"><span class="tier-badge">HT</span></p>
+          <ol><li>What is the motor effect?</li><li>What does the thumb show in Fleming's left-hand rule?</li><li>Why does a DC motor need a commutator?</li></ol>
+          <details class="reveal"><summary>Show the answers</summary><div class="reveal-body"><p>All: circles centred on the wire · closest to the wire · makes it much stronger.</p><p>HT: a current-carrying wire in a magnetic field feels a force · the motion (force) · it reverses the current every half turn so the coil keeps turning one way.</p></div></details>
+        </div>
+        <div class="revisit-day">
+          <h4>Day 7</h4>
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span></p>
+          <ol><li>Describe the field inside a solenoid.</li><li>Give two ways to make an electromagnet stronger.</li><li>What happens to the poles if you reverse the current?</li></ol>
+          <p class="card-kicker" style="margin-top:12px !important"><span class="tier-badge">HT</span></p>
+          <ol><li>Give two ways to reverse a motor.</li><li>Give two ways to make it faster.</li><li>F = B I l: what is the unit of each quantity?</li></ol>
+          <details class="reveal"><summary>Show the answers</summary><div class="reveal-body"><p>All: strong and uniform · more current, iron core, more turns (any two) · they swap ends.</p><p>HT: reverse the current; reverse the field · larger current, stronger field, more turns (any two) · F newtons, B tesla, I amperes, l metres.</p></div></details>
+        </div>
+        <div class="revisit-day">
+          <h4>Day 21</h4>
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span></p>
+          <ol><li>Sketch the field around a wire and around a solenoid from memory, then check.</li><li>Why does a compass near a wire turn when the current is switched on?</li><li>Why is an electromagnet, not a permanent magnet, used in a scrapyard crane?</li></ol>
+          <p class="card-kicker" style="margin-top:12px !important"><span class="tier-badge">HT</span></p>
+          <ol><li>Explain why the two sides of the coil move in opposite directions.</li><li>Calculate F for 0.050 m, 2.0 A and 0.30 T.</li><li>Why would a motor without a commutator stop at the vertical?</li></ol>
+          <details class="reveal"><summary>Show the answers</summary><div class="reveal-body"><p>All: compare with the 3D model · the current makes a magnetic field, and the compass points along it · it can be switched off to drop the load.</p><p>HT: the current flows in opposite directions in the two sides, so the forces are opposite · F = 0.30 × 2.0 × 0.050 = 0.030 N · past the vertical the forces turn it back, so it rocks and settles there.</p></div></details>
+        </div>
+      </div>
+      <a class="to-journey" href="#journey">↑ Back to the journey</a>
+    </section>
+
+    <noscript>
+      <p class="aim-noscript">The 3D model and the marked activities need JavaScript. All the explanations, answers and mark schemes are still on this page.</p>
+    </noscript>
+  </main>
+
+  <nav class="where-next" aria-labelledby="where-next-heading">
+    <div class="where-next-inner">
+      <h2 id="where-next-heading">Where next?</h2>
+      <ul class="where-next-list">
+        <li><a class="where-next-link" href="../"><span><span class="where-next-kicker">Back to Physics</span><span class="where-next-title">Physics: units in order</span></span><span class="where-next-arrow" aria-hidden="true">→</span></a></li>
+        <li><a class="where-next-link" href="../induction-motor/"><span><span class="where-next-kicker">Going further (A-level)</span><span class="where-next-title">Inside an induction motor</span></span><span class="where-next-arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="../../" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="../../physics/">Physics</a></li>
+              <li><a href="../../maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="../../#loop">Learner journey</a></li>
+              <li><a href="../../#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="../../#partners">Schools &amp; trusts</a></li>
+              <li><a href="../../#partners">Publishers</a></li>
+              <li><a href="../../#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

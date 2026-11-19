@@ -239,6 +239,7 @@ html, body {
 .aim-speed { display: flex; align-items: center; gap: 6px; margin-left: auto; font-size: 0.85rem; color: var(--aim-text-muted); }
 .aim-ctrl-hint { margin: 0 !important; font-size: 0.78rem; color: var(--aim-text-muted); }
 .aim-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; }
+.aim-toggle[hidden] { display: none; }
 .aim-toggle-track {
   position: relative; width: 28px; height: 16px; border-radius: 999px; background: #33476b; flex: none;
 }

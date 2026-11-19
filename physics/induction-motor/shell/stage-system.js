@@ -80,7 +80,8 @@ function interactionBlock(ix, setOption) {
     if (ix.revealOption) setOption?.(ix.revealOption, true);
     // revealDelay (seconds): let a scene animation (e.g. a camera move) play
     // before the answer text appears. Skipped with prefers-reduced-motion.
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+      || document.documentElement.classList.contains('a11y-reduce-motion');
     // A reveal that animates the scene must be seen: bring the 3D view into
     // sight (the shell pauses rendering while the view is off screen).
     if (ix.revealOption) {

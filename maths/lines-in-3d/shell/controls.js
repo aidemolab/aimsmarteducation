@@ -4,7 +4,8 @@
 //
 // Layout items:
 //   "play" | "restart" | "speed" | "labels" | "tour" | "resetCamera"
-//   "toggle:<option>"   a toggle from controls.toggles[]
+//   "toggle:<option>"   a toggle from controls.toggles[] (shown only in its
+//                       stages, if it lists any; it keeps its value between stages)
 //   "slider:<option>"   a slider from controls.sliders[] (shown only in its stages)
 // Without a layout, the original motor layout is used.
 
@@ -52,6 +53,7 @@ export function createControls(root, api, cfg) {
   let syncPlay = () => {};
   let speedHint = null;
   const sliders = []; // { def, wrap, input, out, set(value) }
+  const toggles = []; // { def, button, set(value) }
 
   const makers = {
     play() {
@@ -118,6 +120,11 @@ export function createControls(root, api, cfg) {
       api.setOption(t.option, t.value);
       const b = toggleButton(t.label, t.value, (on) => api.setOption(t.option, on));
       b.dataset.control = t.option;
+      toggles.push({
+        def: t,
+        button: b,
+        set(on) { b.setAttribute('aria-pressed', String(!!on)); api.setOption(t.option, !!on); },
+      });
       return b;
     },
     slider(option) {
@@ -186,6 +193,7 @@ export function createControls(root, api, cfg) {
     for (const row of host.querySelectorAll('.aim-ctrl-sliders')) {
       row.hidden = [...row.children].every((c) => c.hidden);
     }
+    for (const t of toggles) t.button.hidden = !!t.def.stages && !t.def.stages.includes(i);
   }
 
   // Escape stops the tour.
@@ -194,6 +202,14 @@ export function createControls(root, api, cfg) {
   return {
     syncPlay,
     setStage,
+    // Sets a declared toggle or slider from page code (e.g. a "Try it" button),
+    // updating the control and sending the value to the scene.
+    setValue(option, value) {
+      const t = toggles.find((x) => x.def.option === option);
+      if (t) return t.set(value);
+      const s = sliders.find((x) => x.def.option === option);
+      if (s) { s.pending = null; s.set(value); }
+    },
     // Lets the scene's moving state (e.g. a parameter swept by Play) show on a slider.
     showSliderValue(option, value) {
       const s = sliders.find((x) => x.def.option === option);

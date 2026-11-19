@@ -23,6 +23,7 @@
         <span class="brand-mark" aria-hidden="true">A</span>
         <span class="wordmark">AIM Smart Education</span>
       </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
       <div class="site-menu" id="site-menu">
         <nav class="site-nav" aria-label="Main">
@@ -41,6 +42,42 @@
           </ul>
         </nav>
         <a class="header-cta" href="./#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
       </div>
     </div>
   </header>
@@ -97,15 +134,22 @@
             <p>Understand the mechanism, not just the picture</p>
           </div>
           <div class="tile-row">
+            <article class="tile" aria-labelledby="s0-title">
+              <p class="step-label">Step 1 · Hook</p>
+              <h4 id="s0-title">A real puzzle first</h4>
+              <p>A short real-world puzzle, then you commit to a prediction before anything is explained.</p>
+              <p class="tile-predict"><strong>Predict:</strong> the rotor has no magnet and no wires connected to it. So what makes it turn?</p>
+            </article>
+
             <article class="tile tile-dark" aria-labelledby="s1-title">
-              <p class="step-label">Step 1 · Explore it</p>
+              <p class="step-label">Step 2 · Explore</p>
               <h4 id="s1-title">Cause and effect, in 3D</h4>
               <p>Watch the mechanism step by step, then test your thinking with “What if?” predictions.</p>
               <p class="tile-inset"><strong class="what-if">What if</strong> you swap two of the three supply wires? Predict first, then watch.</p>
             </article>
 
             <article class="tile" aria-labelledby="s2-title">
-              <p class="step-label">Step 2 · Explain it to me <span class="ai-tag">✦ AI tutor</span></p>
+              <p class="step-label">Step 3 · Explain <span class="ai-tag">✦ AI tutor</span></p>
               <h4 id="s2-title">The AI asks you the questions</h4>
               <ul class="chat" aria-label="Example conversation">
                 <li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Why does the rotor start to turn?</li>
@@ -115,8 +159,18 @@
               <p class="caption">Example conversation</p>
             </article>
 
+          </div>
+        </section>
+
+        <!-- Practise it -->
+        <section class="phase" aria-labelledby="phase-practise">
+          <div class="phase-head">
+            <h3 id="phase-practise">Practise it</h3>
+            <p>Think it through, then prove it with your hands</p>
+          </div>
+          <div class="tile-row">
             <article class="tile" aria-labelledby="s3-title" data-chain>
-              <p class="step-label">Step 3 · Build the chain</p>
+              <p class="step-label">Step 4 · Build the chain</p>
               <h4 id="s3-title">Link what you saw to exam words</h4>
               <p>Tap the links in order, cause to effect.</p>
               <ol class="chain-list" data-chain-list aria-label="Your chain so far"></ol>
@@ -129,18 +183,9 @@
               <div class="feedback" role="status" data-chain-status></div>
               <button class="text-button" type="button" data-chain-reset>Start again</button>
             </article>
-          </div>
-        </section>
 
-        <!-- Practise it -->
-        <section class="phase" aria-labelledby="phase-practise">
-          <div class="phase-head">
-            <h3 id="phase-practise">Practise it</h3>
-            <p>Think it through, then prove it with your hands</p>
-          </div>
-          <div class="tile-row">
             <article class="tile" aria-labelledby="s4-title" data-trap>
-              <p class="step-label">Step 4 · Spot the trap <span class="ai-tag">✦ AI coaches the fix</span></p>
+              <p class="step-label">Step 5 · Spot the trap <span class="ai-tag">✦ AI coaches the fix</span></p>
               <h4 id="s4-title">“The rotor turns because it contains a magnet that the field pulls round.”</h4>
               <p id="s4-question">True or false?</p>
               <div class="choice-row" role="group" aria-labelledby="s4-question">
@@ -151,7 +196,7 @@
             </article>
 
             <article class="tile" aria-labelledby="s5-title" data-speed>
-              <p class="step-label">Step 5 · Do it, then say it</p>
+              <p class="step-label">Step 6 · Do it</p>
               <h4 id="s5-title">Set the rotor speed where the turning force is zero</h4>
               <p id="s5-label" class="visually-hidden">Rotor speed</p>
               <div class="choice-row" role="group" aria-labelledby="s5-label">
@@ -176,7 +221,7 @@
           </div>
           <div class="tile-row">
             <article class="tile tile-featured" aria-labelledby="s6-title" data-coach>
-              <p class="step-label">Step 6 · Write it <span class="ai-tag">✦ AI Exam Coach</span></p>
+              <p class="step-label">Step 7 · Write it and revisit it <span class="ai-tag">✦ AI Exam Coach</span></p>
               <h4 id="s6-title">Explain why the rotor always turns more slowly than the magnetic field. <span class="marks">[3 marks]</span></h4>
               <label class="field-label" for="s6-answer">Example student answer</label>
               <textarea id="s6-answer" class="answer" rows="3" readonly>The field cuts the bars and induces a current, so the bars feel a force and the rotor turns.</textarea>
@@ -196,7 +241,7 @@
             </article>
 
             <article class="tile tile-recall" aria-labelledby="s7-title">
-              <p class="step-label">Step 7 · Revisit it</p>
+              <p class="step-label">Step 7 · Write it and revisit it</p>
               <h4 id="s7-title">Three days later…</h4>
               <p class="recall-question">Why does an induction motor always have slip? One sentence.</p>
               <p>Short recall, spaced out over time, so understanding lasts until the exam.</p>
@@ -242,8 +287,8 @@
           <article class="topic-card" aria-labelledby="t-physics">
             <ul class="badges" aria-label="Tags"><li class="badge badge-physics">Physics</li><li class="badge badge-level">GCSE</li></ul>
             <h3 id="t-physics">How a DC motor works</h3>
-            <p>The motor effect and Fleming's left-hand rule, finally in 3D.</p>
-            <span class="badge badge-soon">In development</span>
+            <p>The motor effect and Fleming's left-hand rule, finally in 3D. Full Foundation route; Higher-tier parts marked.</p>
+            <a class="button button-primary topic-start" href="./physics/dc-motor/">Start the unit</a>
           </article>
           <article class="topic-card" aria-labelledby="t-maths">
             <ul class="badges" aria-label="Tags"><li class="badge badge-maths">Maths</li><li class="badge badge-level">GCSE</li></ul>

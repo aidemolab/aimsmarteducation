@@ -1,8 +1,9 @@
-// Home page learning loop: the four "try it" steps.
+// Home page learning loop: the four "try it" steps (4 Build the chain,
+// 5 Spot the trap, 6 Do it, 7 Write it and revisit it).
 // Runs entirely in the browser: no network requests, no storage, no forms.
 // The AI examples on the page are static until the real AI service exists.
 
-// Step 3: build the chain, cause to effect
+// Step 4: build the chain, cause to effect
 function initChain(root) {
   const list = root.querySelector("[data-chain-list]");
   const pool = root.querySelector("[data-chain-pool]");
@@ -51,7 +52,7 @@ function initChain(root) {
   });
 }
 
-// Step 4: spot the trap (true or false)
+// Step 5: spot the trap (true or false)
 function initTrap(root) {
   const buttons = [...root.querySelectorAll("button[data-answer]")];
   const status = root.querySelector("[data-trap-status]");
@@ -70,7 +71,7 @@ function initTrap(root) {
   });
 }
 
-// Step 5: set the rotor speed where the turning force is zero
+// Step 6 (Do it): set the rotor speed where the turning force is zero
 function initSpeed(root) {
   const buttons = [...root.querySelectorAll("button[data-force]")];
   const bar = root.querySelector("[data-speed-bar]");
@@ -92,7 +93,7 @@ function initSpeed(root) {
   });
 }
 
-// Step 6: example Exam Coach feedback (static, no AI call)
+// Step 7 (Write it): example Exam Coach feedback (static, no AI call)
 function initCoach(root) {
   const button = root.querySelector("[data-coach-check]");
   const result = root.querySelector("[data-coach-result]");

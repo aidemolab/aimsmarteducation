@@ -1,0 +1,33 @@
+/* DC motor scene: overlay readout and pole labels. Loaded by the page after
+   shell/shell.css (and the premium theme, on the website). */
+
+.aim-dc-readout {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  max-width: min(420px, calc(100% - 24px));
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(7, 15, 30, 0.82);
+  border: 1px solid rgba(185, 188, 203, 0.35);
+  color: #eef3fb;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.aim-dc-readout[hidden] { display: none; }
+.aim-dc-readout p { margin: 0; color: inherit; }
+.aim-dc-readout .aim-dc-readout-note { margin-top: 4px; color: #b9bccb; font-size: 0.82rem; }
+
+/* N and S on magnets and solenoid ends: large letters, always shown */
+.aim-label.aim-label-pole span {
+  padding: 2px 9px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.aim-label span:empty { display: none; }
+
+@media (max-width: 640px) {
+  .aim-dc-readout { font-size: 0.8rem; bottom: 8px; left: 8px; }
+}

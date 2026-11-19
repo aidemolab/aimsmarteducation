@@ -11,6 +11,13 @@ import { isShowcase, prepareShowcasePage, startShowcase, SHOWCASE_MAX_PIXEL_RATI
 
 const MAX_FRAME_DT = 0.1; // seconds; clamps long gaps (tab switch, breakpoint)
 
+// Reduced motion: the system setting, or the site's accessibility panel
+// (class "a11y-reduce-motion" on <html>, set by the host page).
+export function prefersReducedMotion() {
+  return matchMedia('(prefers-reduced-motion: reduce)').matches
+    || document.documentElement.classList.contains('a11y-reduce-motion');
+}
+
 function whenInView(el) {
   return new Promise((resolve) => {
     if (!('IntersectionObserver' in window)) return resolve();
@@ -32,7 +39,13 @@ export async function bootShell(root) {
   if (showcase) prepareShowcasePage(root, viewport);
 
   // Stage text loads first and works even if the 3D view does not.
-  const stagesPromise = createStageSystem(root).catch((err) => {
+  const stagesPromise = createStageSystem(root).then((stages) => {
+    // Page scripts (e.g. "Try it" buttons) can move between stages, with or
+    // without the 3D view.
+    root.aimStages = stages;
+    root.dispatchEvent(new CustomEvent('aim-stages', { detail: stages }));
+    return stages;
+  }).catch((err) => {
     console.error('[aim-shell] stages:', err);
     return null;
   });
@@ -81,6 +94,17 @@ export async function bootShell(root) {
       console.error('[aim-shell] controls:', err);
     }
   }
+  // Page scripts get the shell API once the 3D view is running.
+  root.aimApi = api;
+  root.dispatchEvent(new CustomEvent('aim-ready', { detail: api }));
+  // The site's accessibility panel can switch reduced motion on at any time:
+  // pause the animation (the student can still press Play).
+  document.addEventListener('aim-a11y-change', (e) => {
+    if (e.detail?.reduceMotion && api.sim.playing) {
+      api.sim.playing = false;
+      api.controlsUi?.syncPlay();
+    }
+  });
   if (showcase) {
     try {
       startShowcase(root, api, stages);
@@ -92,7 +116,7 @@ export async function bootShell(root) {
 }
 
 function startShell({ root, viewport, loading, THREE, OrbitControls, sceneModule, showcase = false }) {
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reducedMotion = prefersReducedMotion();
   let qualityLevel = initialQualityLevel();
   const maxPixelRatio = showcase ? SHOWCASE_MAX_PIXEL_RATIO : Infinity;
 
