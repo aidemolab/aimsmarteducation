@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-GB" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+  @font-face { font-family: "Manrope"; font-weight: 800; src: url("assets/fonts/manrope-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Manrope"; font-weight: 700; src: url("assets/fonts/manrope-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 400; src: url("assets/fonts/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 600; src: url("assets/fonts/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0d1320; }
+  #root { position: relative; width: 1920px; height: 1080px; background: radial-gradient(1200px 700px at 50% 40%, #16213a 0%, #0d1320 70%); color: #F4F5FA; font-family: "Source Sans 3", sans-serif; }
+  .clip { position: absolute; inset: 0; }
+  .abs { position: absolute; }
+  .h { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
+  .kicker { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.08em; text-transform: uppercase; color: #B9BCCB; }
+  .muted { color: #B9BCCB; }
+  .amber { color: #E9B949; }
+  .brand { position: absolute; left: 96px; bottom: 64px; display: flex; align-items: center; gap: 18px; font-family: "Manrope", sans-serif; font-weight: 800; font-size: 30px; color: #F4F5FA; }
+  .brand span.mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px; background: #3B3FB6; }
+  .ainote { position: absolute; right: 96px; bottom: 72px; font-size: 24px; color: #8f94a8; }
+  .badge { display: inline-block; padding: 4px 22px; border-radius: 12px; background: #F4F5FA; color: #14161F; font-family: "Manrope", sans-serif; font-weight: 800; }
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="explain-tier" data-start="0" data-duration="8.0333" data-width="1920" data-height="1080" data-fps="30">
+      <div class="clip" id="stage" data-start="0" data-duration="8.0333" data-track-index="0">
+
+        <div class="abs start-hidden" id="f" style="left:0;width:1920px;top:250px;text-align:center">
+          <div class="kicker">Foundation tier</div>
+          <div class="h" style="font-size:96px;margin-top:20px">That's everything you need <span style="color:#3DDC97">✓</span></div>
+        </div>
+        <div class="abs start-hidden" id="hgh" style="left:0;width:1920px;top:560px;text-align:center">
+          <div class="h" style="font-size:110px"><span class="badge">HT</span> &nbsp;Higher tier from here</div>
+          <div class="muted" style="font-size:54px;margin-top:30px">How this makes a motor turn</div>
+        </div>
+        <div class="brand"><span class="mark">A</span>AIM Smart Education</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t, from = { y: 30 }, d = 0.5) => tl.fromTo(sel, { autoAlpha: 0, ...from }, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: d, ease: "power2.out" }, t);
+      const hide = (sel, t, d = 0.35) => tl.to(sel, { autoAlpha: 0, duration: d, ease: "power1.in" }, t);
+      gsap.set(".start-hidden", { autoAlpha: 0 });
+
+      show("#f", 0.27, { y: 30 }, 0.5);
+      tl.to("#f", { autoAlpha: 0.45, duration: 0.4 }, 3.11);
+      show("#hgh", 3.31, { y: 30 }, 0.5);
+      tl.set({}, {}, 8.0333);
+      window.__timelines["explain-tier"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

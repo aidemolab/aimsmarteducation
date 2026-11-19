@@ -1,0 +1,47 @@
+{
+ "file": "physics/dc-motor/media/explain.mp4",
+ "video": "h264,1920,1080,yuv420p,30/1",
+ "audio": "aac,48000,2,177.462000",
+ "frames": 5324,
+ "expectedFrames": 5324,
+ "seconds": 177.47,
+ "audioSeconds": 177.46,
+ "syncOffsetMs": -5,
+ "framesMeasured": 5324,
+ "blankFrames": [],
+ "flickerFrames": [],
+ "cutsAt": [
+  4,
+  15.6,
+  26.47,
+  50.7,
+  78.5,
+  86.53,
+  110.97,
+  127.23,
+  146.87,
+  160.47
+ ],
+ "sizeMB": 17.04,
+ "cues": 53,
+ "longestCaptionLine": 42,
+ "shortestCueSeconds": 1,
+ "pauses": [
+  {
+   "scene": 3,
+   "at": 49.04
+  },
+  {
+   "scene": 4,
+   "at": 76.88
+  },
+  {
+   "scene": 7,
+   "at": 125.48
+  },
+  {
+   "scene": 8,
+   "at": 145.26
+  }
+ ]
+}

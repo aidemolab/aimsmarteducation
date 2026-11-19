@@ -1,0 +1,5 @@
+Flick a switch, and a fan starts spinning straight away. There's no engine inside. No fuel. Just a coil of wire, a couple of magnets, and an electric current.
+
+So what is actually pushing the blades round?
+
+Before we explain anything, make a prediction. Lock it in. Then test it in the model.

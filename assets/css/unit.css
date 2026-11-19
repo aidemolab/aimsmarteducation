@@ -483,3 +483,15 @@ html.a11y-reduce-motion .chain-model.is-broken .chain-rotor { transform: none; }
 .exit-plan a { display: inline-flex; align-items: center; min-height: 44px; }
 
 .exit-mark .u-btn-sm, .chain-figure .u-btn-sm { min-height: 44px; }
+
+/* Videos with pause points */
+.unit-video { margin: 0 0 16px; }
+.unit-video video { display: block; width: 100%; max-width: 760px; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-card); background: #0d1320; }
+.unit-video figcaption { margin: 6px 0 8px; }
+.video-pause { max-width: 760px; margin: 8px 0; padding: 12px 16px; border-radius: var(--radius-card); background: var(--accent-soft); border: 1px solid #F1E1B0; }
+.video-pause[hidden] { display: none; }
+.video-pause-q { margin: 0 0 8px; font-weight: 700; }
+.video-points { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 6px; }
+.video-points li { line-height: 1.5; }
+.video-points .u-btn-sm { min-height: 44px; margin-right: 6px; }
+.video-points li:not(:has([data-seek])) { color: var(--ink-muted); }

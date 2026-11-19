@@ -51,6 +51,7 @@
       u.searchParams.set('stage', b.dataset.tryStage);
       if (settings) u.searchParams.set('set', JSON.stringify(settings));
       u.searchParams.set('from', thisPage);
+      if (b.dataset.resume) u.searchParams.set('resume', b.dataset.resume); // come back to this moment of the video
       location.href = u.href;
       return;
     }
@@ -78,11 +79,12 @@
       p.textContent = `You came here from ${name} to try it in 3D.`;
       const back = document.createElement('a');
       back.className = 'u-btn u-btn-primary';
-      back.href = from;
+      const resume = Number(params.get('resume'));
+      back.href = resume > 0 ? `${from}?t=${resume}` : from;
       back.textContent = `← Back to ${name}`;
       back.addEventListener('click', (ev) => {
         const ref = document.referrer && new URL(document.referrer);
-        if (ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
+        if (!(resume > 0) && ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
       });
       bar.append(p, back);
       document.querySelector('#stage-explore .stage-head')?.after(bar);
@@ -467,6 +469,68 @@
     });
     nextBtn.addEventListener('click', () => { show(); input.focus(); });
     show();
+  }
+
+  // ---- Videos that talk to the model: pause points with a question and "Try it in 3D" ----
+  for (const root of document.querySelectorAll('[data-video]')) {
+    const video = root.querySelector('video');
+    const panel = root.querySelector('[data-video-panel]');
+    const points = [...root.querySelectorAll('[data-video-pauses] [data-at]')].map((li) => ({ li, at: Number(li.dataset.at) }));
+    if (!video || !panel) continue;
+    const play = () => { const p = video.play(); if (p && p.catch) p.catch(() => { /* interrupted by a pause: fine */ }); };
+    // Captions follow the accessibility panel's setting
+    const syncCaptions = () => { for (const t of video.textTracks) t.mode = html.classList.contains('a11y-captions-off') ? 'disabled' : 'showing'; };
+    syncCaptions();
+    document.addEventListener('aim-a11y-change', syncCaptions);
+    let last = 0;
+    const done = new Set();
+    const showPanel = (pt) => {
+      const q = document.createElement('p'); q.className = 'video-pause-q'; q.textContent = pt.li.querySelector('[data-q]').textContent;
+      const row = document.createElement('div'); row.className = 'button-row';
+      if (pt.li.dataset.pauseStage) {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'u-btn u-btn-primary try3d';
+        b.dataset.tryStage = pt.li.dataset.pauseStage; if (pt.li.dataset.pauseSet) b.dataset.set = pt.li.dataset.pauseSet;
+        b.dataset.resume = String(Math.ceil(pt.at + 0.3)); b.textContent = 'Try it in 3D'; // resume just after the pause point, in the gap before the next scene
+        row.append(b);
+      }
+      if (pt.li.dataset.goto) {
+        const a = document.createElement('a'); a.className = 'u-btn u-btn-primary'; a.href = pt.li.dataset.goto; a.textContent = pt.li.dataset.gotoLabel || 'Go on';
+        row.append(a);
+      }
+      const go = document.createElement('button'); go.type = 'button'; go.className = 'u-btn'; go.textContent = video.ended || video.duration - pt.at < 3 ? 'Watch again' : 'Continue the video';
+      go.addEventListener('click', () => { panel.hidden = true; if (video.ended || video.duration - pt.at < 3) video.currentTime = 0; play(); video.focus(); });
+      row.append(go);
+      panel.replaceChildren(q, row);
+      panel.hidden = false;
+      row.firstElementChild.focus();
+    };
+    video.addEventListener('seeking', () => { last = video.currentTime; });
+    video.addEventListener('play', () => { panel.hidden = true; last = video.currentTime; });
+    video.addEventListener('timeupdate', () => {
+      const now = video.currentTime;
+      if (!video.paused && !video.seeking && now - last < 1.5) {
+        const pt = points.find((p) => last < p.at && now >= p.at && !done.has(p.at));
+        if (pt) { done.add(pt.at); video.pause(); showPanel(pt); }
+      }
+      last = now;
+    });
+    // The list of pause points doubles as chapter links
+    for (const pt of points) {
+      const b = pt.li.querySelector('[data-seek]');
+      b?.addEventListener('click', () => { done.delete(pt.at); panel.hidden = true; video.currentTime = Math.max(0, Number(b.dataset.seek)); play(); video.focus(); });
+    }
+    // Back from "Try it in 3D": carry on from where the video paused
+    const t = Number(new URLSearchParams(location.search).get('t'));
+    if (t > 0) {
+      points.forEach((p) => { if (p.at <= t) done.add(p.at); });
+      const seek = () => { video.currentTime = t; last = t; };
+      if (video.readyState >= 1) seek(); else video.addEventListener('loadedmetadata', seek, { once: true });
+      const p = document.createElement('p'); p.className = 'video-pause-q'; p.textContent = 'Welcome back. Carry on from where you paused.';
+      const go = document.createElement('button'); go.type = 'button'; go.className = 'u-btn u-btn-primary'; go.textContent = 'Continue the video';
+      go.addEventListener('click', () => { panel.hidden = true; play(); video.focus(); });
+      panel.replaceChildren(p, go);
+      panel.hidden = false;
+    }
   }
 
   // ---- Example Exam Coach feedback (static, no AI call) ----------------------------

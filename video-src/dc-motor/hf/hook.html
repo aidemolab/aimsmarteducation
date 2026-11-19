@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-GB" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+  @font-face { font-family: "Manrope"; font-weight: 800; src: url("assets/fonts/manrope-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Manrope"; font-weight: 700; src: url("assets/fonts/manrope-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 400; src: url("assets/fonts/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 600; src: url("assets/fonts/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0d1320; }
+  #root { position: relative; width: 1920px; height: 1080px; background: radial-gradient(1200px 700px at 50% 40%, #16213a 0%, #0d1320 70%); color: #F4F5FA; font-family: "Source Sans 3", sans-serif; }
+  .clip { position: absolute; inset: 0; }
+  .abs { position: absolute; }
+  .h { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
+  .kicker { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.08em; text-transform: uppercase; color: #B9BCCB; }
+  .muted { color: #B9BCCB; }
+  .amber { color: #E9B949; }
+  .brand { position: absolute; left: 96px; bottom: 64px; display: flex; align-items: center; gap: 18px; font-family: "Manrope", sans-serif; font-weight: 800; font-size: 30px; color: #F4F5FA; }
+  .brand span.mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px; background: #3B3FB6; }
+  .ainote { position: absolute; right: 96px; bottom: 72px; font-size: 24px; color: #8f94a8; }
+  .badge { display: inline-block; padding: 4px 22px; border-radius: 12px; background: #F4F5FA; color: #14161F; font-family: "Manrope", sans-serif; font-weight: 800; }
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="hook" data-start="0" data-duration="23.0667" data-width="1920" data-height="1080" data-fps="30">
+      <div class="clip" id="stage" data-start="0" data-duration="23.0667" data-track-index="0">
+
+  <svg class="abs" id="fan" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <g transform="translate(560 470) scale(1)">
+      <rect x="-22" y="150" width="44" height="250" rx="10" fill="#2a3350"/>
+      <rect x="-150" y="390" width="300" height="40" rx="20" fill="#2a3350"/>
+      <circle r="290" fill="none" stroke="#3a4566" stroke-width="10"/>
+      <g id="blades">
+        <path d="M0 -40 C 90 -120 110 -230 20 -268 C -60 -250 -70 -130 0 -40Z" fill="#8C90F0"/>
+        <path d="M0 -40 C 90 -120 110 -230 20 -268 C -60 -250 -70 -130 0 -40Z" fill="#8C90F0" transform="rotate(120)"/>
+        <path d="M0 -40 C 90 -120 110 -230 20 -268 C -60 -250 -70 -130 0 -40Z" fill="#8C90F0" transform="rotate(240)"/>
+      </g>
+      <circle r="52" fill="#F4F5FA"/><circle r="22" fill="#3B3FB6"/>
+    </g>
+  </svg>
+        <div class="abs" id="switch" style="left:1150px;top:380px;width:460px;text-align:center">
+          <div id="track" style="margin:0 auto;width:300px;height:150px;border-radius:75px;background:#2a3350;position:relative;border:6px solid #3a4566">
+            <div id="knob" style="position:absolute;left:14px;top:12px;width:114px;height:114px;border-radius:57px;background:#F4F5FA"></div>
+          </div>
+          <div class="h" id="swlabel" style="font-size:64px;margin-top:36px;color:#B9BCCB">OFF</div>
+        </div>
+        <div class="abs start-hidden" id="no1" style="left:1040px;top:330px;width:760px"><span class="h" style="font-size:120px;position:relative">engine<span id="strike1" style="position:absolute;left:-10px;top:56%;height:12px;width:0;background:#E9B949;border-radius:6px"></span></span></div>
+        <div class="abs start-hidden" id="no2" style="left:1040px;top:520px;width:760px"><span class="h" style="font-size:120px;position:relative">fuel<span id="strike2" style="position:absolute;left:-10px;top:56%;height:12px;width:0;background:#E9B949;border-radius:6px"></span></span></div>
+        <div class="abs start-hidden" id="p1" style="left:1040px;top:250px;display:flex;align-items:center;gap:36px">
+          <svg width="150" height="110" viewBox="0 0 150 110"><path d="M10 55 a14 34 0 1 1 28 0 a14 34 0 1 1 28 0 a14 34 0 1 1 28 0 a14 34 0 1 1 28 0 a14 34 0 1 1 28 0" fill="none" stroke="#D9975A" stroke-width="9" stroke-linecap="round"/></svg>
+          <span class="h" style="font-size:72px">a coil of wire</span></div>
+        <div class="abs start-hidden" id="p2" style="left:1040px;top:440px;display:flex;align-items:center;gap:36px">
+          <svg width="150" height="110" viewBox="0 0 150 110"><rect x="4" y="15" width="56" height="80" rx="8" fill="#D64541"/><rect x="90" y="15" width="56" height="80" rx="8" fill="#3D6FD6"/><text x="32" y="70" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="40" fill="#fff">N</text><text x="118" y="70" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="40" fill="#fff">S</text></svg>
+          <span class="h" style="font-size:72px">a couple of magnets</span></div>
+        <div class="abs start-hidden" id="p3" style="left:1040px;top:630px;display:flex;align-items:center;gap:36px">
+          <svg width="150" height="110" viewBox="0 0 150 110"><path d="M10 55 H140" stroke="#D9975A" stroke-width="9" stroke-linecap="round"/><path d="M52 30 l34 25 -34 25z" fill="#E9B949"/><path d="M96 30 l34 25 -34 25z" fill="#E9B949"/></svg>
+          <span class="h" style="font-size:72px">an electric current</span></div>
+        <div class="abs start-hidden h" id="question" style="left:1010px;top:300px;width:820px;font-size:112px">What pushes the blades round<span class="amber">?</span></div>
+        <div class="abs start-hidden" id="end" style="left:0;top:0;width:1920px;height:1080px">
+          <div class="abs start-hidden kicker" id="e0" style="left:0;width:1920px;top:250px;text-align:center">Before we explain anything</div>
+          <div class="abs start-hidden h" id="e1" style="left:0;width:1920px;top:330px;text-align:center;font-size:150px">Make a prediction</div>
+          <div class="abs start-hidden h amber" id="e2" style="left:0;width:1920px;top:560px;text-align:center;font-size:84px">Lock it in.</div>
+          <div class="abs start-hidden h" id="e3" style="left:0;width:1920px;top:700px;text-align:center;font-size:84px">Then test it in the 3D model.</div>
+        </div>
+        <div class="brand"><span class="mark">A</span>AIM Smart Education</div>
+        <div class="ainote">AI narration</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t, from = { y: 30 }, d = 0.5) => tl.fromTo(sel, { autoAlpha: 0, ...from }, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: d, ease: "power2.out" }, t);
+      const hide = (sel, t, d = 0.35) => tl.to(sel, { autoAlpha: 0, duration: d, ease: "power1.in" }, t);
+      gsap.set(".start-hidden", { autoAlpha: 0 });
+
+      tl.to("#knob", { x: 152, duration: 0.25, ease: "power2.out" }, 1.25);
+      tl.to("#track", { backgroundColor: "#3B3FB6", borderColor: "#8C90F0", duration: 0.25 }, 1.25);
+      tl.set("#swlabel", { textContent: "ON", color: "#F4F5FA" }, 1.3);
+
+      tl.to("#blades", { rotation: 300, svgOrigin: "0 0", duration: 2.0, ease: "power2.in" }, 1.4);
+      tl.to("#blades", { rotation: 300 + 600 * 19.67, svgOrigin: "0 0", duration: 19.67, ease: "none" }, 3.4);
+      hide("#switch", 4.13);
+      show("#no1", 4.58, { x: 40 }, 0.35);
+      tl.to("#strike1", { width: "106%", duration: 0.3, ease: "power2.out" }, 5.13);
+      show("#no2", 5.94, { x: 40 }, 0.3);
+      tl.to("#strike2", { width: "112%", duration: 0.3, ease: "power2.out" }, 6.24);
+      hide("#no1", 6.51, 0.3); hide("#no2", 6.51, 0.3);
+      show("#p1", 7.06, { x: 40 }, 0.4);
+      show("#p2", 8.31, { x: 40 }, 0.4);
+      show("#p3", 9.36, { x: 40 }, 0.4);
+      hide("#p1", 10.87, 0.3); hide("#p2", 10.87, 0.3); hide("#p3", 10.87, 0.3);
+      show("#question", 11.42, { y: 40 }, 0.5);
+      hide("#question", 14.62, 0.3);
+      tl.to("#fan", { autoAlpha: 0.12, duration: 0.5 }, 14.67);
+      tl.set("#end", { autoAlpha: 1 }, 14.97);
+      show("#e0", 15.02, { y: 20 }, 0.4);
+      show("#e1", 15.87, { scale: 0.92 }, 0.5);
+      show("#e2", 17.83, { y: 20 }, 0.35);
+      show("#e3", 18.89, { y: 20 }, 0.4);
+      tl.set({}, {}, 23.0667);
+      window.__timelines["hook"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

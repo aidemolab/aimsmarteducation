@@ -39,6 +39,12 @@ Pages are always short: no page should need long scrolling. Aim for about two la
 - Only `explore.html` loads the 3D model. "Try it in 3D" buttons on other pages open `explore.html?stage=N&set=…&from=page.html`, which sets the model and shows a "Back to …" button.
 - No inline `style=` attributes or `onclick=` handlers: the Content-Security-Policy blocks them. Use classes in `assets/css/unit.css` and handlers in `assets/js/unit.js`.
 
+## Videos
+
+Unit videos (for example `physics/dc-motor/media/hook.mp4`) are self-hosted MP4 files with WebVTT captions, a transcript on the page and pause points that open the 3D model. Their scripts are in `docs/videos/`, and everything needed to rebuild them is in `video-src/` (see `video-src/dc-motor/README.md`). Pages with a video allow `media-src 'self'` in their Content-Security-Policy.
+
+Python's `http.server` cannot serve byte ranges, so videos cannot be seeked with it. To test videos locally, run `node video-src/serve.mjs` and open http://localhost:8422.
+
 ## Security
 
 GitHub Pages cannot set HTTP headers, so each page carries a Content-Security-Policy `<meta>` tag. It allows scripts, styles, fonts and connections only from this site.
