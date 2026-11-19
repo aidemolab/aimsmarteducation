@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/explain.html">
+  <title>3. Explain (1 of 3): The magnetic effect of a current · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 3 of 7 (Explain, The magnetic effect of a current) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
+  <link rel="stylesheet" href="../../assets/css/premium-theme.css">
+  <link rel="stylesheet" href="./scenes/dc-motor.css">
+  <link rel="stylesheet" href="../../assets/css/explainer-page.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../../assets/css/unit.css">
+  <script src="../../assets/js/site-nav.js"></script>
+  <script src="../../assets/js/unit.js" defer></script>
+</head>
+<body class="aim-theme-premium aim-page-motor aim-unit">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../physics/" aria-current="true"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../../maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="aim-app" id="main">
+
+    <div class="aim-header aim-header-compact">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Physics</a></li>
+          <li><a href="./">How a DC motor works</a></li>
+          <li><span aria-current="page">3. Explain (part 1 of 3)</span></li>
+        </ol>
+      </nav>
+      <div class="unit-strip">
+        <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
+    <div class="route-mini" role="group" aria-label="Your route">
+      <span class="route-mini-label">Route:</span>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
+    </div>
+      </div>
+    </div>
+
+    <nav class="journey journey-compact" id="journey" aria-labelledby="journey-heading">
+      <h2 id="journey-heading" class="visually-hidden">Your learning journey: seven stages</h2>
+      <ol class="journey-phases">
+        <li class="journey-phase">
+          <h3>See it</h3>
+          <p>Understand the mechanism, not just the picture</p>
+          <ol>
+            <li><a class="journey-link" href="hook.html"><span class="journey-num" aria-hidden="true">1</span>Hook</a></li>
+            <li><a class="journey-link" href="explore.html"><span class="journey-num" aria-hidden="true">2</span>Explore</a></li>
+            <li><a class="journey-link" href="explain.html" aria-current="step"><span class="journey-num" aria-hidden="true">3</span>Explain</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase">
+          <h3>Practise it</h3>
+          <p>Think it through, then prove it</p>
+          <ol>
+            <li><a class="journey-link" href="chain.html"><span class="journey-num" aria-hidden="true">4</span>Build the chain</a></li>
+            <li><a class="journey-link" href="trap.html"><span class="journey-num" aria-hidden="true">5</span>Spot the trap</a></li>
+            <li><a class="journey-link" href="do-it.html"><span class="journey-num" aria-hidden="true">6</span>Do it</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase journey-phase-ace">
+          <h3>Ace it</h3>
+          <p>Write answers that earn the marks, and remember them</p>
+          <ol>
+            <li><a class="journey-link" href="write.html"><span class="journey-num" aria-hidden="true">7</span>Write it and revisit it</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+
+        <section class="stage-section" id="stage-explain" aria-labelledby="explain-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">See it · Stage 3 of 7</p>
+        <h1 id="explain-heading">Explain</h1>
+        <p class="stage-purpose">Turn what you saw into accurate science and exam vocabulary. Each step pauses with a question. Use "Try it in 3D" to jump to the same moment in the model.</p>
+      </div>
+      <nav class="part-nav" aria-label="Parts of this stage">
+        <ol>
+          <li><a href="explain.html" aria-current="page"><span class="part-num">Part 1</span> The magnetic effect of a current</a></li>
+          <li><a href="explain-motor.html"><span class="part-num">Part 2</span> The force on the coil</a></li>
+          <li><a href="explain-turning.html"><span class="part-num">Part 3</span> How the coil keeps turning</a></li>
+        </ol>
+      </nav>
+
+
+      <div class="video-slot" role="note">
+        <strong>Explainer video: coming soon</strong>
+        <p>It will pause to ask you questions and jump into the 3D model at the same moment, with captions and a transcript. Until then, work through the steps below.</p>
+      </div>
+
+      <h3 class="visually-hidden">Foundation and Higher: the magnetic effect of a current</h3>
+      <div class="unit-grid">
+        <article class="unit-card">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Step A</p>
+          <h3>A current makes a magnetic field</h3>
+          <p>When a current flows through a wire, there is a magnetic field around it. The field lines are circles centred on the wire.</p>
+          <p>The field is stronger with a bigger current, and stronger closer to the wire. Reverse the current and the field reverses direction.</p>
+          <p>You need to draw the field's direction, with arrows on the field lines. To find it, use a compass, or this way of remembering it:</p>
+          <p><strong>Right-hand grip rule</strong> <span class="method-badge">Method (not named in the specification)</span> Point your right thumb along the current; your fingers curl the way the field goes.</p>
+          <p class="q-stem">Quick check: what happens to the field if the current is reversed?</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The field reverses direction. Its shape stays the same: circles round the wire.</p></div></details>
+          <button class="u-btn try3d" type="button" data-try-stage="0">Try it in 3D</button>
+        </article>
+        <article class="unit-card">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Step B</p>
+          <h3>Coil it up: the solenoid</h3>
+          <p>Shaping the wire into a coil, a solenoid, makes the field stronger. Inside a solenoid the field is strong and uniform. Outside, it has the same shape as the field of a bar magnet.</p>
+          <p>Adding an iron core makes the field stronger still. A solenoid with an iron core is an electromagnet.</p>
+          <p class="q-stem">Quick check: give two ways to make a solenoid's field stronger.</p>
+          <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Any two: increase the current; add an iron core; add more turns of wire in the same length.</p></div></details>
+          <button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Try it in 3D</button>
+        </article>
+      </div>
+
+      <div class="unit-card real-world">
+        <h3>Where you'll find this</h3>
+        <ul>
+          <li><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> <strong>Electromagnets:</strong> scrapyard cranes switch theirs off to drop the scrap. Electric door locks and relays use small ones.</li>
+          <li><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> <strong>DC motors:</strong> electric toothbrushes, drones, car windows and computer fans all spin because of the motor effect.</li>
+        </ul>
+      </div>
+    </section>
+
+    <nav class="stage-pager" aria-label="Stage navigation">
+      <a class="pager-link pager-prev" rel="prev" href="explore.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 2. Explore</span></a>
+      <a class="pager-link pager-next" rel="next" href="explain-motor.html"><span class="pager-kicker">Next</span><span class="pager-title">3. Explain, part 2 →</span></a>
+    </nav>
+
+    <noscript>
+      <p class="aim-noscript">The 3D model and the marked activities need JavaScript. All the explanations, answers and mark schemes are still on this page.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer site-footer-compact">
+    <div class="site-footer-inner">
+      <p class="footer-compact-legal">Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+      <nav class="footer-compact-nav" aria-label="Footer"><a href="../../">Home</a><a href="../">Physics</a><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

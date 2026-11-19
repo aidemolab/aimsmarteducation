@@ -3,6 +3,13 @@
 
 const TOPICS = [
   {
+    title: 'How a DC motor works',
+    subject: 'Physics',
+    level: 'GCSE',
+    path: 'physics/dc-motor/',
+    keywords: 'dc motor electric motor motor effect magnetic field wire solenoid electromagnet iron core flemings left hand rule fleming force on a conductor f bil flux density coil commutator split ring brushes electromagnetism aqa 8463 4.7.2 foundation higher',
+  },
+  {
     title: 'Inside an Induction Motor',
     subject: 'Physics',
     level: 'A-level',

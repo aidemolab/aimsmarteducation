@@ -478,6 +478,8 @@ a.card, .card:has(.card-link) { transition: border-color 0.15s ease; }
   color: #FFFFFF;
 }
 .what-if { color: var(--accent); }
+/* Hook: a predict moment on a light tile (accent-soft, ink text) */
+.tile .tile-predict { margin: auto 0 0; padding: 12px var(--space-2); border: 1px solid var(--accent); border-radius: var(--radius-control); background: var(--accent-soft); color: var(--ink); }
 
 .tile-featured { flex-basis: 480px; flex-grow: 2; box-shadow: var(--shadow-feature); }
 .tile-recall { background: var(--accent-soft); border-color: #F1E1B0; }
@@ -597,6 +599,7 @@ a.card, .card:has(.card-link) { transition: border-color 0.15s ease; }
 .topic-card h3 { margin-bottom: var(--space-1); }
 .topic-card p { color: var(--ink-muted); }
 .topic-card .badge-soon { margin-top: auto; }
+.topic-card .topic-start { margin-top: auto; align-self: flex-start; }
 .live-strip { margin-top: var(--space-3); padding: var(--space-2) var(--space-3); border-radius: var(--radius-card); background: var(--brand-soft); }
 .live-strip p { margin: 0; }
 .live-strip a { display: inline-block; padding: 8px 0; font-weight: 600; }

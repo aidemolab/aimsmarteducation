@@ -29,6 +29,16 @@ physics/, maths/                Subject pages, one folder per explainer or unit
 
 Fix bugs in the 3D engine once, in `assets/explainer-shell/`; every explainer picks up the change.
 
+## Page length rule (always)
+
+Pages are always short: no page should need long scrolling. Aim for about two laptop screens (1366 × 768) and never more than three, and check phone width too.
+
+- A unit is a short overview page (`index.html`) plus one page per stage (`hook.html`, `explore.html` …).
+- When a stage is still too long, split it into parts, each its own page (`explain.html`, `explain-motor.html`, `explain-turning.html`), linked by the part chips under the stage heading.
+- Every stage page has the compact journey bar, the Foundation/Higher route switch and Previous/Next links. The chosen route is remembered between pages.
+- Only `explore.html` loads the 3D model. "Try it in 3D" buttons on other pages open `explore.html?stage=N&set=…&from=page.html`, which sets the model and shows a "Back to …" button.
+- No inline `style=` attributes or `onclick=` handlers: the Content-Security-Policy blocks them. Use classes in `assets/css/unit.css` and handlers in `assets/js/unit.js`.
+
 ## Security
 
 GitHub Pages cannot set HTTP headers, so each page carries a Content-Security-Policy `<meta>` tag. It allows scripts, styles, fonts and connections only from this site.

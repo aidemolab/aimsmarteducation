@@ -316,3 +316,127 @@
 .footer-legal { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
 .site-footer p { margin: 0 0 8px; }
 .site-footer p:last-child { margin-bottom: 0; }
+
+/* Accessibility button and panel (in the shared header) */
+.a11y-toggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.js-nav .a11y-toggle { display: inline-flex; }
+.a11y-toggle:hover { border-color: var(--brand); color: var(--brand-strong); }
+.a11y-toggle[aria-expanded="true"] { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-strong); }
+.a11y-icon { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; }
+@media (max-width: 559.98px) {
+  .a11y-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+@media (min-width: 960px) {
+  .a11y-toggle { order: 3; }
+}
+
+.a11y-panel { border-top: 1px solid var(--line); background: var(--surface); }
+.a11y-panel[hidden] { display: none; }
+.a11y-inner { max-width: 1200px; margin: 0 auto; padding: 16px; }
+@media (min-width: 720px) { .a11y-inner { padding: 16px 24px 24px; } }
+.a11y-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.a11y-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.a11y-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.a11y-group-label { margin: 0 0 6px; font-weight: 700; color: var(--ink); }
+.a11y-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.a11y-option,
+.a11y-close {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--brand);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.a11y-option:hover,
+.a11y-close:hover { border-color: var(--brand); color: var(--brand-strong); }
+.a11y-option[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #FFFFFF; }
+.a11y-switch::before { content: "○ "; }
+.a11y-switch[aria-pressed="true"]::before { content: "● "; }
+.a11y-hint { margin: 8px 0 0; color: var(--ink-muted); font-size: 0.95rem; line-height: 22px; }
+.a11y-reset {
+  min-height: 44px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--brand);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.a11y-panel :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: var(--radius-badge); }
+
+/* Accessibility settings, applied to the whole page (site and explainer pages) */
+html.a11y-size-1 { font-size: 112.5%; }
+html.a11y-size-2 { font-size: 125%; }
+html.a11y-size-1 body,
+html.a11y-size-1 .aim-theme-premium { font-size: 20px; line-height: 31px; }
+html.a11y-size-2 body,
+html.a11y-size-2 .aim-theme-premium { font-size: 22px; line-height: 34px; }
+
+html.a11y-contrast,
+html.a11y-contrast body,
+html.a11y-contrast .aim-theme-premium {
+  --paper: #FFFFFF;
+  --line: #5A5E6B;
+  --ink: #000000;
+  --ink-muted: #1F2230;
+  --brand: #2C2F8F;
+  --brand-strong: #1A1C66;
+  --stage-text: #E6E8F0;
+}
+html.a11y-contrast a { text-decoration: underline; }
+
+html.a11y-dyslexia,
+html.a11y-dyslexia body,
+html.a11y-dyslexia .aim-theme-premium {
+  --font-body: Verdana, Tahoma, "Segoe UI", sans-serif;
+  --font-heading: Verdana, Tahoma, "Segoe UI", sans-serif;
+}
+html.a11y-dyslexia body { letter-spacing: 0.02em; word-spacing: 0.12em; line-height: 1.75; }
+html.a11y-dyslexia h1, html.a11y-dyslexia h2, html.a11y-dyslexia h3, html.a11y-dyslexia h4 { letter-spacing: 0; }
+html.a11y-dyslexia em, html.a11y-dyslexia i { font-style: normal; font-weight: 700; }
+html.a11y-dyslexia p { text-align: left; }
+
+html.a11y-reduce-motion,
+html.a11y-reduce-motion * { scroll-behavior: auto !important; }
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Compact one-line footer for unit stage pages (the full footer stays on the overview and last page) */
+.site-footer-compact { padding: 16px 0; }
+.site-footer-compact .site-footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; }
+.site-footer-compact .footer-compact-legal { margin: 0; font-size: 0.9rem; line-height: 22px; flex: 1 1 420px; }
+.footer-compact-nav { display: flex; gap: 0 20px; }
+.footer-compact-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-muted); text-decoration: none; }
+.footer-compact-nav a:hover { color: var(--brand-strong); text-decoration: underline; text-underline-offset: 3px; }
