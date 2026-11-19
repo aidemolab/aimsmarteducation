@@ -142,7 +142,18 @@
 
       <div class="unit-card" data-chain>
         <h3>Making an electromagnet <span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span></h3>
-        <p>Tap the links in order, starting with the cause.</p>
+        <p>Tap the links in order, starting with the cause. Each link you place lights its part of the diagram; a wrong order breaks the chain.</p>
+        <figure class="chain-figure">
+          <svg class="chain-model" data-chain-model viewBox="0 0 240 150" role="img" aria-label="Diagram of an electromagnet: a cell, a coil of wire and an iron core. Each part lights up when you place its link.">
+            <g data-part="1"><path class="dg-lead" d="M88 86V128H108M120 128H172V86"/><path class="dg-plate" d="M108 116V140"/><path class="dg-plate dg-plate-short" d="M120 122V134"/><path class="dg-current" d="M156 123l-10 5 10 5z"/></g>
+            <g data-part="2"><ellipse class="dg-field" cx="88" cy="100" rx="11" ry="4"/><ellipse class="dg-field" cx="88" cy="112" rx="11" ry="4"/></g>
+            <g data-part="3"><path class="dg-turn" d="M94 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M106 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M118 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M130 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M142 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M154 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32M166 54a5 16 0 0 0 0 32a5 16 0 0 0 0-32"/><path class="dg-field" d="M52 70H206M206 70C232 70 232 24 130 24C28 24 28 70 52 70"/><path class="dg-field-head" d="M196 65l10 5-10 5z"/></g>
+            <g data-part="4"><rect class="dg-core" x="84" y="63" width="92" height="14" rx="2"/><path class="dg-field" d="M214 70C246 70 246 8 130 8C14 8 14 70 44 70"/><text x="70" y="104" text-anchor="middle">S</text><text x="190" y="104" text-anchor="middle">N</text></g>
+            <text class="chain-flag-ok" x="236" y="146" text-anchor="end">electromagnet on</text>
+            <text class="chain-flag-broken" x="236" y="146" text-anchor="end">chain broken</text>
+          </svg>
+          <figcaption class="caption">This 2D diagram stands in for the 3D model on this page. <button class="u-btn u-btn-sm try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>See it in 3D</button></figcaption>
+        </figure>
         <ol class="chain-list" data-chain-list aria-label="Your chain so far"></ol>
         <div class="choice-stack" data-chain-pool>
           <button class="choice" type="button" data-step="3">Winding the wire into a solenoid makes the field stronger: strong and uniform inside</button>
@@ -159,7 +170,23 @@
         <div class="ht-body">
           <div class="unit-card" data-chain>
             <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2, 4.7.2.3</span></p>
-            <p>Tap the five links in order. <span class="caption">Link 5 (the commutator) is <span class="gf-badge">Going further</span>: AQA does not name it, but it is what makes the rotation continuous.</span></p>
+            <p>Tap the five links in order. A wrong order stalls the motor. <span class="caption">Link 5 (the commutator) is <span class="gf-badge">Going further</span>: AQA does not name it, but it is what makes the rotation continuous.</span></p>
+            <figure class="chain-figure">
+              <svg class="chain-model" data-chain-model viewBox="0 0 240 150" role="img" aria-label="End view of a motor: a coil between a north and a south pole. Each part lights up when you place its link, and the coil spins when the chain is complete.">
+                <rect class="dg-mag-n" x="0" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="9" y="81">N</text>
+                <rect class="dg-mag-s" x="210" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="219" y="81">S</text>
+                <path class="dg-field dg-behind" d="M34 30H206M34 120H206"/><path class="dg-field-head dg-behind" d="M196 25l10 5-10 5zM196 115l10 5-10 5z"/>
+                <g class="chain-rotor">
+                  <g data-part="1"><line class="dg-coil" x1="75" y1="75" x2="165" y2="75"/><circle class="dg-wire" cx="75" cy="75" r="8"/><circle class="dg-wire" cx="165" cy="75" r="8"/></g>
+                  <g data-part="5"><path class="dg-comm" d="M117 65A10 10 0 0 0 117 85ZM123 65A10 10 0 0 1 123 85Z"/></g>
+                </g>
+                <g data-part="2"><path class="dg-force" d="M52 60V88M188 90V62"/><path class="dg-force-head" d="M46 86l6 12 6-12zM182 64l6-12 6 12z"/></g>
+                <g data-part="3"><text x="52" y="112" text-anchor="middle">down</text><text x="188" y="47" text-anchor="middle">up</text></g>
+                <text class="chain-flag-ok" x="120" y="146" text-anchor="middle">motor running</text>
+                <text class="chain-flag-broken" x="120" y="146" text-anchor="middle">motor stalled</text>
+              </svg>
+              <figcaption class="caption">This 2D diagram stands in for the 3D model on this page. <button class="u-btn u-btn-sm try3d" type="button" data-try-stage="6">See it in 3D</button></figcaption>
+            </figure>
             <ol class="chain-list" data-chain-list aria-label="Your chain so far"></ol>
             <div class="choice-stack" data-chain-pool>
               <button class="choice" type="button" data-step="3">The current flows in opposite directions in the two sides, so the forces on them act in opposite directions</button>

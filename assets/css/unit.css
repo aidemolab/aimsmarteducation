@@ -441,3 +441,45 @@
 .dg-cone { fill: #E6E8EF; stroke: var(--ink); stroke-width: 2; }
 .dg-motor { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
 .ht-part-note-po { background: var(--brand-soft); border-color: transparent; }
+
+/* Build the chain: a diagram whose parts light up as links are placed; a wrong order breaks it */
+.chain-figure { margin: 0 0 12px; }
+.chain-model { display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 4px; border-radius: 8px; }
+.chain-model text { font-family: var(--font-body); font-size: 12px; fill: var(--ink); }
+.chain-model [data-part] { opacity: 0.16; transition: opacity 0.2s ease; }
+.chain-model [data-part].is-lit { opacity: 1; }
+.dg-turn { fill: none; stroke: #B26A3C; stroke-width: 3; }
+.chain-flag-ok, .chain-flag-broken { display: none; font-weight: 700; }
+.chain-model.is-complete .chain-flag-ok { display: inline; fill: #1E7A4C; }
+.chain-model.is-broken .chain-flag-broken { display: inline; fill: #A8391F; }
+.chain-model.is-broken { outline: 2px dashed #A8391F; outline-offset: 2px; }
+.chain-rotor { transform-origin: 120px 75px; }
+.chain-model[data-lit="4"] .chain-rotor { animation: chain-turn 1.4s ease-out forwards; }
+.chain-model.is-complete .chain-rotor { animation: chain-spin 2.4s linear infinite; }
+.chain-model.is-broken .chain-rotor { animation: none; }
+@keyframes chain-turn { to { transform: rotate(-80deg); } }
+@keyframes chain-spin { to { transform: rotate(-360deg); } }
+.chain-list .chain-broken { list-style: none; color: #A8391F; text-decoration: line-through; }
+.chain-figure figcaption { text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+  .chain-model .chain-rotor { animation: none !important; }
+  .chain-model[data-lit="4"] .chain-rotor, .chain-model.is-complete .chain-rotor { transform: rotate(-35deg); }
+  .chain-model.is-broken .chain-rotor { transform: none; }
+}
+html.a11y-reduce-motion .chain-model .chain-rotor { animation: none !important; }
+html.a11y-reduce-motion .chain-model[data-lit="4"] .chain-rotor, html.a11y-reduce-motion .chain-model.is-complete .chain-rotor { transform: rotate(-35deg); }
+html.a11y-reduce-motion .chain-model.is-broken .chain-rotor { transform: none; }
+
+/* Adaptive trainer, self-mark "to add" list and exit-check revisit list */
+.adaptive-level { margin: 0 0 8px; font-weight: 700; color: var(--brand-strong); }
+[data-adaptive-hints]:empty { display: none; }
+.selfmark-missing { margin: 0 0 12px; padding-left: 1.3em; }
+.selfmark-missing:empty { display: none; }
+.exit-mark { display: flex; gap: 8px; margin: 4px 0 8px; }
+.exit-mark .u-btn[aria-pressed="true"] { background: var(--brand); color: #fff; border-color: var(--brand); }
+.exit-plan:not(:empty) { margin: 12px 0; padding: 12px 16px; border-radius: var(--radius-control); background: var(--accent-soft); border: 1px solid #F1E1B0; }
+.exit-plan p { margin: 0 0 4px; }
+.exit-plan ul { margin: 0; padding-left: 1.3em; }
+.exit-plan a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.exit-mark .u-btn-sm, .chain-figure .u-btn-sm { min-height: 44px; }
