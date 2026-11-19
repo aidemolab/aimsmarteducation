@@ -1,0 +1,40 @@
+{
+  "topic": "[Module title]",
+  "stages": [
+    {
+      "id": "placeholder",
+      "title": "[Model step 1]",
+      "body": [
+        "[What the student sees and changes in this step, in short sentences. One idea per step, cause to effect.]"
+      ],
+      "notes": [
+        "[Spec point and tier for this step, checked against the PDF in _specs/.]"
+      ],
+      "badges": [
+        "Template"
+      ]
+    }
+  ],
+  "controls": {
+    "playLabel": "Play",
+    "pauseLabel": "Pause",
+    "restartLabel": "Restart",
+    "speedLabel": "Animation speed",
+    "speedHint": "Changes how fast the animation plays.",
+    "resetCameraLabel": "Reset camera",
+    "hint": "Drag to orbit. Scroll or pinch to zoom.",
+    "layout": [
+      [
+        "play",
+        "restart",
+        "speed"
+      ],
+      [
+        "resetCamera"
+      ]
+    ],
+    "sliders": [],
+    "toggles": []
+  },
+  "labels": {}
+}
