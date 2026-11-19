@@ -432,3 +432,11 @@ html.a11y-reduce-motion *::after {
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
 }
+
+/* Compact one-line footer for unit stage pages (the full footer stays on the overview and last page) */
+.site-footer-compact { padding: 16px 0; }
+.site-footer-compact .site-footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 24px; }
+.site-footer-compact .footer-compact-legal { margin: 0; font-size: 0.9rem; line-height: 22px; flex: 1 1 420px; }
+.footer-compact-nav { display: flex; gap: 0 20px; }
+.footer-compact-nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-muted); text-decoration: none; }
+.footer-compact-nav a:hover { color: var(--brand-strong); text-decoration: underline; text-underline-offset: 3px; }

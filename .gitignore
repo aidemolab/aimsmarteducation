@@ -17,3 +17,6 @@ node_modules/
 
 # Private project notes (kept local)
 CLAUDE.md
+
+# AQA specifications: copyright, never commit
+_specs/

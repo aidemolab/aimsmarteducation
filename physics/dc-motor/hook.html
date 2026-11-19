@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/hook.html">
-  <title>1. Hook · How a DC Motor Works | AIM Smart Education</title>
-  <meta name="description" content="Stage 1 of 7 (Hook) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <title>1. Hook (1 of 2): Warm up and predict · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 1 of 7 (Hook, Warm up and predict) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
   <link rel="stylesheet" href="../../assets/css/premium-theme.css">
@@ -94,7 +94,7 @@
           <li><a href="../../">Home</a></li>
           <li><a href="../">Physics</a></li>
           <li><a href="./">How a DC motor works</a></li>
-          <li><span aria-current="page">1. Hook</span></li>
+          <li><span aria-current="page">1. Hook (part 1 of 2)</span></li>
         </ol>
       </nav>
       <div class="unit-strip">
@@ -144,6 +144,12 @@
         <h1 id="hook-heading">Hook</h1>
         <p class="stage-purpose">Flick a switch and a fan starts spinning straight away. There's no engine and no fuel, just a current in some wire. What pushes the blades round?</p>
       </div>
+      <nav class="part-nav" aria-label="Parts of this stage">
+        <ol>
+          <li><a href="hook.html" aria-current="page"><span class="part-num">Part 1</span> Warm up and predict</a></li>
+          <li><a href="hook-predict.html"><span class="part-num">Part 2</span> Motor predictions</a></li>
+        </ol>
+      </nav>
 
       <div class="video-slot" role="note">
         <strong>Hook video (20–30 seconds): coming soon</strong>
@@ -174,51 +180,11 @@
         <div class="feedback" role="status" data-feedback></div>
         <template data-fb="locked"><p>Prediction locked in. Now test it in the 3D model.</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Try it in 3D: field around a wire</button></p></template>
       </div>
-
-      <details class="ht-block" open>
-        <summary><span class="tier-badge">HT</span> What if…? Three motor predictions <span class="ht-optional">Optional for Foundation</span></summary>
-        <div class="ht-body">
-          <p>A simple motor is turning. Predict what happens in each case, then test it in the 3D model.</p>
-          <div class="unit-card predict q" data-q="predict">
-            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span></p>
-            <p class="q-stem" id="p1-stem"><span class="what-if">What if</span> you reverse the battery connections?</p>
-            <div class="choice-row" role="group" aria-labelledby="p1-stem">
-              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
-            </div>
-            <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":false}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The current is reversed, so the forces on the coil are reversed.</p></div></details></template>
-          </div>
-          <div class="unit-card predict q" data-q="predict">
-            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span></p>
-            <p class="q-stem" id="p2-stem"><span class="what-if">What if</span> you swap the magnets' poles?</p>
-            <div class="choice-row" role="group" aria-labelledby="p2-stem">
-              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
-            </div>
-            <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The field is reversed, so the forces are reversed.</p></div></details></template>
-          </div>
-          <div class="unit-card predict q" data-q="predict">
-            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span></p>
-            <p class="q-stem" id="p3-stem"><span class="what-if">What if</span> you reverse the battery <strong>and</strong> swap the poles?</p>
-            <div class="choice-row" role="group" aria-labelledby="p3-stem">
-              <button class="choice" type="button" aria-pressed="false" data-value="same">Turns the same way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="other">Turns the other way</button>
-              <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
-            </div>
-            <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the same way as before. Two reversals cancel.</p></div></details></template>
-          </div>
-        </div>
-      </details>
     </section>
 
     <nav class="stage-pager" aria-label="Stage navigation">
       <a class="pager-link pager-prev" href="./"><span class="pager-kicker">Back to</span><span class="pager-title">← Unit overview</span></a>
-      <a class="pager-link pager-next" rel="next" href="explore.html"><span class="pager-kicker">Next</span><span class="pager-title">2. Explore →</span></a>
+      <a class="pager-link pager-next" rel="next" href="hook-predict.html"><span class="pager-kicker">Next</span><span class="pager-title">1. Hook, part 2 →</span></a>
     </nav>
 
     <noscript>
@@ -226,48 +192,10 @@
     </noscript>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer site-footer-compact">
     <div class="site-footer-inner">
-      <div class="footer-top">
-        <a class="brand" href="../../" aria-label="AIM Smart Education home">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span class="wordmark">AIM Smart Education</span>
-        </a>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-col">
-            <h2 class="footer-heading">Subjects</h2>
-            <ul>
-              <li><a href="../../physics/">Physics</a></li>
-              <li><a href="../../maths/">Maths</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Learn</h2>
-            <ul>
-              <li><a href="../../#loop">Learner journey</a></li>
-              <li><a href="../../#research">Research</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Partners</h2>
-            <ul>
-              <li><a href="../../#partners">Schools &amp; trusts</a></li>
-              <li><a href="../../#partners">Publishers</a></li>
-              <li><a href="../../#partners">Investors</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">About</h2>
-            <ul>
-              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-legal">
-        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
-        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
-      </div>
+      <p class="footer-compact-legal">Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+      <nav class="footer-compact-nav" aria-label="Footer"><a href="../../">Home</a><a href="../">Physics</a><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></nav>
     </div>
   </footer>
 </body>

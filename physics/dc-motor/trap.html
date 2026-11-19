@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/trap.html">
-  <title>5. Spot the trap · How a DC Motor Works | AIM Smart Education</title>
-  <meta name="description" content="Stage 5 of 7 (Spot the trap) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <title>5. Spot the trap (1 of 2): Fields and electromagnets · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 5 of 7 (Spot the trap, Fields and electromagnets) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
   <link rel="stylesheet" href="../../assets/css/premium-theme.css">
@@ -94,7 +94,7 @@
           <li><a href="../../">Home</a></li>
           <li><a href="../">Physics</a></li>
           <li><a href="./">How a DC motor works</a></li>
-          <li><span aria-current="page">5. Spot the trap</span></li>
+          <li><span aria-current="page">5. Spot the trap (part 1 of 2)</span></li>
         </ol>
       </nav>
       <div class="unit-strip">
@@ -144,6 +144,12 @@
         <h1 id="trap-heading">Spot the trap</h1>
         <p class="stage-purpose">Each statement hides a common mistake, or is true. Fall in, and the guide asks you a question and takes you back to the model to see why. <span class="ai-tag">✦ AI coaches the fix</span></p>
       </div>
+      <nav class="part-nav" aria-label="Parts of this stage">
+        <ol>
+          <li><a href="trap.html" aria-current="page"><span class="part-num">Part 1</span> Fields and electromagnets</a></li>
+          <li><a href="trap-motor.html"><span class="part-num">Part 2</span> Motor traps</a></li>
+        </ol>
+      </nav>
 
       <div class="unit-grid">
         <div class="unit-card q" data-q="check" data-correct="false">
@@ -180,99 +186,12 @@
           <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Switch the iron core on and off. What happens to the field lines?</p><p><button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Replay in 3D</button></p></template>
         </div>
       </div>
-
-      <details class="ht-block" open>
-        <summary><span class="tier-badge">HT</span> Motor traps <span class="ht-optional">Optional for Foundation</span></summary>
-        <div class="ht-body">
-          <div class="unit-grid">
-            <div class="unit-card q" data-q="check" data-correct="false">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> True or false?</p>
-              <p class="q-stem" id="m0-stem">"The coil turns because the magnets attract and repel the coil directly."</p>
-              <div class="choice-row" role="group" aria-labelledby="m0-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Right. A copper coil is not attracted to magnets. The force comes from the current in a magnetic field: the motor effect. No current, no force.</p></template>
-              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">What happens to the forces in the model if there is no current in the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="false">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> True or false? <span class="gf-badge">Going further</span></p>
-              <p class="q-stem" id="m1-stem">"The split-ring commutator produces the current in the coil."</p>
-              <div class="choice-row" role="group" aria-labelledby="m1-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Right. The supply provides the current. The commutator reverses its direction every half turn.</p></template>
-              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">So what does the commutator do to the current every half turn?</p><p><button class="u-btn try3d" type="button" data-try-stage="6">Replay in 3D</button></p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="priya">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Who's right?</p>
-              <p class="q-stem" id="m2-stem">Sam: "A bigger current makes the motor turn the other way." Priya: "Reversing the current makes the motor turn the other way."</p>
-              <div class="choice-row" role="group" aria-labelledby="m2-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="sam">Sam</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="priya">Priya</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Priya is right. A bigger current makes a bigger force, so the motor turns faster, not the other way.</p></template>
-              <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Does a bigger current change the force's direction, or its size?</p><p><button class="u-btn try3d" type="button" data-try-stage="5">Replay in 3D</button></p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="leo">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> Who's right?</p>
-              <p class="q-stem" id="m5-stem">Leo: "For the force on a wire in a motor, use Fleming's left-hand rule." Mia: "Use your right hand. It gives the same answer."</p>
-              <div class="choice-row" role="group" aria-labelledby="m5-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="leo">Leo</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="mia">Mia</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Leo is right. Motors use the left hand. With the same fingers, your right thumb points the opposite way.</p></template>
-              <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Try both hands: first finger to the right (field), second finger out of the page (current). Do your thumbs agree?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="false">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> True or false?</p>
-              <p class="q-stem" id="m6-stem">"A wire lying parallel to a magnetic field still feels a force, as long as it carries a current."</p>
-              <div class="choice-row" role="group" aria-labelledby="m6-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Right. A wire parallel to the field feels no force. The force is biggest when the wire is at right angles to the field.</p></template>
-              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">In the model, which parts of the coil have no force arrows, and which way do they lie?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="2">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> Find the error</p>
-              <p class="q-stem" id="m3-stem">A wire 5.0 cm long carries 3.0 A at right angles to a 0.20 T field. Which line is wrong?</p>
-              <div class="choice-stack" role="group" aria-labelledby="m3-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="1">Line 1: F = B I l</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="2">Line 2: F = 0.20 × 3.0 × 5.0</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="3">Line 3: F = 3.0 N</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Line 2. It uses 5.0 cm instead of 0.050 m. The correct answer is F = 0.20 × 3.0 × 0.050 = 0.030 N.</p></template>
-              <template data-fb="wrong-3"><p>Line 3 follows correctly from line 2, so the error is earlier.</p><p class="coach-line">Check the units of each number in the equation.</p></template>
-              <template data-fb="wrong"><p>Line 1 is the right equation.</p><p class="coach-line">Check the units of each number in the equation.</p></template>
-            </div>
-            <div class="unit-card q" data-q="check" data-correct="false">
-              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> True or false? <span class="gf-badge">Going further</span></p>
-              <p class="q-stem" id="m4-stem">"Without a commutator, the coil would keep spinning the same way."</p>
-              <div class="choice-row" role="group" aria-labelledby="m4-stem">
-                <button class="choice" type="button" aria-pressed="false" data-value="true">True</button>
-                <button class="choice" type="button" aria-pressed="false" data-value="false">False</button>
-              </div>
-              <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Right. After the vertical, the forces turn the coil back. It rocks and stops at the vertical.</p></template>
-              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">Just after the vertical, which way do the forces turn the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>Replay in 3D</button></p></template>
-            </div>
-          </div>
-        </div>
-      </details>
       <p class="caption">The guide's questions are fixed examples. The live AI coach will respond to your own reasoning.</p>
     </section>
 
     <nav class="stage-pager" aria-label="Stage navigation">
       <a class="pager-link pager-prev" rel="prev" href="chain.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 4. Build the chain</span></a>
-      <a class="pager-link pager-next" rel="next" href="do-it.html"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 1 →</span></a>
+      <a class="pager-link pager-next" rel="next" href="trap-motor.html"><span class="pager-kicker">Next</span><span class="pager-title">5. Spot the trap, part 2 →</span></a>
     </nav>
 
     <noscript>
@@ -280,48 +199,10 @@
     </noscript>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer site-footer-compact">
     <div class="site-footer-inner">
-      <div class="footer-top">
-        <a class="brand" href="../../" aria-label="AIM Smart Education home">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span class="wordmark">AIM Smart Education</span>
-        </a>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-col">
-            <h2 class="footer-heading">Subjects</h2>
-            <ul>
-              <li><a href="../../physics/">Physics</a></li>
-              <li><a href="../../maths/">Maths</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Learn</h2>
-            <ul>
-              <li><a href="../../#loop">Learner journey</a></li>
-              <li><a href="../../#research">Research</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Partners</h2>
-            <ul>
-              <li><a href="../../#partners">Schools &amp; trusts</a></li>
-              <li><a href="../../#partners">Publishers</a></li>
-              <li><a href="../../#partners">Investors</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">About</h2>
-            <ul>
-              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-legal">
-        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
-        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
-      </div>
+      <p class="footer-compact-legal">Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+      <nav class="footer-compact-nav" aria-label="Footer"><a href="../../">Home</a><a href="../">Physics</a><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></nav>
     </div>
   </footer>
 </body>
