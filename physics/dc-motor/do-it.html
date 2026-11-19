@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/do-it.html">
+  <title>6. Do it (1 of 4): Fields and electromagnets · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 6 of 7 (Do it, Fields and electromagnets) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
+  <link rel="stylesheet" href="../../assets/css/premium-theme.css">
+  <link rel="stylesheet" href="./scenes/dc-motor.css">
+  <link rel="stylesheet" href="../../assets/css/explainer-page.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../../assets/css/unit.css">
+  <script src="../../assets/js/site-nav.js"></script>
+  <script src="../../assets/js/unit.js" defer></script>
+</head>
+<body class="aim-theme-premium aim-page-motor aim-unit">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../physics/" aria-current="true"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../../maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="aim-app" id="main">
+
+    <div class="aim-header aim-header-compact">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Physics</a></li>
+          <li><a href="./">How a DC motor works</a></li>
+          <li><span aria-current="page">6. Do it (part 1 of 4)</span></li>
+        </ol>
+      </nav>
+      <div class="unit-strip">
+        <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
+    <div class="route-mini" role="group" aria-label="Your route">
+      <span class="route-mini-label">Route:</span>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
+    </div>
+      </div>
+    </div>
+
+    <nav class="journey journey-compact" id="journey" aria-labelledby="journey-heading">
+      <h2 id="journey-heading" class="visually-hidden">Your learning journey: seven stages</h2>
+      <ol class="journey-phases">
+        <li class="journey-phase">
+          <h3>See it</h3>
+          <p>Understand the mechanism, not just the picture</p>
+          <ol>
+            <li><a class="journey-link" href="hook.html"><span class="journey-num" aria-hidden="true">1</span>Hook</a></li>
+            <li><a class="journey-link" href="explore.html"><span class="journey-num" aria-hidden="true">2</span>Explore</a></li>
+            <li><a class="journey-link" href="explain.html"><span class="journey-num" aria-hidden="true">3</span>Explain</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase">
+          <h3>Practise it</h3>
+          <p>Think it through, then prove it</p>
+          <ol>
+            <li><a class="journey-link" href="chain.html"><span class="journey-num" aria-hidden="true">4</span>Build the chain</a></li>
+            <li><a class="journey-link" href="trap.html"><span class="journey-num" aria-hidden="true">5</span>Spot the trap</a></li>
+            <li><a class="journey-link" href="do-it.html" aria-current="step"><span class="journey-num" aria-hidden="true">6</span>Do it</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase journey-phase-ace">
+          <h3>Ace it</h3>
+          <p>Write answers that earn the marks, and remember them</p>
+          <ol>
+            <li><a class="journey-link" href="write.html"><span class="journey-num" aria-hidden="true">7</span>Write it and revisit it</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+
+        <section class="stage-section" id="stage-do" aria-labelledby="do-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">Practise it · Stage 6 of 7</p>
+        <h1 id="do-heading">Do it</h1>
+        <p class="stage-purpose">Apply the rules accurately and fluently: pick, place and calculate, then say it in exam words. Everything here is marked exactly.</p>
+      </div>
+      <nav class="part-nav" aria-label="Parts of this stage">
+        <ol>
+          <li><a href="do-it.html" aria-current="page"><span class="part-num">Part 1</span> Fields and electromagnets</a></li>
+          <li><a href="do-it-rule.html"><span class="part-num">Part 2</span> Fleming's left-hand rule</a></li>
+          <li><a href="do-it-calculate.html"><span class="part-num">Part 3</span> The equation F = B I l</a></li>
+          <li><a href="do-it-ladder.html"><span class="part-num">Part 4</span> Practice ladder</a></li>
+        </ol>
+      </nav>
+
+
+      <div class="unit-grid">
+        <div class="unit-card q" data-q="check" data-correct="a">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Do it</p>
+          <p class="q-stem" id="f1-stem">A long straight wire goes through a card, with the current coming up out of the card. Pick the field pattern on the card.</p>
+          <div class="choice-row" role="group" aria-labelledby="f1-stem">
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="a" aria-label="Pattern A: circles centred on the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="dg-field" cx="60" cy="45" r="12"/><circle class="dg-field" cx="60" cy="45" r="22"/><circle class="dg-field" cx="60" cy="45" r="36"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>A</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="b" aria-label="Pattern B: straight parallel lines past the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><path class="dg-field" d="M10 20H110M10 35H110M10 55H110M10 70H110"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>B</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="c" aria-label="Pattern C: straight lines spreading out from the wire">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><path class="dg-field" d="M60 45L60 5M60 45L60 85M60 45L15 45M60 45L105 45M60 45L28 13M60 45L92 77M60 45L92 13M60 45L28 77"/><circle class="dg-wire" cx="60" cy="45" r="5"/><circle class="dg-ink" cx="60" cy="45" r="1.6"/></svg>
+              <span>C</span></button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ A: circles centred on the wire, further apart further out where the field is weaker.</p><p><strong>Say it:</strong> "The magnetic field around a straight wire is a set of circles centred on the wire."</p></template>
+          <template data-fb="wrong"><p>Not this one.</p><p class="coach-line">Look at the compasses in the model. Do they point along lines, away from the wire, or round it?</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="cw">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Do it</p>
+          <p class="q-stem" id="f4-stem">Now the current goes down into the card (⊗, away from you). Pick the field with the correct direction arrows.</p>
+          <div class="choice-row" role="group" aria-labelledby="f4-stem">
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="cw" aria-label="Pattern A: circles with arrows going clockwise">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="dg-field" cx="60" cy="45" r="20"/><circle class="dg-field" cx="60" cy="45" r="36"/><path class="dg-field-head" d="M55 19l10 6-10 6zM65 59l-10 6 10 6zM55 3l10 6-10 6zM65 75l-10 6 10 6z"/><circle class="dg-wire" cx="60" cy="45" r="7"/><path class="dg-arrow" stroke-width="2" d="M55.5 40.5l9 9M64.5 40.5l-9 9"/></svg>
+              <span>A</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="acw" aria-label="Pattern B: circles with arrows going anticlockwise">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="dg-field" cx="60" cy="45" r="20"/><circle class="dg-field" cx="60" cy="45" r="36"/><path class="dg-field-head" d="M65 19l-10 6 10 6zM55 59l10 6-10 6zM65 3l-10 6 10 6zM55 75l10 6-10 6z"/><circle class="dg-wire" cx="60" cy="45" r="7"/><path class="dg-arrow" stroke-width="2" d="M55.5 40.5l9 9M64.5 40.5l-9 9"/></svg>
+              <span>B</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="none" aria-label="Pattern C: circles with no arrows">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><circle class="dg-field" cx="60" cy="45" r="20"/><circle class="dg-field" cx="60" cy="45" r="36"/><circle class="dg-wire" cx="60" cy="45" r="7"/><path class="dg-arrow" stroke-width="2" d="M55.5 40.5l9 9M64.5 40.5l-9 9"/></svg>
+              <span>C</span></button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ A: clockwise. Point your right thumb into the card and your fingers curl clockwise.</p><p><strong>Say it:</strong> "The field lines are circles centred on the wire; with the current into the page they go clockwise."</p></template>
+          <template data-fb="wrong-none"><p>The shape is right, but a field pattern needs arrows to show its direction. Exams expect them.</p><p class="coach-line">Point your right thumb along the current. Which way do your fingers curl?</p></template>
+          <template data-fb="wrong"><p>Not this way.</p><p class="coach-line">Point your right thumb into the card, along the current. Which way do your fingers curl?</p><p><button class="u-btn try3d" type="button" data-try-stage="0">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="a">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Do it</p>
+          <p class="q-stem" id="f2-stem">Pick the field pattern of a solenoid carrying a current.</p>
+          <div class="choice-row" role="group" aria-labelledby="f2-stem">
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="a" aria-label="Pattern A: straight parallel lines inside, looping round outside like a bar magnet">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><path class="dg-field" d="M20 40H100M20 50H100M100 40C118 40 118 12 60 12C2 12 2 40 20 40M100 50C118 50 118 78 60 78C2 78 2 50 20 50"/></svg>
+              <span>A</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="b" aria-label="Pattern B: small circles round each end, nothing inside">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><circle class="dg-field" cx="22" cy="45" r="12"/><circle class="dg-field" cx="98" cy="45" r="12"/></svg>
+              <span>B</span></button>
+            <button class="choice choice-svg" type="button" aria-pressed="false" data-value="c" aria-label="Pattern C: lines outside only, none inside">
+              <svg viewBox="0 0 120 90" aria-hidden="true"><rect x="35" y="33" width="50" height="24" fill="none" stroke="#B26A3C" stroke-width="3"/><path class="dg-field" d="M10 20H110M10 70H110M10 10H110M10 80H110"/></svg>
+              <span>C</span></button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ A: strong and uniform inside (straight, parallel, close together), and shaped like a bar magnet's field outside.</p><p><strong>Say it:</strong> "Inside a solenoid the field is strong and uniform; outside it has the same shape as a bar magnet's field."</p></template>
+          <template data-fb="wrong"><p>Not this one.</p><p class="coach-line">Where are the field lines closest together in the model: inside the coil or outside it?</p><p><button class="u-btn try3d" type="button" data-try-stage="1">Replay in 3D</button></p></template>
+        </div>
+        <div class="unit-card q" data-q="check" data-correct="d">
+          <p class="card-kicker"><span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span> Do it</p>
+          <p class="q-stem" id="f3-stem">Which change would <strong>not</strong> make an electromagnet stronger?</p>
+          <div class="choice-stack" role="group" aria-labelledby="f3-stem">
+            <button class="choice" type="button" aria-pressed="false" data-value="a">Increase the current</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="b">Add more turns of wire</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="c">Use an iron core</button>
+            <button class="choice" type="button" aria-pressed="false" data-value="d">Reverse the current</button>
+          </div>
+          <div class="feedback" role="status" data-feedback></div>
+          <template data-fb="right"><p>✓ Reversing the current swaps the poles over. The field is just as strong.</p><p><strong>Say it:</strong> "Reversing the current reverses the direction of the field, not its strength."</p></template>
+          <template data-fb="wrong"><p>That one does make it stronger.</p><p class="coach-line">Try each change in the model. Which one only swaps N and S?</p><p><button class="u-btn try3d" type="button" data-try-stage="1">Replay in 3D</button></p></template>
+        </div>
+      </div>
+    </section>
+
+    <nav class="stage-pager" aria-label="Stage navigation">
+      <a class="pager-link pager-prev" rel="prev" href="trap.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 5. Spot the trap</span></a>
+      <a class="pager-link pager-next" rel="next" href="do-it-rule.html"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 2 →</span></a>
+    </nav>
+
+    <noscript>
+      <p class="aim-noscript">The 3D model and the marked activities need JavaScript. All the explanations, answers and mark schemes are still on this page.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="../../" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="../../physics/">Physics</a></li>
+              <li><a href="../../maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="../../#loop">Learner journey</a></li>
+              <li><a href="../../#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="../../#partners">Schools &amp; trusts</a></li>
+              <li><a href="../../#partners">Publishers</a></li>
+              <li><a href="../../#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

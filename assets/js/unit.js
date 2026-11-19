@@ -2,7 +2,7 @@
 // Runs entirely in the browser: no network requests and no forms. The guide
 // questions and Exam Coach feedback are fixed examples until the real AI
 // service exists. The only thing stored is the chosen route (Foundation or
-// Higher), in this browser's local storage, so the page remembers it.
+// Higher), in this browser's local storage, so every stage page remembers it.
 (() => {
   const html = document.documentElement;
   const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches || html.classList.contains('a11y-reduce-motion');
@@ -53,13 +53,60 @@
     if (settings && !app?.aimApi) app?.addEventListener('aim-ready', go, { once: true });
     app?.querySelector('.aim-viewport')?.scrollIntoView({ block: 'center', behavior: reduceMotion() ? 'auto' : 'smooth' });
   }
+  // Units are split into one page per stage; only the Explore page holds the
+  // 3D model. On other pages, "Try it in 3D" opens Explore at the right step
+  // and offers a way straight back.
+  const thisPage = location.pathname.split('/').pop() || 'index.html';
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-try-stage]');
     if (!b) return;
     let settings = null;
     try { settings = b.dataset.set ? JSON.parse(b.dataset.set) : null; } catch { settings = null; }
+    if (!app) {
+      const u = new URL('explore.html', location.href);
+      u.searchParams.set('stage', b.dataset.tryStage);
+      if (settings) u.searchParams.set('set', JSON.stringify(settings));
+      u.searchParams.set('from', thisPage);
+      location.href = u.href;
+      return;
+    }
     tryIn3D(Number(b.dataset.tryStage), settings);
   });
+
+  // Arrived from another stage's "Try it in 3D": set the model and show a way back.
+  if (app) {
+    const params = new URLSearchParams(location.search);
+    const from = params.get('from');
+    if (params.has('stage')) {
+      let settings = null;
+      try { settings = params.get('set') ? JSON.parse(params.get('set')) : null; } catch { settings = null; }
+      tryIn3D(Number(params.get('stage')) || 0, settings);
+    }
+    if (from && /^[a-z0-9-]+\.html$/.test(from)) {
+      // Stage pages may be split into parts (explain-motor.html is part of explain.html).
+      const link = [...document.querySelectorAll('.journey-link')]
+        .find((a) => from.replace(/\.html$/, '').startsWith(a.getAttribute('href').replace(/\.html$/, '')));
+      const name = link ? link.textContent.replace(/^\s*\d+\s*/, '').trim() : 'the previous stage';
+      const bar = document.createElement('div');
+      bar.className = 'try-return';
+      bar.setAttribute('role', 'status');
+      const p = document.createElement('p');
+      p.textContent = `You came here from ${name} to try it in 3D.`;
+      const back = document.createElement('a');
+      back.className = 'u-btn u-btn-primary';
+      back.href = from;
+      back.textContent = `← Back to ${name}`;
+      back.addEventListener('click', (ev) => {
+        const ref = document.referrer && new URL(document.referrer);
+        if (ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
+      });
+      bar.append(p, back);
+      document.querySelector('#stage-explore .stage-head')?.after(bar);
+    }
+  }
+
+  // "Try again" buttons reload the page (no inline handlers: security policy).
+  document.addEventListener('click', (e) => { if (e.target.closest('[data-reload]')) location.reload(); });
 
   // If the 3D view cannot run, open its steps as text.
   const words = document.querySelector('[data-model-words]');

@@ -80,7 +80,7 @@
 .stage-section { padding: 40px 0 24px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
 .stage-head { margin-bottom: 24px; max-width: 75ch; }
 .phase-kicker { margin: 0 0 4px; font-size: 0.95rem; font-weight: 700; color: var(--brand); line-height: 24px; }
-.stage-head h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; }
+.stage-head h1, .stage-head h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; }
 .stage-purpose { margin: 0; color: var(--ink-muted); }
 .stage-section > .aim-main { margin-bottom: 16px; }
 .to-journey { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.95rem; font-weight: 700; color: var(--brand); }
@@ -319,3 +319,63 @@
 .dg-force-head { fill: #1E7A4C; }
 .motor-diagram .dg-force-text { fill: #1E7A4C; font-weight: 700; }
 .dg-leader { stroke: var(--ink-muted); stroke-width: 1; fill: none; }
+
+/* ---- Multi-page units (one page per stage; pages stay short) ---- */
+.mt-12 { margin-top: 12px !important; }
+.mt-16 { margin-top: 16px; }
+.mt-40 { margin-top: 40px; }
+.aim-header-compact { margin-bottom: 12px; }
+.unit-strip { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; margin-top: 4px; }
+.unit-strip-title { margin: 0; font: 800 1.15rem/1.3 var(--font-heading); }
+.unit-strip-title a { color: var(--ink); text-decoration: none; }
+.unit-strip-title a:hover { color: var(--brand-strong); text-decoration: underline; }
+.unit-strip-meta { font: 600 0.95rem/1.3 var(--font-body, inherit); color: var(--ink-muted); }
+.route-mini { display: flex; align-items: center; gap: 6px; }
+.route-mini-label { font-size: 0.9rem; font-weight: 700; color: var(--ink-muted); }
+.u-btn-sm { min-height: 36px; padding: 4px 12px; font-size: 0.9rem; }
+.u-btn-lg { min-height: 52px; padding: 10px 22px; font-size: 1.05rem; }
+
+/* Compact journey bar on stage pages: one row of numbered steps */
+.journey-compact { margin: 0 0 8px; }
+.journey-compact .journey-phases { display: flex; flex-wrap: wrap; gap: 8px; }
+.journey-compact .journey-phase { padding: 6px 8px; display: flex; align-items: center; gap: 6px; flex: 1 1 auto; }
+.journey-compact .journey-phase h3 { font-size: 0.75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); margin: 0 4px 0 2px; white-space: nowrap; }
+.journey-compact .journey-phase p { display: none; }
+.journey-compact .journey-phase ol { display: flex; flex-wrap: wrap; gap: 4px; }
+.journey-compact .journey-link { min-height: 40px; padding: 2px 8px; font-size: 0.92rem; }
+.journey-link[aria-current="step"] { background: var(--brand); color: #fff; }
+.journey-link[aria-current="step"] .journey-num { background: #fff; color: var(--brand); }
+.journey-compact + .stage-section { border-top: 0; padding-top: 16px; }
+
+/* Previous / next */
+.stage-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 8px; }
+.pager-link { display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--radius-card);
+  background: var(--surface); color: var(--ink); text-decoration: none; min-height: 44px; }
+.pager-link:hover { border-color: var(--brand); }
+.pager-next { text-align: right; background: var(--brand-soft); border-color: var(--brand); }
+.pager-kicker { font-size: 0.8rem; font-weight: 700; color: var(--ink-muted); text-transform: uppercase; letter-spacing: .06em; }
+.pager-title { font-weight: 800; font-size: 1.05rem; }
+
+/* Overview start button */
+.unit-start { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin: 0 0 32px; }
+.unit-start .u-btn { text-decoration: none; display: inline-flex; align-items: center; }
+.unit-start-note { color: var(--ink-muted); font-size: 0.95rem; }
+
+/* Returning from "Try it in 3D" */
+.try-return { margin: 0 0 12px; padding: 10px 14px; border-radius: var(--radius-card); background: var(--accent-soft, #FFF6DD); border: 1px solid #F1E1B0;
+  display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; }
+.try-return p { margin: 0; }
+@media (max-width: 640px) {
+  .stage-pager { grid-template-columns: 1fr; }
+  .pager-next { text-align: left; }
+  .journey-compact .journey-phase h3 { display: none; }
+}
+
+/* Parts inside a long stage: each part is its own short page */
+.part-nav { margin: -8px 0 20px; }
+.part-nav ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.part-nav a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-weight: 600; text-decoration: none; }
+.part-nav a:hover { border-color: var(--brand); color: var(--brand-strong); }
+.part-nav a[aria-current="page"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.part-num { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; opacity: .8; }

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/explain-turning.html">
+  <title>3. Explain (3 of 3): How the coil keeps turning · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 3 of 7 (Explain, How the coil keeps turning) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
+  <link rel="stylesheet" href="../../assets/css/premium-theme.css">
+  <link rel="stylesheet" href="./scenes/dc-motor.css">
+  <link rel="stylesheet" href="../../assets/css/explainer-page.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../../assets/css/unit.css">
+  <script src="../../assets/js/site-nav.js"></script>
+  <script src="../../assets/js/unit.js" defer></script>
+</head>
+<body class="aim-theme-premium aim-page-motor aim-unit">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../physics/" aria-current="true"><span><span class="subject-dot dot-physics" aria-hidden="true"></span>Physics</span></a></li>
+                <li><a href="../../maths/"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
+      </div>
+    </div>
+  </header>
+
+  <main class="aim-app" id="main">
+
+    <div class="aim-header aim-header-compact">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Physics</a></li>
+          <li><a href="./">How a DC motor works</a></li>
+          <li><span aria-current="page">3. Explain (part 3 of 3)</span></li>
+        </ol>
+      </nav>
+      <div class="unit-strip">
+        <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
+    <div class="route-mini" role="group" aria-label="Your route">
+      <span class="route-mini-label">Route:</span>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
+      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
+    </div>
+      </div>
+    </div>
+
+    <nav class="journey journey-compact" id="journey" aria-labelledby="journey-heading">
+      <h2 id="journey-heading" class="visually-hidden">Your learning journey: seven stages</h2>
+      <ol class="journey-phases">
+        <li class="journey-phase">
+          <h3>See it</h3>
+          <p>Understand the mechanism, not just the picture</p>
+          <ol>
+            <li><a class="journey-link" href="hook.html"><span class="journey-num" aria-hidden="true">1</span>Hook</a></li>
+            <li><a class="journey-link" href="explore.html"><span class="journey-num" aria-hidden="true">2</span>Explore</a></li>
+            <li><a class="journey-link" href="explain.html" aria-current="step"><span class="journey-num" aria-hidden="true">3</span>Explain</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase">
+          <h3>Practise it</h3>
+          <p>Think it through, then prove it</p>
+          <ol>
+            <li><a class="journey-link" href="chain.html"><span class="journey-num" aria-hidden="true">4</span>Build the chain</a></li>
+            <li><a class="journey-link" href="trap.html"><span class="journey-num" aria-hidden="true">5</span>Spot the trap</a></li>
+            <li><a class="journey-link" href="do-it.html"><span class="journey-num" aria-hidden="true">6</span>Do it</a></li>
+          </ol>
+        </li>
+        <li class="journey-phase journey-phase-ace">
+          <h3>Ace it</h3>
+          <p>Write answers that earn the marks, and remember them</p>
+          <ol>
+            <li><a class="journey-link" href="write.html"><span class="journey-num" aria-hidden="true">7</span>Write it and revisit it</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+
+        <section class="stage-section" id="stage-explain" aria-labelledby="explain-heading">
+      <div class="stage-head">
+        <p class="phase-kicker">See it · Stage 3 of 7</p>
+        <h1 id="explain-heading">Explain</h1>
+        <p class="stage-purpose">Turn what you saw into accurate science and exam vocabulary. Each step pauses with a question. Use "Try it in 3D" to jump to the same moment in the model.</p>
+      </div>
+      <nav class="part-nav" aria-label="Parts of this stage">
+        <ol>
+          <li><a href="explain.html"><span class="part-num">Part 1</span> The magnetic effect of a current</a></li>
+          <li><a href="explain-motor.html"><span class="part-num">Part 2</span> The force on the coil</a></li>
+          <li><a href="explain-turning.html" aria-current="page"><span class="part-num">Part 3</span> How the coil keeps turning</a></li>
+        </ol>
+      </nav>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> How the motor works: five steps <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <article class="unit-card">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Step 4</p>
+            <h3>The coil turns</h3>
+            <p>The forces on the two sides act in opposite directions, so together they turn the coil.</p>
+            <p class="q-stem">Quick check: why do the two forces make the coil turn?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>They act in opposite directions on opposite sides, giving a turning effect.</p></div></details>
+            <button class="u-btn try3d" type="button" data-try-stage="5">Try it in 3D</button>
+          </article>
+
+          <div class="unit-card" data-ladder>
+            <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span></p>
+            <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Why do the two sides of the coil move in opposite directions?</li></ul>
+            <ol class="ladder-steps">
+              <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Trace the current around the coil.</li>
+              <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>Which way does it flow in each side?</li>
+              <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>The current flows in opposite directions in the two sides, so the forces on them are opposite.</li>
+            </ol>
+            <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+            <p class="caption">Example question. For now, the hints are fixed.</p>
+          </div>
+
+          <article class="unit-card">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Step 5 <span class="gf-badge">Going further</span></p>
+            <h3>The commutator keeps it turning</h3>
+            <p>Every half turn, the split-ring commutator reverses the current in the coil. That keeps the forces turning the coil the same way.</p>
+            <p class="q-stem">Quick check: what does the commutator do every half turn?</p>
+            <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>It reverses the direction of the current in the coil.</p></div></details>
+            <p class="caption">The AQA specification asks you to explain why the coil rotates, but does not name the commutator.</p>
+            <button class="u-btn try3d" type="button" data-try-stage="6">Try it in 3D</button>
+          </article>
+
+          <div class="unit-grid">
+            <div class="unit-card" data-ladder>
+              <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span> <span class="gf-badge">Going further</span></p>
+              <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>Without a commutator, why would the coil stop at the vertical?</li></ul>
+              <ol class="ladder-steps">
+                <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Look at the force directions just after the vertical.</li>
+                <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>Which way do they now turn the coil?</li>
+                <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>After the vertical, the forces would turn the coil back the other way, so it rocks and settles at the vertical.</li>
+              </ol>
+              <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+              <p class="caption">Example question. For now, the hints are fixed.</p>
+            </div>
+            <div class="unit-card" data-ladder>
+              <p class="card-kicker">Pause and explain <span class="ai-tag">✦ AI tutor</span></p>
+              <ul class="chat" aria-label="Example question from the AI tutor"><li class="bubble bubble-ai"><span class="visually-hidden">AI tutor: </span>How could you make the motor spin faster?</li></ul>
+              <ol class="ladder-steps">
+                <li data-label="Show hint 1"><span class="ladder-label">Hint 1</span>Which quantities affect the size of the force?</li>
+                <li data-label="Show hint 2"><span class="ladder-label">Hint 2</span>What does F = B I l tell you?</li>
+                <li class="is-model" data-label="Show the model points"><span class="ladder-label">Model points</span>Increase the current; use a stronger magnetic field; add more turns to the coil.</li>
+              </ol>
+              <button class="u-btn" type="button" data-ladder-next hidden>Show hint 1</button>
+              <p class="caption">Example question. For now, the hints are fixed.</p>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <nav class="stage-pager" aria-label="Stage navigation">
+      <a class="pager-link pager-prev" rel="prev" href="explain-motor.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 3. Explain, part 2</span></a>
+      <a class="pager-link pager-next" rel="next" href="chain.html"><span class="pager-kicker">Next</span><span class="pager-title">4. Build the chain →</span></a>
+    </nav>
+
+    <noscript>
+      <p class="aim-noscript">The 3D model and the marked activities need JavaScript. All the explanations, answers and mark schemes are still on this page.</p>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-top">
+        <a class="brand" href="../../" aria-label="AIM Smart Education home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span class="wordmark">AIM Smart Education</span>
+        </a>
+        <nav class="footer-nav" aria-label="Footer">
+          <div class="footer-col">
+            <h2 class="footer-heading">Subjects</h2>
+            <ul>
+              <li><a href="../../physics/">Physics</a></li>
+              <li><a href="../../maths/">Maths</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Learn</h2>
+            <ul>
+              <li><a href="../../#loop">Learner journey</a></li>
+              <li><a href="../../#research">Research</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">Partners</h2>
+            <ul>
+              <li><a href="../../#partners">Schools &amp; trusts</a></li>
+              <li><a href="../../#partners">Publishers</a></li>
+              <li><a href="../../#partners">Investors</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2 class="footer-heading">About</h2>
+            <ul>
+              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-legal">
+        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
