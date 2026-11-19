@@ -1,0 +1,20 @@
+{
+ "hook": {
+  "audioDuration": 18.56,
+  "leadIn": 0.9,
+  "gap": 0.5,
+  "tail": 2.6
+ },
+ "explain": {
+  "audioDuration": 161.52,
+  "leadIn": 0.8,
+  "gap": 1.1,
+  "tail": 2.4,
+  "gaps": {
+   "3": 1.8,
+   "4": 1.8,
+   "7": 1.8,
+   "8": 1.8
+  }
+ }
+}

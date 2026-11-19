@@ -35,9 +35,15 @@ Pages are always short: no page should need long scrolling. Aim for about two la
 
 - A unit is a short overview page (`index.html`) plus one page per stage (`hook.html`, `explore.html` …).
 - When a stage is still too long, split it into parts, each its own page (`explain.html`, `explain-motor.html`, `explain-turning.html`), linked by the part chips under the stage heading.
-- Every stage page has the compact journey bar, the Foundation/Higher route switch and Previous/Next links. The chosen route is remembered between pages.
+- Every stage page has the compact journey bar and Previous/Next links. There is no Foundation/Higher switch: everything is open to everyone. Higher-tier content is labelled instead: HT badges on items, on part chips and on Previous/Next links that lead to a Higher-only part, and the line "Higher tier only. Foundation students can skip this part." at the top of such a part. Higher blocks (`section.ht-block`) are always open.
 - Only `explore.html` loads the 3D model. "Try it in 3D" buttons on other pages open `explore.html?stage=N&set=…&from=page.html`, which sets the model and shows a "Back to …" button.
 - No inline `style=` attributes or `onclick=` handlers: the Content-Security-Policy blocks them. Use classes in `assets/css/unit.css` and handlers in `assets/js/unit.js`.
+
+## Videos
+
+Unit videos (for example `physics/dc-motor/media/hook.mp4`) are self-hosted MP4 files with WebVTT captions, a transcript on the page and pause points that open the 3D model. Their scripts are in `docs/videos/`, and everything needed to rebuild them is in `video-src/` (see `video-src/dc-motor/README.md`). Pages with a video allow `media-src 'self'` in their Content-Security-Policy.
+
+Python's `http.server` cannot serve byte ranges, so videos cannot be seeked with it. To test videos locally, run `node video-src/serve.mjs` and open http://localhost:8422.
 
 ## Security
 

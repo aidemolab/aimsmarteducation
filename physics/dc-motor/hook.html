@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/hook.html">
   <title>1. Hook (1 of 2): Warm up and predict · How a DC Motor Works | AIM Smart Education</title>
@@ -99,11 +99,6 @@
       </nav>
       <div class="unit-strip">
         <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
-    <div class="route-mini" role="group" aria-label="Your route">
-      <span class="route-mini-label">Route:</span>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
-    </div>
       </div>
     </div>
 
@@ -147,14 +142,27 @@
       <nav class="part-nav" aria-label="Parts of this stage">
         <ol>
           <li><a href="hook.html" aria-current="page"><span class="part-num">Part 1</span> Warm up and predict</a></li>
-          <li><a href="hook-predict.html"><span class="part-num">Part 2</span> Motor predictions</a></li>
+          <li><a href="hook-predict.html"><span class="part-num">Part 2</span> Motor predictions <span class="tier-badge">HT</span></a></li>
         </ol>
       </nav>
 
-      <div class="video-slot" role="note">
-        <strong>Hook video (20–30 seconds): coming soon</strong>
-        <p>It will open with this puzzle, with captions and a transcript. For now, warm up and make your predictions below.</p>
-      </div>
+      <figure class="unit-video" data-video>
+        <video controls preload="metadata" playsinline width="1920" height="1080" poster="media/hook-poster.webp" aria-label="Hook video: what pushes the blades round?">
+          <source src="media/hook.mp4" type="video/mp4">
+          <track kind="captions" src="media/hook.vtt" srclang="en-GB" label="English captions" default>
+          Your browser cannot play this video. The transcript below has everything it says.
+        </video>
+        <div class="video-pause" role="status" data-video-panel hidden></div>
+        <figcaption class="caption"><strong>Hook: what pushes the blades round?</strong> (23 seconds). AI narration. <span class="draft-badge">Draft for Alaa's review</span></figcaption>
+        <ol class="video-points" data-video-pauses aria-label="Pause points in the video">
+          <li data-at="20.64" data-goto="#predict" data-goto-label="Make my prediction"><span data-q>Make your prediction before any explanation. Lock it in, then test it in the model.</span></li>
+        </ol>
+        <details class="reveal"><summary>Transcript</summary><div class="reveal-body">
+          <p>Flick a switch, and a fan starts spinning straight away. There's no engine inside. No fuel. Just a coil of wire, a couple of magnets, and an electric current.</p>
+          <p>So what is actually pushing the blades round?</p>
+          <p>Before we explain anything, make a prediction. Lock it in. Then test it in the model.</p>
+        </div></details>
+      </figure>
 
       <div class="unit-card">
         <h3>Warm-up: what do you remember? <span class="spec-tag">KS3 recap</span></h3>
@@ -169,7 +177,7 @@
         </ol>
       </div>
 
-      <div class="unit-card predict q" data-q="predict">
+      <div class="unit-card predict q" data-q="predict" id="predict">
         <h3>Predict first <span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span></h3>
         <p class="q-stem" id="p0-stem"><span class="what-if">What if</span> you put a compass next to a straight wire, then switch on a current in the wire?</p>
         <div class="choice-stack" role="group" aria-labelledby="p0-stem">
@@ -184,7 +192,7 @@
 
     <nav class="stage-pager" aria-label="Stage navigation">
       <a class="pager-link pager-prev" href="./"><span class="pager-kicker">Back to</span><span class="pager-title">← Unit overview</span></a>
-      <a class="pager-link pager-next" rel="next" href="hook-predict.html"><span class="pager-kicker">Next</span><span class="pager-title">1. Hook, part 2 →</span></a>
+      <a class="pager-link pager-next" rel="next" href="hook-predict.html"><span class="pager-kicker">Next <span class="tier-badge">HT</span></span><span class="pager-title">1. Hook, part 2 →</span></a>
     </nav>
 
     <noscript>

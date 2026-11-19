@@ -1,0 +1,24 @@
+{
+ "file": "physics/dc-motor/media/hook.mp4",
+ "video": "h264,1920,1080,yuv420p,30/1",
+ "audio": "aac,48000,2,23.052000",
+ "frames": 692,
+ "expectedFrames": 692,
+ "seconds": 23.07,
+ "audioSeconds": 23.05,
+ "syncOffsetMs": -15,
+ "framesMeasured": 692,
+ "blankFrames": [],
+ "flickerFrames": [],
+ "cutsAt": [],
+ "sizeMB": 1.98,
+ "cues": 7,
+ "longestCaptionLine": 38,
+ "shortestCueSeconds": 1.01,
+ "pauses": [
+  {
+   "scene": 3,
+   "at": 20.64
+  }
+ ]
+}

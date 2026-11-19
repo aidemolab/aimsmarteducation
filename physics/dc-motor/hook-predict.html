@@ -99,11 +99,6 @@
       </nav>
       <div class="unit-strip">
         <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
-    <div class="route-mini" role="group" aria-label="Your route">
-      <span class="route-mini-label">Route:</span>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
-    </div>
       </div>
     </div>
 
@@ -147,11 +142,12 @@
       <nav class="part-nav" aria-label="Parts of this stage">
         <ol>
           <li><a href="hook.html"><span class="part-num">Part 1</span> Warm up and predict</a></li>
-          <li><a href="hook-predict.html" aria-current="page"><span class="part-num">Part 2</span> Motor predictions</a></li>
+          <li><a href="hook-predict.html" aria-current="page"><span class="part-num">Part 2</span> Motor predictions <span class="tier-badge">HT</span></a></li>
         </ol>
       </nav>
-      <details class="ht-block" open>
-        <summary><span class="tier-badge">HT</span> What if…? Three motor predictions <span class="ht-optional">Optional for Foundation</span></summary>
+      <p class="ht-part-note"><span class="tier-badge">HT</span> Higher tier only. Foundation students can skip this part.</p>
+      <section class="ht-block">
+        <h2 class="ht-head"><span class="tier-badge">HT</span> What if…? Three motor predictions</h2>
         <div class="ht-body">
           <p>A simple motor is turning. Predict what happens in each case, then test it in the 3D model.</p>
           <div class="unit-card predict q" data-q="predict">
@@ -163,7 +159,7 @@
               <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
             </div>
             <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":false}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The current is reversed, so the forces on the coil are reversed.</p></div></details></template>
+            <template data-fb="locked"><p>Locked in. The model will show you whether you were right.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":false}'>Test it in 3D</button></p></template>
           </div>
           <div class="unit-card predict q" data-q="predict">
             <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span></p>
@@ -174,7 +170,7 @@
               <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
             </div>
             <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the other way. The field is reversed, so the forces are reversed.</p></div></details></template>
+            <template data-fb="locked"><p>Locked in. The model will show you whether you were right.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":true}'>Test it in 3D</button></p></template>
           </div>
           <div class="unit-card predict q" data-q="predict">
             <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span></p>
@@ -185,10 +181,10 @@
               <button class="choice" type="button" aria-pressed="false" data-value="stop">Stops</button>
             </div>
             <div class="feedback" role="status" data-feedback></div>
-            <template data-fb="locked"><p>Locked in. Test it, then check.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":true}'>Try it in 3D</button></p><details class="reveal"><summary>Check your prediction</summary><div class="reveal-body"><p>It turns the same way as before. Two reversals cancel.</p></div></details></template>
+            <template data-fb="locked"><p>Locked in. The model will show you whether you were right.</p><p><button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":true,"flipMagnets":true}'>Test it in 3D</button></p></template>
           </div>
         </div>
-      </details>
+      </section>
     </section>
 
     <nav class="stage-pager" aria-label="Stage navigation">

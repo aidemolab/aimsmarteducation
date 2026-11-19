@@ -20,3 +20,16 @@ CLAUDE.md
 
 # AQA specifications: copyright, never commit
 _specs/
+
+MODULE_BUILD_BRIEF.md
+MATHS_UNIT_MAP.md
+PHYSICS_UNIT_MAP.md
+
+# Video builds: intermediate renders and frames are not committed
+video-src/**/build/
+video-src/**/media/
+video-src/**/renders/
+video-src/**/node_modules/
+video-src/**/hf/assets/
+video-src/**/snapshots/
+video-src/**/__pycache__/

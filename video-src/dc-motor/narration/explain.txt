@@ -1,0 +1,19 @@
+Flick the switch on a fan, and it spins straight away. No engine. No fuel. Just a current in some wire, and a couple of magnets. So what is actually pushing it round? Let's build the answer, one step at a time.
+
+Start with a picture. Imagine water in a stream, swirling round a post. Keep that stream in mind, because a magnetic field behaves a lot like it.
+
+Here is a straight wire, with compasses around it. Switch on a current, and the needles swing round to point in circles. A current makes a magnetic field around the wire, like the swirl round the post. The swirl is strongest close to the wire, and a bigger current makes it stronger. Reverse the current, and the swirl turns the other way. Pause here, and try it yourself.
+
+Now wind the wire into a coil. This is called a solenoid. The swirls from every turn join up inside, like small streams joining into one strong, steady flow. Outside, the field has the same shape as a bar magnet's. Slide in an iron core, and the field gets stronger still. That is an electromagnet: a magnet you can switch on and off. Pause, and try it.
+
+That is everything Foundation tier needs. The rest is Higher tier: how this makes a motor turn.
+
+Put a wire carrying a current between two magnets. The magnets' field is a steady stream, flowing from north to south. The current adds its own swirl. On one side of the wire, the swirl runs with the stream. On the other side, it runs against it. So the wire is pushed sideways, and the magnets are pushed the other way. This push is called the motor effect.
+
+Which way is the push? Use Fleming's left-hand rule. First finger for the field. Second finger for the current. Your thumb shows the force. Pause, and predict: what happens to the force if the current is reversed?
+
+Now look at the whole coil. The current flows one way along this side, and back the other way along that side. So one side is pushed up, and the other is pushed down. Like a paddle wheel in the stream, the coil turns. Pause, and predict what flipping the magnets would do.
+
+Watch out for one common mistake. The magnets do not pull the coil round. Copper is not attracted to magnets. Switch the current off, and the forces vanish. No current, no force.
+
+Quick check. Why do the two sides of the coil move in opposite directions? Because the current flows in opposite directions in them. So, in one line: a current in a magnetic field feels a force, and that force turns the motor.
