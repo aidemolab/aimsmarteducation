@@ -1,16 +1,14 @@
 // Interactive unit pages: the seven-stage learner journey.
 // Runs entirely in the browser: no network requests and no forms. The guide
 // questions and Exam Coach feedback are fixed examples until the real AI
-// service exists. The only thing stored is the chosen route (Foundation or
-// Higher), in this browser's local storage, so every stage page remembers it.
+// service exists. Nothing is stored by this script.
 (() => {
   const html = document.documentElement;
   const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches || html.classList.contains('a11y-reduce-motion');
   const app = document.querySelector('.aim-app[data-scene]');
 
   const store = {
-    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
-    set(key, value) { try { localStorage.setItem(key, value); } catch { /* storage blocked: fine */ } },
+    remove(key) { try { localStorage.removeItem(key); } catch { /* storage blocked: fine */ } },
   };
 
   const say = (box, nodes, tone) => {
@@ -22,23 +20,9 @@
     return t ? [...t.content.cloneNode(true).childNodes] : null;
   };
 
-  // ---- Route: Foundation or Higher ------------------------------------------
-  const routeButtons = [...document.querySelectorAll('[data-route]')];
-  const routeNote = document.querySelector('[data-route-note]');
-  function setRoute(route, save) {
-    document.body.classList.toggle('route-foundation', route === 'foundation');
-    document.body.classList.toggle('route-higher', route !== 'foundation');
-    routeButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.route === route)));
-    for (const d of document.querySelectorAll('details.ht-block')) d.open = route !== 'foundation';
-    if (routeNote) {
-      routeNote.textContent = route === 'foundation'
-        ? 'Foundation route: everything on the field around a wire and a solenoid is open. Higher-tier (HT) sections are closed; open any of them to see the motor in action.'
-        : 'Higher route: everything is open. Higher-tier (HT) sections are marked.';
-    }
-    if (save) store.set('aim-route', route);
-  }
-  routeButtons.forEach((b) => b.addEventListener('click', () => setRoute(b.dataset.route, true)));
-  setRoute(store.get('aim-route') === 'foundation' ? 'foundation' : 'higher', false);
+  // There is no route switch: everything is open to everyone and Higher-tier
+  // parts are labelled HT. Clear the route that older versions stored.
+  store.remove('aim-route');
 
   // ---- "Try it in 3D": move the living model to a stage ----------------------
   function tryIn3D(stage, settings) {
