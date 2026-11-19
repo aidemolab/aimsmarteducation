@@ -3,12 +3,12 @@
    CLAUDE.md and assets/css/site.css). Load after shell/shell.css and put
    class="aim-theme-premium" on <body>. The 3D stage stays dark (ink). */
 
-@font-face { font-family: "Manrope"; font-style: normal; font-weight: 700; font-display: swap; src: url("./fonts/manrope/manrope-latin-700-normal.woff2") format("woff2"); }
-@font-face { font-family: "Manrope"; font-style: normal; font-weight: 800; font-display: swap; src: url("./fonts/manrope/manrope-latin-800-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-400-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-400-italic.woff2") format("woff2"); }
-@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-600-normal.woff2") format("woff2"); }
-@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap; src: url("./fonts/source-sans-3/source-sans-3-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/manrope/manrope-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 800; font-display: swap; src: url("../fonts/manrope/manrope-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/source-sans-3/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: italic; font-weight: 400; font-display: swap; src: url("../fonts/source-sans-3/source-sans-3-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/source-sans-3/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Source Sans 3"; font-style: normal; font-weight: 700; font-display: swap; src: url("../fonts/source-sans-3/source-sans-3-latin-700-normal.woff2") format("woff2"); }
 
 .aim-theme-premium {
   /* Site tokens */
