@@ -33,9 +33,9 @@ Fix bugs in the 3D engine once, in `assets/explainer-shell/`; every explainer pi
 
 Pages are always short: no page should need long scrolling. Aim for about two laptop screens (1366 × 768) and never more than three, and check phone width too.
 
-- A unit is a short overview page (`index.html`) plus one page per stage (`hook.html`, `explore.html` …).
-- When a stage is still too long, split it into parts, each its own page (`explain.html`, `explain-motor.html`, `explain-turning.html`), linked by the part chips under the stage heading.
-- Every stage page has the compact journey bar, the Foundation/Higher route switch and Previous/Next links. The chosen route is remembered between pages.
+- A unit is a short overview page (`index.html`) plus one page per stage (8 pages in total).
+- A long stage is divided into parts on the same page; only one part shows at a time (`do-it.html#part-2`). Part chips and Previous/Next move between parts.
+- Measure the whole page, header and footer included: at most 3 screens on a laptop, about 4 on a phone.
 - Only `explore.html` loads the 3D model. "Try it in 3D" buttons on other pages open `explore.html?stage=N&set=…&from=page.html`, which sets the model and shows a "Back to …" button.
 - No inline `style=` attributes or `onclick=` handlers: the Content-Security-Policy blocks them. Use classes in `assets/css/unit.css` and handlers in `assets/js/unit.js`.
 

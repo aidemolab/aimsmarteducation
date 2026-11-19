@@ -56,7 +56,7 @@
   // Units are split into one page per stage; only the Explore page holds the
   // 3D model. On other pages, "Try it in 3D" opens Explore at the right step
   // and offers a way straight back.
-  const thisPage = location.pathname.split('/').pop() || 'index.html';
+  const thisPage = () => (location.pathname.split('/').pop() || 'index.html') + (/^#part-\d+$/.test(location.hash) ? location.hash : '');
   document.addEventListener('click', (e) => {
     const b = e.target.closest('[data-try-stage]');
     if (!b) return;
@@ -66,7 +66,7 @@
       const u = new URL('explore.html', location.href);
       u.searchParams.set('stage', b.dataset.tryStage);
       if (settings) u.searchParams.set('set', JSON.stringify(settings));
-      u.searchParams.set('from', thisPage);
+      u.searchParams.set('from', thisPage());
       location.href = u.href;
       return;
     }
@@ -82,10 +82,10 @@
       try { settings = params.get('set') ? JSON.parse(params.get('set')) : null; } catch { settings = null; }
       tryIn3D(Number(params.get('stage')) || 0, settings);
     }
-    if (from && /^[a-z0-9-]+\.html$/.test(from)) {
+    if (from && /^[a-z0-9-]+\.html(#part-\d+)?$/.test(from)) {
       // Stage pages may be split into parts (explain-motor.html is part of explain.html).
       const link = [...document.querySelectorAll('.journey-link')]
-        .find((a) => from.replace(/\.html$/, '').startsWith(a.getAttribute('href').replace(/\.html$/, '')));
+        .find((a) => from.split('#')[0] === a.getAttribute('href'));
       const name = link ? link.textContent.replace(/^\s*\d+\s*/, '').trim() : 'the previous stage';
       const bar = document.createElement('div');
       bar.className = 'try-return';
@@ -98,7 +98,7 @@
       back.textContent = `← Back to ${name}`;
       back.addEventListener('click', (ev) => {
         const ref = document.referrer && new URL(document.referrer);
-        if (ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
+        if (ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from.split('#')[0])) { ev.preventDefault(); history.back(); }
       });
       bar.append(p, back);
       document.querySelector('#stage-explore .stage-head')?.after(bar);
@@ -313,4 +313,42 @@
     });
   }
 
+
+  // ---- Stage parts: one part visible at a time (keeps every page short) -------
+  // Each long stage page holds its parts as .stage-part blocks. Only one shows;
+  // the address (#part-2) says which, so links, Back and "Try it" return here.
+  // Without JavaScript all parts stay visible.
+  const parts = [...document.querySelectorAll('.stage-part[data-part]')];
+  if (parts.length) {
+    const partLinks = [...document.querySelectorAll('[data-part-link]')];
+    const stageTop = document.querySelector('.stage-section');
+    const showPart = (n, scroll) => {
+      const idx = Math.min(Math.max(1, n), parts.length);
+      parts.forEach((p) => { p.hidden = Number(p.dataset.part) !== idx; });
+      partLinks.forEach((a) => {
+        if (Number(a.dataset.partLink) === idx) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+      if (scroll) {
+        stageTop?.scrollIntoView({ block: 'start', behavior: reduceMotion() ? 'auto' : 'smooth' });
+        parts[idx - 1].querySelector('.part-title')?.focus({ preventScroll: true });
+      }
+    };
+    parts.forEach((p) => p.querySelector('.part-title')?.setAttribute('tabindex', '-1'));
+    const fromHash = () => { const m = /^#part-(\d+)$/.exec(location.hash); return m ? Number(m[1]) : 1; };
+    // Same-page part links (part chips and Previous/Next within the stage)
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const url = new URL(a.getAttribute('href'), location.href);
+      if (url.pathname !== location.pathname || !/^#part-\d+$/.test(url.hash)) return;
+      e.preventDefault();
+      if (url.hash !== location.hash) history.pushState(null, '', url.hash);
+      showPart(fromHash(), true);
+    });
+    addEventListener('popstate', () => showPart(fromHash(), false));
+    addEventListener('hashchange', () => showPart(fromHash(), false));
+    showPart(fromHash(), false);
+    if (/^#part-\d+$/.test(location.hash)) stageTop?.scrollIntoView({ block: 'start' });
+  }
 })();

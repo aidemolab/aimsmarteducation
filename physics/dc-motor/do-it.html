@@ -6,8 +6,8 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://www.aimsmarteducation.co.uk/physics/dc-motor/do-it.html">
-  <title>6. Do it (1 of 4): Fields and electromagnets · How a DC Motor Works | AIM Smart Education</title>
-  <meta name="description" content="Stage 6 of 7 (Do it, Fields and electromagnets) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
+  <title>6. Do it · How a DC Motor Works | AIM Smart Education</title>
+  <meta name="description" content="Stage 6 of 7 (Do it, Practise it) of GCSE Physics Unit 1: How a DC motor works. AQA 8463, 4.7.2.">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="../../assets/explainer-shell/shell.css">
   <link rel="stylesheet" href="../../assets/css/premium-theme.css">
@@ -94,7 +94,7 @@
           <li><a href="../../">Home</a></li>
           <li><a href="../">Physics</a></li>
           <li><a href="./">How a DC motor works</a></li>
-          <li><span aria-current="page">6. Do it (part 1 of 4)</span></li>
+          <li><span aria-current="page">6. Do it</span></li>
         </ol>
       </nav>
       <div class="unit-strip">
@@ -146,12 +146,17 @@
       </div>
       <nav class="part-nav" aria-label="Parts of this stage">
         <ol>
-          <li><a href="do-it.html" aria-current="page"><span class="part-num">Part 1</span> Fields and electromagnets</a></li>
-          <li><a href="do-it-rule.html"><span class="part-num">Part 2</span> Fleming's left-hand rule</a></li>
-          <li><a href="do-it-calculate.html"><span class="part-num">Part 3</span> The equation F = B I l</a></li>
-          <li><a href="do-it-ladder.html"><span class="part-num">Part 4</span> Practice ladder</a></li>
+          <li><a href="#part-1" data-part-link="1"><span class="part-num">Part 1</span> Fields and electromagnets</a></li>
+          <li><a href="#part-2" data-part-link="2"><span class="part-num">Part 2</span> Fleming's left-hand rule trainer</a></li>
+          <li><a href="#part-3" data-part-link="3"><span class="part-num">Part 3</span> Say it: force and turning</a></li>
+          <li><a href="#part-4" data-part-link="4"><span class="part-num">Part 4</span> Say it: reversing and the commutator</a></li>
+          <li><a href="#part-5" data-part-link="5"><span class="part-num">Part 5</span> The equation F = B I l</a></li>
+          <li><a href="#part-6" data-part-link="6"><span class="part-num">Part 6</span> Practice ladder: L1 to L4</a></li>
+          <li><a href="#part-7" data-part-link="7"><span class="part-num">Part 7</span> Practice ladder: L5 to L8</a></li>
         </ol>
       </nav>
+      <div class="stage-part" id="part-1" data-part="1">
+        <h2 class="part-title"><span class="part-num">Part 1 of 7</span> Fields and electromagnets</h2>
 
 
       <div class="unit-grid">
@@ -224,60 +229,300 @@
           <template data-fb="wrong"><p>That one does make it stronger.</p><p class="coach-line">Try each change in the model. Which one only swaps N and S?</p><p><button class="u-btn try3d" type="button" data-try-stage="1">Replay in 3D</button></p></template>
         </div>
       </div>
-    </section>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="trap.html#part-2"><span class="pager-kicker">Previous</span><span class="pager-title">← 5. Spot the trap, part 2</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-2"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 2 →</span></a>
+      </nav>
+      </div>
 
-    <nav class="stage-pager" aria-label="Stage navigation">
-      <a class="pager-link pager-prev" rel="prev" href="trap.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 5. Spot the trap</span></a>
-      <a class="pager-link pager-next" rel="next" href="do-it-rule.html"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 2 →</span></a>
-    </nav>
+      <div class="stage-part" id="part-2" data-part="2">
+        <h2 class="part-title"><span class="part-num">Part 2 of 7</span> Fleming's left-hand rule trainer</h2>
+<details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card" data-trainer='[{"field":"right","current":"out"},{"field":"right","current":"in"},{"field":"left","current":"out"},{"field":"up","current":"in"},{"field":"in","current":"right"},{"field":"down","current":"left"}]'>
+            <h3>Left-hand rule trainer <span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span></h3>
+            <p>Hold up your left hand: first finger = Field, second finger = Current, thumb = Motion (force).</p>
+            <div class="trainer-prompt">
+              <p><strong>Field:</strong> <span data-trainer-field></span></p>
+              <p><strong>Current:</strong> <span data-trainer-current></span></p>
+            </div>
+            <p class="q-stem" id="tr-stem">Which way is the force on the wire?</p>
+            <div class="choice-row" role="group" aria-labelledby="tr-stem">
+              <button class="choice" type="button" aria-pressed="false" data-dir="up">↑ Up</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="down">↓ Down</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="left">← Left</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="right">→ Right</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="out">⊙ Out of the page</button>
+              <button class="choice" type="button" aria-pressed="false" data-dir="in">⊗ Into the page</button>
+            </div>
+            <div class="feedback" role="status" data-feedback></div>
+            <p class="trainer-score" data-trainer-score></p>
+            <button class="u-btn u-btn-primary" type="button" data-trainer-next hidden>Next round</button>
+            <p class="caption">A 3D hand trainer is planned. ⊙ means towards you, ⊗ means away from you.</p>
+          </div>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-1"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 1</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-3"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 3 →</span></a>
+      </nav>
+      </div>
+
+      <div class="stage-part" id="part-3" data-part="3">
+        <h2 class="part-title"><span class="part-num">Part 3 of 7</span> Say it: force and turning</h2>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <h3 class="visually-hidden">Do it, then say it</h3>
+          <div class="unit-grid">
+            <div class="unit-card q" data-q="check" data-correct="up">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> Do it, then say it</p>
+              <svg class="diagram" viewBox="0 0 240 150" role="img" aria-label="Field from a north pole on the left to a south pole on the right. A wire between them carries current out of the page.">
+                <rect class="dg-mag-n" x="0" y="25" width="36" height="100" rx="4"/><text class="dg-mag-text" x="12" y="81">N</text>
+                <rect class="dg-mag-s" x="204" y="25" width="36" height="100" rx="4"/><text class="dg-mag-text" x="215" y="81">S</text>
+                <path class="dg-field" d="M44 45H196M44 75H100M140 75H196M44 105H196"/>
+                <path class="dg-field-head" d="M176 40l10 5-10 5zM176 70l10 5-10 5zM176 100l10 5-10 5z"/>
+                <circle class="dg-wire" cx="120" cy="75" r="13"/><circle class="dg-ink" cx="120" cy="75" r="3.5"/>
+              </svg>
+              <p class="q-stem" id="i1-stem">The field points right (N to S). The current in the wire flows out of the page. Which way is the force?</p>
+              <div class="choice-row" role="group" aria-labelledby="i1-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="up">↑ Up</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="down">↓ Down</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="left">← Left</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="right">→ Right</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Upwards.</p><p><strong>Say it:</strong> "A current-carrying wire in a magnetic field experiences a force; by Fleming's left-hand rule it acts upwards."</p></template>
+              <template data-fb="wrong"><p>Not this way.</p><p class="coach-line">First finger right (field), second finger towards you (current). Where does your thumb point?</p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="flat">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Do it, then say it</p>
+              <p class="q-stem" id="i2-stem">Seen from the end, the coil can sit at different angles between the magnets. Pick the position where the turning effect is greatest.</p>
+              <div class="choice-row" role="group" aria-labelledby="i2-stem">
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="flat" aria-label="Coil parallel to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="32" y1="45" x2="88" y2="45"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Parallel to field</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="tilt" aria-label="Coil at 45 degrees to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="40" y1="65" x2="80" y2="25"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At 45°</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="vertical" aria-label="Coil at right angles to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="60" y1="17" x2="60" y2="73"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At right angles</span></button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ With the plane of the coil parallel to the field lines.</p><p><strong>Say it:</strong> "The forces are furthest from the axle and at right angles to the coil, so the turning effect is greatest."</p></template>
+              <template data-fb="wrong"><p>Not the greatest.</p><p class="coach-line">The forces on the sides are always vertical. In which position are they furthest from the axle sideways?</p><p><button class="u-btn try3d" type="button" data-try-stage="5">Replay in 3D</button></p></template>
+            </div>
+          </div>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-2"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 2</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-4"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 4 →</span></a>
+      </nav>
+      </div>
+
+      <div class="stage-part" id="part-4" data-part="4">
+        <h2 class="part-title"><span class="part-num">Part 4 of 7</span> Say it: reversing and the commutator</h2>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-grid">
+            <div class="unit-card q" data-q="check" data-correct="a">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Do it, then say it</p>
+              <svg class="diagram" viewBox="0 0 240 150" role="img" aria-label="End view of the coil, parallel to a field pointing right. Left side: current into the page, force down. Right side: current out of the page, force up.">
+                <rect class="dg-mag-n" x="0" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="9" y="81">N</text>
+                <rect class="dg-mag-s" x="210" y="25" width="30" height="100" rx="4"/><text class="dg-mag-text" x="219" y="81">S</text>
+                <line class="dg-coil" x1="70" y1="75" x2="170" y2="75"/><circle class="dg-axle" cx="120" cy="75" r="4"/>
+                <circle class="dg-wire" cx="70" cy="75" r="11"/><path class="dg-arrow" d="M63 68l14 14M77 68l-14 14" stroke-width="2"/>
+                <circle class="dg-wire" cx="170" cy="75" r="11"/><circle class="dg-ink" cx="170" cy="75" r="3"/>
+                <path class="dg-arrow" d="M70 90V125"/><path class="dg-arrow-head" d="M64 122l6 12 6-12z"/>
+                <path class="dg-arrow" d="M170 60V25"/><path class="dg-arrow-head" d="M164 28l6-12 6 12z"/>
+              </svg>
+              <p class="q-stem" id="i3-stem">Before: left side force down, right side force up. Now the current is reversed. Place the new forces.</p>
+              <div class="choice-stack" role="group" aria-labelledby="i3-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="a">Left ↑ up, right ↓ down</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="b">Left ↓ down, right ↑ up (no change)</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="c">Both ↑ up</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="d">Both ↓ down</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Both forces reverse direction.</p><p><strong>Say it:</strong> "Reversing the current reverses the forces, so the coil turns the other way."</p></template>
+              <template data-fb="wrong"><p>Not quite.</p><p class="coach-line">If the current in each side reverses, what happens to the force on each side?</p><p><button class="u-btn try3d" type="button" data-try-stage="4" data-set='{"reverseCurrent":true}'>Replay in 3D</button></p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="vertical">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Do it, then say it <span class="gf-badge">Going further</span></p>
+              <p class="q-stem" id="i4-stem">Pick the position where the commutator reverses the current.</p>
+              <div class="choice-row" role="group" aria-labelledby="i4-stem">
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="flat" aria-label="Coil parallel to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="32" y1="45" x2="88" y2="45"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Parallel to field</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="tilt" aria-label="Coil at 45 degrees to the field lines">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="40" y1="65" x2="80" y2="25"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>At 45°</span></button>
+                <button class="choice choice-svg" type="button" aria-pressed="false" data-value="vertical" aria-label="Coil at right angles to the field lines (vertical)">
+                  <svg viewBox="0 0 120 90" aria-hidden="true"><rect class="dg-mag-n" x="2" y="10" width="14" height="70"/><rect class="dg-mag-s" x="104" y="10" width="14" height="70"/><line class="dg-coil" x1="60" y1="17" x2="60" y2="73"/><circle class="dg-axle" cx="60" cy="45" r="4"/></svg>
+                  <span>Vertical</span></button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ With the plane of the coil at right angles to the field: the vertical position here.</p><p><strong>Say it:</strong> "At the vertical, the commutator reverses the current, so the forces keep turning the coil the same way."</p></template>
+              <template data-fb="wrong"><p>Not here.</p><p class="coach-line">Watch the gaps in the split ring in the model. Where is the coil when they pass the brushes?</p><p><button class="u-btn try3d" type="button" data-try-stage="6">Replay in 3D</button></p></template>
+            </div>
+
+            <div class="unit-card q" data-q="check" data-correct="force">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> Say it: fill the gap</p>
+              <p class="q-stem" id="i5-stem">"A current-carrying wire in a magnetic field experiences a ____. This is called the motor effect."</p>
+              <div class="choice-row" role="group" aria-labelledby="i5-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="force">force</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="friction">friction</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="gravity">gravity</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="charge">charge</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Force. Use exactly these words in the exam.</p></template>
+              <template data-fb="wrong"><p>Not that word.</p><p class="coach-line">What do the green arrows in the model show?</p></template>
+            </div>
+          </div>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-3"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 3</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-5"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 5 →</span></a>
+      </nav>
+      </div>
+
+      <div class="stage-part" id="part-5" data-part="5">
+        <h2 class="part-title"><span class="part-num">Part 5 of 7</span> The equation F = B I l</h2>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card eq-panel" id="equations">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> Equations and units</p>
+            <h3>Force on a wire in a magnetic field</h3>
+            <p class="eq-big"><span class="eq">F = B I l</span></p>
+            <p>force = magnetic flux density × current × length. The wire must be at right angles to the field. A wire parallel to the field feels no force.</p>
+            <div class="table-wrap">
+              <table class="units-table">
+                <caption class="visually-hidden">Quantities in F = B I l, their symbols and units</caption>
+                <thead><tr><th scope="col">Quantity</th><th scope="col">Symbol</th><th scope="col">Unit</th></tr></thead>
+                <tbody>
+                  <tr><td>Force</td><td class="sym">F</td><td>newton (N)</td></tr>
+                  <tr><td>Magnetic flux density</td><td class="sym">B</td><td>tesla (T)</td></tr>
+                  <tr><td>Current</td><td class="sym">I</td><td>ampere (A)</td></tr>
+                  <tr><td>Length of wire in the field</td><td class="sym">l</td><td>metre (m)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Rearranging:</strong> <span class="eq">B = F ÷ (I l)</span> · <span class="eq">I = F ÷ (B l)</span> · <span class="eq">l = F ÷ (B I)</span></p>
+            <p><strong>Units first:</strong> change centimetres to metres (÷ 100), millimetres to metres (÷ 1000) and millinewtons to newtons (÷ 1000) before you substitute.</p>
+          </div>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-4"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 4</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-6"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 6 →</span></a>
+      </nav>
+      </div>
+
+      <div class="stage-part" id="part-6" data-part="6">
+        <h2 class="part-title"><span class="part-num">Part 6 of 7</span> Practice ladder: L1 to L4</h2>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <h3>Practice ladder: recall to new situations</h3>
+          <ol class="qa-list">
+            <li><p><span class="q-num">L1</span><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> In Fleming's left-hand rule, what does each finger represent?</p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>First finger: field. Second finger: current. Thumb: motion (force).</p></div></details></li>
+            <li><p><span class="q-num">L2</span><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Name the part of a DC motor that reverses the current in the coil every half turn. <span class="gf-badge">Going further</span></p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The split-ring commutator.</p></div></details></li>
+            <li><p><span class="q-num">L3</span><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> Give three ways to make a DC motor spin faster.</p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>Increase the current; use a stronger magnetic field; use more turns on the coil.</p></div></details></li>
+          </ol>
+
+          <div class="unit-card mt-16">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> L4 · Worked example</p>
+            <p class="exam-q">5.0 cm of wire carries 3.0 A at right angles to a 0.20 T field. Calculate the force.</p>
+            <div class="working">
+              <p>Convert the length to metres: l = 5.0 cm = 0.050 m</p>
+              <p>Write the equation: <span class="eq">F = B I l</span></p>
+              <p>Substitute: F = 0.20 × 3.0 × 0.050</p>
+              <p><strong>F = 0.030 N</strong></p>
+            </div>
+          </div>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-5"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 5</span></a>
+        <a class="pager-link pager-next" href="do-it.html#part-7"><span class="pager-kicker">Next</span><span class="pager-title">6. Do it, part 7 →</span></a>
+      </nav>
+      </div>
+
+      <div class="stage-part" id="part-7" data-part="7">
+        <h2 class="part-title"><span class="part-num">Part 7 of 7</span> Practice ladder: L5 to L8</h2>
+
+      <details class="ht-block" open>
+        <summary><span class="tier-badge">HT</span> Fleming's left-hand rule, the motor and F = B I l <span class="ht-optional">Optional for Foundation</span></summary>
+        <div class="ht-body">
+          <div class="unit-card" data-calc data-answer="0.024" data-common="2.4">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> L5 · Partly worked</p>
+            <p class="exam-q">8.0 cm of wire carries 2.0 A at right angles to a 0.15 T field. Calculate the force.</p>
+            <div class="working"><p>Step 1 (done for you): l = 8.0 cm = 0.080 m</p><p>Step 2: F = B I l = 0.15 × 2.0 × 0.080</p></div>
+            <div class="calc-row"><label for="l5-in">F =</label><input class="calc-input" id="l5-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">N</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="right"><p>✓ F = 0.15 × 2.0 × 0.080 = 0.024 N.</p></template>
+            <template data-fb="common"><p>That's 100 times too big. Did you use 8.0 cm instead of 0.080 m?</p></template>
+            <template data-fb="wrong"><p>Not quite. Multiply the three numbers in step 2.</p></template>
+          </div>
+
+          <div class="unit-card" data-calc data-answer="1.5">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> L6 · Rearrange</p>
+            <p class="exam-q">A 0.10 m wire at right angles to a 0.40 T field feels a force of 0.060 N. Calculate the current.</p>
+            <div class="calc-row"><label for="l6-in">I =</label><input class="calc-input" id="l6-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">A</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <details class="reveal"><summary>Need a hint?</summary><div class="reveal-body"><p>Rearrange F = B I l to I = F ÷ (B l).</p></div></details>
+            <template data-fb="right"><p>✓ I = F ÷ (B l) = 0.060 ÷ (0.40 × 0.10) = 1.5 A.</p></template>
+            <template data-fb="wrong"><p>Not quite. Rearrange first: I = F ÷ (B × l). Work out B × l, then divide.</p></template>
+          </div>
+
+          <div class="unit-card" data-calc data-answer="0.5" data-common="0.005">
+            <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2</span> L7 · Units</p>
+            <p class="exam-q">A 25 cm wire carrying 4.0 A at right angles to a field feels a force of 0.50 N. Calculate the magnetic flux density.</p>
+            <div class="calc-row"><label for="l7-in">B =</label><input class="calc-input" id="l7-in" type="text" inputmode="decimal" autocomplete="off"><span class="calc-unit">T</span><button class="u-btn u-btn-primary" type="button" data-calc-check>Check</button></div>
+            <div class="feedback" role="status" data-feedback></div>
+            <template data-fb="right"><p>✓ l = 0.25 m; B = F ÷ (I l) = 0.50 ÷ (4.0 × 0.25) = 0.50 T.</p></template>
+            <template data-fb="common"><p>That's 100 times too small. Did you use 25 cm instead of 0.25 m?</p></template>
+            <template data-fb="wrong"><p>Not quite. Convert the length to metres, then use B = F ÷ (I × l).</p></template>
+          </div>
+
+          <ol class="qa-list" start="8">
+            <li><p><span class="q-num">L8</span><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.4 (Physics only)</span> A loudspeaker has a coil in a magnetic field, attached to a cone. Explain why the cone moves back and forth when an alternating current flows. <span class="gf-badge">Going further</span></p>
+              <details class="reveal"><summary>Show the answer</summary><div class="reveal-body"><p>The current in the coil, in a magnetic field, gives a force (the motor effect). The current keeps reversing, so the force keeps reversing, and the cone moves back and forth.</p><p class="caption">Loudspeakers are AQA 4.7.2.4: Physics only, Higher tier.</p></div></details></li>
+          </ol>
+        </div>
+      </details>
+      <nav class="stage-pager" aria-label="Previous and next">
+        <a class="pager-link pager-prev" href="do-it.html#part-6"><span class="pager-kicker">Previous</span><span class="pager-title">← 6. Do it, part 6</span></a>
+        <a class="pager-link pager-next" href="write.html#part-1"><span class="pager-kicker">Next</span><span class="pager-title">7. Write it and revisit it, part 1 →</span></a>
+      </nav>
+      </div>
+    </section>
 
     <noscript>
       <p class="aim-noscript">The 3D model and the marked activities need JavaScript. All the explanations, answers and mark schemes are still on this page.</p>
     </noscript>
   </main>
 
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <div class="footer-top">
-        <a class="brand" href="../../" aria-label="AIM Smart Education home">
-          <span class="brand-mark" aria-hidden="true">A</span>
-          <span class="wordmark">AIM Smart Education</span>
-        </a>
-        <nav class="footer-nav" aria-label="Footer">
-          <div class="footer-col">
-            <h2 class="footer-heading">Subjects</h2>
-            <ul>
-              <li><a href="../../physics/">Physics</a></li>
-              <li><a href="../../maths/">Maths</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Learn</h2>
-            <ul>
-              <li><a href="../../#loop">Learner journey</a></li>
-              <li><a href="../../#research">Research</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">Partners</h2>
-            <ul>
-              <li><a href="../../#partners">Schools &amp; trusts</a></li>
-              <li><a href="../../#partners">Publishers</a></li>
-              <li><a href="../../#partners">Investors</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h2 class="footer-heading">About</h2>
-            <ul>
-              <li><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-      <div class="footer-legal">
-        <p>Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
-        <p>No adverts. No tracking. © 2026 AIM Smart Education.</p>
-      </div>
+  <footer class="site-footer site-footer-compact">
+    <div class="site-footer-inner footer-compact-inner">
+      <nav class="footer-compact-nav" aria-label="Footer"><a href="../../">Home</a> · <a href="../">Physics</a> · <a href="./">Unit overview</a> · <a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></nav>
+      <p>Aligned to exam board specifications; not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International. No adverts. No tracking. © 2026 AIM Smart Education.</p>
     </div>
   </footer>
 </body>

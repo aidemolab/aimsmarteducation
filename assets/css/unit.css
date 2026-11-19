@@ -379,3 +379,16 @@
 .part-nav a:hover { border-color: var(--brand); color: var(--brand-strong); }
 .part-nav a[aria-current="page"] { background: var(--brand); border-color: var(--brand); color: #fff; }
 .part-num { font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; opacity: .8; }
+
+/* One page per stage, parts shown one at a time */
+.part-title { margin: 8px 0 16px; font-size: 1.25rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.part-title:focus { outline: none; }
+.part-title .part-num { color: var(--brand); }
+.stage-part > .stage-pager { margin-top: 28px; }
+.stage-part[hidden] { display: none !important; }
+
+/* Compact footer on stage pages */
+.site-footer-compact { padding: 16px 0; }
+.footer-compact-inner { display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between; }
+.footer-compact-inner p { margin: 0; font-size: 0.85rem; color: var(--ink-muted); max-width: 70ch; }
+.footer-compact-nav { font-size: 0.9rem; }
