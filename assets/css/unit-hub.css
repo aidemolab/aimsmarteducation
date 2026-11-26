@@ -368,24 +368,11 @@ a.sub-card:hover { background: #E1E1F7; color: var(--ink); }
 .mu-parts { gap: 4px; }
 .mu-parts li { padding: 0 6px; font-size: 0.75rem; line-height: 20px; }
 .mu-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
-#explainers.section { padding-top: var(--space-4); }
-#explainers .section-head { margin-bottom: var(--space-2); }
-#explainers .card-grid { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
-#explainers .card { flex-direction: row; }
-#explainers .card-media { flex: 0 0 200px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
-#explainers .card-body { padding: 20px var(--space-3); }
-#explainers .card-body h3 { margin-bottom: 4px; }
-#explainers .card-body p { margin-bottom: 8px; }
-#explainers .card-facts { margin-bottom: 12px; }
 @media (max-width: 720px) {
   .mu-card { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
   .mu-thumb { flex: 0 0 132px; width: 132px; }
   .mu-body { flex: 1 1 100%; }
   .mu-card .mu-goal { font-size: 1rem; line-height: 24px; }
-  #explainers .card-media { flex-basis: 96px; }
-  #explainers .card-media svg { width: 70%; }
-  #explainers .media-label { display: none; }
-  #explainers .card-body { padding: 16px; }
 }
 @media (max-width: 720px) and (min-width: 0) {
   .mu-thumb .placeholder-tag { display: none; }
