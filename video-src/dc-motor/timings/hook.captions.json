@@ -1,0 +1,59 @@
+{
+ "cues": [
+  {
+   "start": 0.9,
+   "end": 4.53,
+   "lines": [
+    "Flick a switch, and a fan",
+    "starts spinning straight away."
+   ]
+  },
+  {
+   "start": 4.58,
+   "end": 5.89,
+   "lines": [
+    "There's no engine inside."
+   ]
+  },
+  {
+   "start": 5.94,
+   "end": 11.26,
+   "lines": [
+    "No fuel. Just a coil of wire, a couple",
+    "of magnets, and an electric current."
+   ]
+  },
+  {
+   "start": 11.467,
+   "end": 14.917,
+   "lines": [
+    "So what is actually",
+    "pushing the blades round?"
+   ]
+  },
+  {
+   "start": 14.967,
+   "end": 17.777,
+   "lines": [
+    "Before we explain anything,",
+    "make a prediction."
+   ]
+  },
+  {
+   "start": 17.827,
+   "end": 18.837,
+   "lines": [
+    "Lock it in."
+   ]
+  },
+  {
+   "start": 18.887,
+   "end": 20.537,
+   "lines": [
+    "Then test it in the model."
+   ]
+  }
+ ],
+ "corrected": [],
+ "worstRemainingOffset": 0.29
+}

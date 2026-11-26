@@ -51,6 +51,7 @@ const opts = {
   ironCore: false,
   motorCurrent: 2,     // motor current (A, illustrative)
   turns: 3,
+  currentOn: true,     // motor supply switched on (off: no current, so no force)
   reverseCurrent: false,
   flipMagnets: false,
   commutator: true,
@@ -458,6 +459,10 @@ function updateMotion() {
     kin.hold(0, lastT); // coil horizontal: the sides cut across the field
     return;
   }
+  if (!opts.currentOn) {
+    kin.hold(kin.angle(lastT), lastT); // no current, no force: the coil stays where it is
+    return;
+  }
   const dir = turnDirection(currentDir(), fieldDir());
   if (opts.commutator || !f.commutatorStage) {
     kin.set('spin', lastT, { omega: dir * TAU * motorTurnsPerSecond(opts.motorCurrent, opts.turns), dir });
@@ -608,14 +613,14 @@ export default {
       const sc = sideCurrent(theta, o.currentDir, o.commutator || !f.commutatorStage);
       const commOn = o.commutator || !f.commutatorStage;
       motor.curArrows.forEach((a, k) => {
-        a.visible = !!f.current;
+        a.visible = !!f.current && opts.currentOn;
         const dirZ = (k === 0 ? 1 : -1) * sc;
         setArrow(THREE, a, { x: 0, y: 0, z: dirZ }, 0.5);
         a.position.z = -0.25 * dirZ;
       });
       // Force arrows on each side, in world space: vertical, ∝ current × turns.
       const force = sideForce(theta, { ...o, commutator: commOn });
-      const size = forceSize(o.current, o.turns);
+      const size = opts.currentOn ? forceSize(o.current, o.turns) : 0;
       const len = 0.3 + 0.06 * size; // arrows not to scale
       motor.forceArrows.forEach((a, k) => {
         const sideSign = k === 0 ? 1 : -1;
@@ -626,8 +631,8 @@ export default {
 
       // Fleming's left-hand rule at side A: First finger field, seCond finger
       // current, thuMb force (motion).
-      motor.fleming.visible = !!f.fleming;
-      if (f.fleming) {
+      motor.fleming.visible = !!f.fleming && opts.currentOn;
+      if (f.fleming && opts.currentOn) {
         motor.fleming.position.set(COIL_R * Math.cos(theta), COIL_R * Math.sin(theta), COIL_L * 0.55);
         setArrow(THREE, motor.fField, { x: fd, y: 0, z: 0 }, 0.55);
         setArrow(THREE, motor.fCurrent, { x: 0, y: 0, z: sc }, 0.55);
@@ -641,7 +646,7 @@ export default {
       const p = new THREE.Vector3();
       const n = motor.beads.length;
       motor.beads.forEach((b, i) => {
-        b.visible = !!f.current;
+        b.visible = !!f.current && opts.currentOn;
         const half = i < n / 2 ? 0 : 1;
         const u0 = (i % (n / 2)) / (n / 2);
         const flow = o.currentDir * t * 0.18 * Math.min(3, o.current);
@@ -655,11 +660,11 @@ export default {
       if (readout) {
         readout.box.hidden = !f.readout;
         if (f.readout) {
-          const turning = turningEffect(theta, { ...o, commutator: commOn });
+          const turning = opts.currentOn ? turningEffect(theta, { ...o, commutator: commOn }) : 0;
           const dirWord = turning > 0.02 ? uiTexts.anticlockwise : turning < -0.02 ? uiTexts.clockwise : uiTexts.noTurning;
           readout.line1.textContent = `${uiTexts.forceLabel || 'Force on each side'}: ${size.toFixed(1)} (${uiTexts.forceRule || 'current × turns'})`;
           readout.line2.textContent = f.commutatorStage
-            ? (commOn ? uiTexts.commOn : uiTexts.commOff) || ''
+            ? (!opts.currentOn ? uiTexts.currentOff : commOn ? uiTexts.commOn : uiTexts.commOff) || ''
             : `${uiTexts.turning || 'Turning'}: ${dirWord || ''} · ${uiTexts.notToScale || 'arrows not to scale'}`;
         }
       }
@@ -686,7 +691,7 @@ export default {
 
   setOption(name, value) {
     if (name in opts) opts[name] = value;
-    if (['motorCurrent', 'turns', 'reverseCurrent', 'flipMagnets', 'commutator'].includes(name)) updateMotion();
+    if (['motorCurrent', 'turns', 'currentOn', 'reverseCurrent', 'flipMagnets', 'commutator'].includes(name)) updateMotion();
     if (name === 'quality' && parts.lights) parts.lights.key.castShadow = value > 0;
   },
 

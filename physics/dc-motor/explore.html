@@ -110,11 +110,6 @@
       </nav>
       <div class="unit-strip">
         <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
-    <div class="route-mini" role="group" aria-label="Your route">
-      <span class="route-mini-label">Route:</span>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
-    </div>
       </div>
     </div>
 
@@ -153,7 +148,7 @@
       <div class="stage-head">
         <p class="phase-kicker">See it · Stage 2 of 7</p>
         <h1 id="explore-heading">Explore</h1>
-        <p class="stage-purpose">Build your intuition: change one thing at a time and watch what happens. Use the steps beside the model, or the suggestions underneath it.</p>
+        <p class="stage-purpose">Change one thing at a time and watch what happens.</p>
       </div>
 
       <div class="aim-main">
@@ -180,33 +175,17 @@
         </aside>
       </div>
 
-      <div class="unit-grid">
-        <details class="unit-card try-card" open>
-          <summary><h3>Try these <span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span></h3></summary>
-          <ol>
-            <li>Slide the current from +3 to −3. What happens to the compasses?</li>
-            <li>Compare the inner and outer compasses. Where is the field stronger?</li>
-            <li>Make a solenoid, then add the iron core. Where are the poles?</li>
-          </ol>
-          <div class="button-row">
-            <button class="u-btn try3d" type="button" data-try-stage="0">Wire</button>
-            <button class="u-btn try3d" type="button" data-try-stage="1">Solenoid</button>
-            <button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Electromagnet</button>
-          </div>
-        </details>
-        <details class="unit-card try-card">
-          <summary><h3>Try these <span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2, 4.7.2.3</span></h3></summary>
-          <ol>
-            <li>Turn up the current, then add turns. What happens to the speed?</li>
-            <li>Reverse the current. Then flip the magnets as well.</li>
-            <li>Switch off the commutator. Where does the coil end up?</li>
-          </ol>
-          <div class="button-row">
-            <button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":false}'>Motor sandbox</button>
-            <button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>No commutator</button>
-          </div>
-          <p class="caption">Foundation: this is optional. It shows your electromagnet idea in action.</p>
-        </details>
+      <div class="unit-card try-list">
+        <h3>Predict, then test <span class="tier-badge tier-badge-all">All</span> <span class="spec-tag">AQA 4.7.2.1</span></h3>
+        <ol>
+          <li><span>Slide the current from +3 to −3. What will the compasses do? Which turn most?</span> <button class="u-btn try3d" type="button" data-try-stage="0">Wire</button></li>
+          <li><span>Add an iron core. What will happen to the field?</span> <button class="u-btn try3d" type="button" data-try-stage="1" data-set='{"ironCore":true}'>Electromagnet</button></li>
+        </ol>
+        <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.2, 4.7.2.3</span></p>
+        <ol start="3">
+          <li><span>Turn up the current, add turns, reverse the current, flip the magnets. What will the force arrows do?</span> <button class="u-btn try3d" type="button" data-try-stage="5" data-set='{"reverseCurrent":false,"flipMagnets":false}'>Motor sandbox</button></li>
+          <li><span>Switch the commutator off <span class="gf-badge">Going further</span>. Where will the coil stop?</span> <button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>No commutator</button></li>
+        </ol>
       </div>
 
       <details class="model-words" data-model-words>
@@ -216,7 +195,7 @@
     </section>
 
     <nav class="stage-pager" aria-label="Stage navigation">
-      <a class="pager-link pager-prev" rel="prev" href="hook-predict.html"><span class="pager-kicker">Previous</span><span class="pager-title">← 1. Hook, part 2</span></a>
+      <a class="pager-link pager-prev" rel="prev" href="hook-predict.html"><span class="pager-kicker">Previous <span class="tier-badge">HT</span></span><span class="pager-title">← 1. Hook, part 2</span></a>
       <a class="pager-link pager-next" rel="next" href="explain.html"><span class="pager-kicker">Next</span><span class="pager-title">3. Explain, part 1 →</span></a>
     </nav>
 

@@ -1,0 +1,155 @@
+{
+ "name": "hook",
+ "fps": 30,
+ "scenes": [
+  {
+   "n": 1,
+   "audio": [
+    0,
+    9.76
+   ],
+   "lead": 0.9,
+   "gap": 0.5,
+   "frames": 335,
+   "duration": 11.1667,
+   "start": 0,
+   "speechEnd": 10.36,
+   "sentences": [
+    {
+     "text": "Flick a switch, and a fan starts spinning straight away.",
+     "start": 0.9,
+     "end": 3.96
+    },
+    {
+     "text": "There's no engine inside.",
+     "start": 4.58,
+     "end": 5.48
+    },
+    {
+     "text": "No fuel.",
+     "start": 5.94,
+     "end": 6.4
+    },
+    {
+     "text": "Just a coil of wire, a couple of magnets, and an electric current.",
+     "start": 6.86,
+     "end": 10.36
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "audio": [
+    9.76,
+    13.06
+   ],
+   "lead": 0,
+   "gap": 0.5,
+   "frames": 114,
+   "duration": 3.8,
+   "start": 11.1667,
+   "speechEnd": 14.467,
+   "sentences": [
+    {
+     "text": "So what is actually pushing the blades round?",
+     "start": 11.467,
+     "end": 14.467
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "audio": [
+    13.06,
+    18.56
+   ],
+   "lead": 0,
+   "gap": 2.6,
+   "frames": 243,
+   "duration": 8.1,
+   "start": 14.9667,
+   "speechEnd": 20.187,
+   "sentences": [
+    {
+     "text": "Before we explain anything, make a prediction.",
+     "start": 14.967,
+     "end": 17.327
+    },
+    {
+     "text": "Lock it in.",
+     "start": 17.827,
+     "end": 18.427
+    },
+    {
+     "text": "Then test it in the model.",
+     "start": 18.887,
+     "end": 20.187
+    }
+   ]
+  }
+ ],
+ "cues": [
+  {
+   "start": 0.9,
+   "end": 4.53,
+   "text": "Flick a switch, and a fan starts spinning straight away.",
+   "lines": [
+    "Flick a switch, and a fan",
+    "starts spinning straight away."
+   ]
+  },
+  {
+   "start": 4.58,
+   "end": 5.89,
+   "text": "There's no engine inside.",
+   "lines": [
+    "There's no engine inside."
+   ]
+  },
+  {
+   "start": 5.94,
+   "end": 11.26,
+   "text": "No fuel. Just a coil of wire, a couple of magnets, and an electric current.",
+   "lines": [
+    "No fuel. Just a coil of wire, a couple",
+    "of magnets, and an electric current."
+   ]
+  },
+  {
+   "start": 11.467,
+   "end": 14.917,
+   "text": "So what is actually pushing the blades round?",
+   "lines": [
+    "So what is actually",
+    "pushing the blades round?"
+   ]
+  },
+  {
+   "start": 14.967,
+   "end": 17.777,
+   "text": "Before we explain anything, make a prediction.",
+   "lines": [
+    "Before we explain anything,",
+    "make a prediction."
+   ]
+  },
+  {
+   "start": 17.827,
+   "end": 18.837,
+   "text": "Lock it in.",
+   "lines": [
+    "Lock it in."
+   ]
+  },
+  {
+   "start": 18.887,
+   "end": 20.537,
+   "text": "Then test it in the model.",
+   "lines": [
+    "Then test it in the model."
+   ]
+  }
+ ],
+ "duration": 23.0667,
+ "frames": 692
+}

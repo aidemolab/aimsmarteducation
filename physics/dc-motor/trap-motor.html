@@ -99,11 +99,6 @@
       </nav>
       <div class="unit-strip">
         <p class="unit-strip-title"><a href="./">How a DC motor works</a> <span class="unit-strip-meta">· GCSE Physics · Unit 1</span></p>
-    <div class="route-mini" role="group" aria-label="Your route">
-      <span class="route-mini-label">Route:</span>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="false" data-route="foundation">Foundation</button>
-      <button class="u-btn u-btn-sm" type="button" aria-pressed="true" data-route="higher">Higher</button>
-    </div>
       </div>
     </div>
 
@@ -147,11 +142,12 @@
       <nav class="part-nav" aria-label="Parts of this stage">
         <ol>
           <li><a href="trap.html"><span class="part-num">Part 1</span> Fields and electromagnets</a></li>
-          <li><a href="trap-motor.html" aria-current="page"><span class="part-num">Part 2</span> Motor traps</a></li>
+          <li><a href="trap-motor.html" aria-current="page"><span class="part-num">Part 2</span> Motor traps <span class="tier-badge">HT</span></a></li>
         </ol>
       </nav>
-      <details class="ht-block" open>
-        <summary><span class="tier-badge">HT</span> Motor traps <span class="ht-optional">Optional for Foundation</span></summary>
+      <p class="ht-part-note"><span class="tier-badge">HT</span> Higher tier only. Foundation students can skip this part.</p>
+      <section class="ht-block">
+        <h2 class="ht-head"><span class="tier-badge">HT</span> Motor traps</h2>
         <div class="ht-body">
           <div class="unit-grid">
             <div class="unit-card q" data-q="check" data-correct="false">
@@ -163,7 +159,7 @@
               </div>
               <div class="feedback" role="status" data-feedback></div>
               <template data-fb="right"><p>✓ Right. A copper coil is not attracted to magnets. The force comes from the current in a magnetic field: the motor effect. No current, no force.</p></template>
-              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">What happens to the forces in the model if there is no current in the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="4">Replay in 3D</button></p></template>
+              <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">If the magnets pulled the coil, it would move with no current at all. The model will switch the current off: watch the force arrows.</p><p><button class="u-btn try3d" type="button" data-try-stage="4" data-set='{"currentOn":false}'>Replay in 3D: current off</button></p></template>
             </div>
             <div class="unit-card q" data-q="check" data-correct="false">
               <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.3</span> True or false? <span class="gf-badge">Going further</span></p>
@@ -184,7 +180,7 @@
                 <button class="choice" type="button" aria-pressed="false" data-value="priya">Priya</button>
               </div>
               <div class="feedback" role="status" data-feedback></div>
-              <template data-fb="right"><p>✓ Priya is right. A bigger current makes a bigger force, so the motor turns faster, not the other way.</p></template>
+              <template data-fb="right"><p>✓ Priya is right. A bigger current makes a bigger force in the same direction, not a force the other way.</p></template>
               <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Does a bigger current change the force's direction, or its size?</p><p><button class="u-btn try3d" type="button" data-try-stage="5">Replay in 3D</button></p></template>
             </div>
             <div class="unit-card q" data-q="check" data-correct="leo">
@@ -233,9 +229,20 @@
               <template data-fb="right"><p>✓ Right. After the vertical, the forces turn the coil back. It rocks and stops at the vertical.</p></template>
               <template data-fb="wrong"><p>That's the trap.</p><p class="coach-line">Just after the vertical, which way do the forces turn the coil?</p><p><button class="u-btn try3d" type="button" data-try-stage="6" data-set='{"commutator":false}'>Replay in 3D</button></p></template>
             </div>
+                <div class="unit-card q" data-q="check" data-correct="ben">
+              <p class="card-kicker"><span class="tier-badge">HT</span> <span class="spec-tag">AQA 4.7.2.4 (Physics only)</span> Who's right? <span class="draft-badge">Draft for Alaa's review</span></p>
+              <p class="q-stem" id="m7-stem">Zara: "A loudspeaker cone vibrates because the magnet inside it vibrates." Ben: "It vibrates because the current in the coil keeps reversing, so the force on the coil keeps reversing."</p>
+              <div class="choice-row" role="group" aria-labelledby="m7-stem">
+                <button class="choice" type="button" aria-pressed="false" data-value="zara">Zara</button>
+                <button class="choice" type="button" aria-pressed="false" data-value="ben">Ben</button>
+              </div>
+              <div class="feedback" role="status" data-feedback></div>
+              <template data-fb="right"><p>✓ Ben is right. The magnet stays still. The alternating current in the coil gives a force that keeps reversing, so the coil and cone move back and forth.</p></template>
+              <template data-fb="wrong"><p>Not this time.</p><p class="coach-line">Which part is attached to the cone: the magnet or the coil? And which one carries the changing current?</p><p><a class="u-btn" href="explain-loudspeaker.html">Read about loudspeakers</a></p></template>
+            </div>
           </div>
         </div>
-      </details>
+      </section>
       <p class="caption">The guide's questions are fixed examples. The live AI coach will respond to your own reasoning.</p>
     </section>
 

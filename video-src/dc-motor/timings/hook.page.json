@@ -1,0 +1,23 @@
+{
+ "duration": 23.07,
+ "pauses": [
+  {
+   "scene": 3,
+   "at": 20.64
+  }
+ ],
+ "chapters": [
+  {
+   "scene": 1,
+   "start": 0
+  },
+  {
+   "scene": 2,
+   "start": 11.17
+  },
+  {
+   "scene": 3,
+   "start": 14.97
+  }
+ ]
+}

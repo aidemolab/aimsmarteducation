@@ -1,0 +1,63 @@
+{
+ "duration": 177.47,
+ "pauses": [
+  {
+   "scene": 3,
+   "at": 49.04
+  },
+  {
+   "scene": 4,
+   "at": 76.88
+  },
+  {
+   "scene": 7,
+   "at": 125.48
+  },
+  {
+   "scene": 8,
+   "at": 145.26
+  }
+ ],
+ "chapters": [
+  {
+   "scene": 1,
+   "start": 0
+  },
+  {
+   "scene": 2,
+   "start": 15.6
+  },
+  {
+   "scene": 3,
+   "start": 26.47
+  },
+  {
+   "scene": 4,
+   "start": 50.7
+  },
+  {
+   "scene": 5,
+   "start": 78.5
+  },
+  {
+   "scene": 6,
+   "start": 86.53
+  },
+  {
+   "scene": 7,
+   "start": 110.97
+  },
+  {
+   "scene": 8,
+   "start": 127.23
+  },
+  {
+   "scene": 9,
+   "start": 146.87
+  },
+  {
+   "scene": 10,
+   "start": 160.47
+  }
+ ]
+}

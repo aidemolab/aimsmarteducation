@@ -54,9 +54,8 @@
 .unit-facts dt { font-weight: 700; color: var(--ink); }
 .unit-facts dd { margin: 0 0 8px; color: var(--ink-muted); }
 
-/* Route chooser (Foundation / Higher) */
-.route-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
-.route-note { margin: 0; color: var(--ink-muted); font-size: 1rem; line-height: 24px; }
+/* Tier key on the unit overview */
+.tier-key p { margin: 0; }
 
 /* Journey navigation: seven stages in three phases */
 .journey { margin: 0 0 40px; }
@@ -85,18 +84,17 @@
 .stage-section > .aim-main { margin-bottom: 16px; }
 .to-journey { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.95rem; font-weight: 700; color: var(--brand); }
 
-/* Higher-tier blocks: open on the Higher route, closed (optional) on Foundation */
+/* Higher-tier blocks: always open, labelled HT */
 .ht-block { margin: 0 0 16px; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface); }
-.ht-block > summary {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 56px; padding: 12px 24px;
-  cursor: pointer; font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem;
-  list-style: none;
+.ht-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; padding: 14px 24px 12px;
+  font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; font-size: 1.1rem; line-height: 1.4;
 }
-.ht-block > summary::-webkit-details-marker { display: none; }
-.ht-block > summary::after { content: "▾"; margin-left: auto; color: var(--brand); font-size: 0.9rem; transition: transform 0.15s ease; }
-.ht-block[open] > summary::after { transform: rotate(180deg); }
-.ht-block > summary .ht-optional { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; letter-spacing: 0; color: var(--ink-muted); }
-.route-higher .ht-block > summary .ht-optional { display: none; }
+/* Top of a Higher-only part */
+.ht-part-note { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; padding: 10px 14px; border-radius: var(--radius-control);
+  background: var(--paper); border: 1px solid var(--line); font-weight: 600; }
+.part-nav a .tier-badge, .pager-kicker .tier-badge { font-size: 0.72rem; line-height: 18px; padding: 0 6px; letter-spacing: 0.04em; }
+.part-nav a[aria-current="page"] .tier-badge { background: #fff; color: var(--brand); }
 .ht-body { padding: 0 24px 8px; }
 .ht-body > .unit-card { border-color: var(--line); }
 .ht-body > .unit-grid { margin-bottom: 16px; }
@@ -279,12 +277,11 @@
 
 @media (max-width: 640px) {
   .unit-card { padding: 16px; }
-  .ht-block > summary { padding: 12px 16px; }
+  .ht-head { padding: 12px 16px 10px; }
   .ht-body { padding: 0 12px 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ht-block > summary::after { transition: none; }
 }
 
 /* Spec tags, equations panel, real-world card and labelled motor diagram */
@@ -330,8 +327,6 @@
 .unit-strip-title a { color: var(--ink); text-decoration: none; }
 .unit-strip-title a:hover { color: var(--brand-strong); text-decoration: underline; }
 .unit-strip-meta { font: 600 0.95rem/1.3 var(--font-body, inherit); color: var(--ink-muted); }
-.route-mini { display: flex; align-items: center; gap: 6px; }
-.route-mini-label { font-size: 0.9rem; font-weight: 700; color: var(--ink-muted); }
 .u-btn-sm { min-height: 36px; padding: 4px 12px; font-size: 0.9rem; }
 .u-btn-lg { min-height: 52px; padding: 10px 22px; font-size: 1.05rem; }
 
@@ -385,12 +380,12 @@
   }
 }
 
-/* Collapsible task cards ("Try these") and revisit days */
-.try-card > summary, .revisit-day > summary { cursor: pointer; list-style: none; min-height: 44px; display: flex; align-items: center; gap: 8px; }
-.try-card > summary::-webkit-details-marker, .revisit-day > summary::-webkit-details-marker { display: none; }
-.try-card > summary::after, .revisit-day > summary::after { content: "+"; margin-left: auto; font-weight: 800; color: var(--brand); font-size: 1.3rem; }
-.try-card[open] > summary::after, .revisit-day[open] > summary::after { content: "−"; }
-.try-card > summary h3, .revisit-day > summary h4 { margin: 0; }
+/* Collapsible revisit days */
+.revisit-day > summary { cursor: pointer; list-style: none; min-height: 44px; display: flex; align-items: center; gap: 8px; }
+.revisit-day > summary::-webkit-details-marker { display: none; }
+.revisit-day > summary::after { content: "+"; margin-left: auto; font-weight: 800; color: var(--brand); font-size: 1.3rem; }
+.revisit-day[open] > summary::after { content: "−"; }
+.revisit-day > summary h4 { margin: 0; }
 .revisit-day[open] > summary { margin-bottom: 8px; }
 
 /* Parts inside a long stage: each part is its own short page */
@@ -421,3 +416,82 @@
 .dg-hammer { fill: var(--ink); }
 .dg-gong { fill: #D9DCE5; stroke: var(--ink); stroke-width: 2; }
 .dg-screw { stroke: var(--ink-muted); stroke-width: 4; fill: none; }
+
+/* Explore: one compact "Try these" card, each task with its button */
+.try-list ol { margin: 0 0 12px; padding-left: 1.4em; display: grid; gap: 8px; }
+.try-list li > span { margin-right: 8px; }
+.try-list li .u-btn { margin-top: 4px; vertical-align: middle; }
+
+/* "Draft for Alaa's review": new content awaiting the owner's check */
+.draft-badge {
+  display: inline-block; padding: 0 8px; border-radius: var(--radius-badge);
+  background: #FFF1E6; color: #8A3B12; box-shadow: inset 0 0 0 1px #F0C9AE;
+  font-size: 0.78rem; font-weight: 700; line-height: 22px; white-space: nowrap; vertical-align: 0.1em;
+}
+/* The Explain analogy (a stream), used in every Explain part */
+.analogy-box { margin: 0 0 16px; padding: 12px 16px; border-left: 4px solid var(--brand); border-radius: 0 var(--radius-control) var(--radius-control) 0; background: var(--brand-soft); }
+.analogy-box p { margin: 0 0 6px; }
+.analogy-box p:last-child { margin-bottom: 0; }
+.analogy-label { font-weight: 800; color: var(--brand-strong); display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+/* Loudspeaker and relay diagrams */
+.speaker-figure { margin: 0 0 16px; }
+.speaker-diagram { display: block; width: 100%; max-width: 420px; height: auto; margin: 4px auto 12px; }
+.speaker-diagram text, .relay-diagram text { font-family: var(--font-body); font-size: 13px; fill: var(--ink); }
+.speaker-diagram .dg-mag-text { font-size: 14px !important; }
+.dg-cone { fill: #E6E8EF; stroke: var(--ink); stroke-width: 2; }
+.dg-motor { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.ht-part-note-po { background: var(--brand-soft); border-color: transparent; }
+
+/* Build the chain: a diagram whose parts light up as links are placed; a wrong order breaks it */
+.chain-figure { margin: 0 0 12px; }
+.chain-model { display: block; width: 100%; max-width: 300px; height: auto; margin: 0 auto 4px; border-radius: 8px; }
+.chain-model text { font-family: var(--font-body); font-size: 12px; fill: var(--ink); }
+.chain-model [data-part] { opacity: 0.16; transition: opacity 0.2s ease; }
+.chain-model [data-part].is-lit { opacity: 1; }
+.dg-turn { fill: none; stroke: #B26A3C; stroke-width: 3; }
+.chain-flag-ok, .chain-flag-broken { display: none; font-weight: 700; }
+.chain-model.is-complete .chain-flag-ok { display: inline; fill: #1E7A4C; }
+.chain-model.is-broken .chain-flag-broken { display: inline; fill: #A8391F; }
+.chain-model.is-broken { outline: 2px dashed #A8391F; outline-offset: 2px; }
+.chain-rotor { transform-origin: 120px 75px; }
+.chain-model[data-lit="4"] .chain-rotor { animation: chain-turn 1.4s ease-out forwards; }
+.chain-model.is-complete .chain-rotor { animation: chain-spin 2.4s linear infinite; }
+.chain-model.is-broken .chain-rotor { animation: none; }
+@keyframes chain-turn { to { transform: rotate(-80deg); } }
+@keyframes chain-spin { to { transform: rotate(-360deg); } }
+.chain-list .chain-broken { list-style: none; color: #A8391F; text-decoration: line-through; }
+.chain-figure figcaption { text-align: center; }
+@media (prefers-reduced-motion: reduce) {
+  .chain-model .chain-rotor { animation: none !important; }
+  .chain-model[data-lit="4"] .chain-rotor, .chain-model.is-complete .chain-rotor { transform: rotate(-35deg); }
+  .chain-model.is-broken .chain-rotor { transform: none; }
+}
+html.a11y-reduce-motion .chain-model .chain-rotor { animation: none !important; }
+html.a11y-reduce-motion .chain-model[data-lit="4"] .chain-rotor, html.a11y-reduce-motion .chain-model.is-complete .chain-rotor { transform: rotate(-35deg); }
+html.a11y-reduce-motion .chain-model.is-broken .chain-rotor { transform: none; }
+
+/* Adaptive trainer, self-mark "to add" list and exit-check revisit list */
+.adaptive-level { margin: 0 0 8px; font-weight: 700; color: var(--brand-strong); }
+[data-adaptive-hints]:empty { display: none; }
+.selfmark-missing { margin: 0 0 12px; padding-left: 1.3em; }
+.selfmark-missing:empty { display: none; }
+.exit-mark { display: flex; gap: 8px; margin: 4px 0 8px; }
+.exit-mark .u-btn[aria-pressed="true"] { background: var(--brand); color: #fff; border-color: var(--brand); }
+.exit-plan:not(:empty) { margin: 12px 0; padding: 12px 16px; border-radius: var(--radius-control); background: var(--accent-soft); border: 1px solid #F1E1B0; }
+.exit-plan p { margin: 0 0 4px; }
+.exit-plan ul { margin: 0; padding-left: 1.3em; }
+.exit-plan a { display: inline-flex; align-items: center; min-height: 44px; }
+
+.exit-mark .u-btn-sm, .chain-figure .u-btn-sm { min-height: 44px; }
+
+/* Videos with pause points */
+.unit-video { margin: 0 0 16px; }
+.unit-video video { display: block; width: 100%; max-width: 760px; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-card); background: #0d1320; }
+.unit-video figcaption { margin: 6px 0 8px; }
+.video-pause { max-width: 760px; margin: 8px 0; padding: 12px 16px; border-radius: var(--radius-card); background: var(--accent-soft); border: 1px solid #F1E1B0; }
+.video-pause[hidden] { display: none; }
+.video-pause-q { margin: 0 0 8px; font-weight: 700; }
+.video-points { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 6px; }
+.video-points li { line-height: 1.5; }
+.video-points .u-btn-sm { min-height: 44px; margin-right: 6px; }
+.video-points li:not(:has([data-seek])) { color: var(--ink-muted); }

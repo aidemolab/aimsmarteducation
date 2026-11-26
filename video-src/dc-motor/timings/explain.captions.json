@@ -1,0 +1,409 @@
+{
+ "cues": [
+  {
+   "start": 0.8,
+   "end": 4.15,
+   "lines": [
+    "Flick the switch on a fan,",
+    "and it spins straight away."
+   ]
+  },
+  {
+   "start": 4.2,
+   "end": 5.93,
+   "lines": [
+    "No engine. No fuel."
+   ]
+  },
+  {
+   "start": 5.98,
+   "end": 8.99,
+   "lines": [
+    "Just a current in some wire,",
+    "and a couple of magnets."
+   ]
+  },
+  {
+   "start": 9.04,
+   "end": 11.87,
+   "lines": [
+    "So what is actually pushing it round?"
+   ]
+  },
+  {
+   "start": 11.92,
+   "end": 15.14,
+   "lines": [
+    "Let's build the answer,",
+    "one step at a time."
+   ]
+  },
+  {
+   "start": 15.87,
+   "end": 17.32,
+   "lines": [
+    "Start with a picture."
+   ]
+  },
+  {
+   "start": 17.37,
+   "end": 21,
+   "lines": [
+    "Imagine water in a stream,",
+    "swirling round a post."
+   ]
+  },
+  {
+   "start": 21.05,
+   "end": 25.95,
+   "lines": [
+    "Keep that stream in mind, because a",
+    "magnetic field behaves a lot like it."
+   ]
+  },
+  {
+   "start": 26.767,
+   "end": 29.227,
+   "lines": [
+    "Here is a straight wire,",
+    "with compasses around it."
+   ]
+  },
+  {
+   "start": 29.8,
+   "end": 33.977,
+   "lines": [
+    "Switch on a current, and the needles",
+    "swing round to point in circles."
+   ]
+  },
+  {
+   "start": 34.027,
+   "end": 36.627,
+   "lines": [
+    "A current makes a magnetic",
+    "field around the wire,"
+   ]
+  },
+  {
+   "start": 36.667,
+   "end": 38.697,
+   "lines": [
+    "like the swirl round the post."
+   ]
+  },
+  {
+   "start": 38.747,
+   "end": 43.497,
+   "lines": [
+    "The swirl is strongest close to the wire,",
+    "and a bigger current makes it stronger."
+   ]
+  },
+  {
+   "start": 43.547,
+   "end": 46.877,
+   "lines": [
+    "Reverse the current, and the",
+    "swirl turns the other way."
+   ]
+  },
+  {
+   "start": 46.927,
+   "end": 49.487,
+   "lines": [
+    "Pause here, and try it yourself."
+   ]
+  },
+  {
+   "start": 51.01,
+   "end": 52.98,
+   "lines": [
+    "Now wind the wire into a coil."
+   ]
+  },
+  {
+   "start": 53.02,
+   "end": 55.09,
+   "lines": [
+    "This is called a solenoid."
+   ]
+  },
+  {
+   "start": 55.74,
+   "end": 60.57,
+   "lines": [
+    "The swirls from every turn join up inside,",
+    "like small streams joining into one"
+   ]
+  },
+  {
+   "start": 60.61,
+   "end": 62.6,
+   "lines": [
+    "strong, steady flow."
+   ]
+  },
+  {
+   "start": 62.65,
+   "end": 66.22,
+   "lines": [
+    "Outside, the field has the",
+    "same shape as a bar magnet's."
+   ]
+  },
+  {
+   "start": 66.27,
+   "end": 70.5,
+   "lines": [
+    "Slide in an iron core, and",
+    "the field gets stronger still."
+   ]
+  },
+  {
+   "start": 70.55,
+   "end": 75.08,
+   "lines": [
+    "That is an electromagnet: a",
+    "magnet you can switch on and off."
+   ]
+  },
+  {
+   "start": 75.13,
+   "end": 77.33,
+   "lines": [
+    "Pause, and try it."
+   ]
+  },
+  {
+   "start": 78.77,
+   "end": 81.76,
+   "lines": [
+    "That is everything Foundation tier needs."
+   ]
+  },
+  {
+   "start": 81.81,
+   "end": 86.07,
+   "lines": [
+    "The rest is Higher tier:",
+    "how this makes a motor turn."
+   ]
+  },
+  {
+   "start": 86.793,
+   "end": 90.023,
+   "lines": [
+    "Put a wire carrying a",
+    "current between two magnets."
+   ]
+  },
+  {
+   "start": 90.073,
+   "end": 94.583,
+   "lines": [
+    "The magnets' field is a steady",
+    "stream, flowing from north to south."
+   ]
+  },
+  {
+   "start": 94.633,
+   "end": 96.943,
+   "lines": [
+    "The current adds its own swirl."
+   ]
+  },
+  {
+   "start": 96.993,
+   "end": 100.463,
+   "lines": [
+    "On one side of the wire, the",
+    "swirl runs with the stream."
+   ]
+  },
+  {
+   "start": 100.513,
+   "end": 102.963,
+   "lines": [
+    "On the other side, it runs against it."
+   ]
+  },
+  {
+   "start": 103.013,
+   "end": 107.303,
+   "lines": [
+    "So the wire is pushed sideways, and",
+    "the magnets are pushed the other way."
+   ]
+  },
+  {
+   "start": 107.353,
+   "end": 110.393,
+   "lines": [
+    "This push is called the motor effect."
+   ]
+  },
+  {
+   "start": 111.327,
+   "end": 112.837,
+   "lines": [
+    "Which way is the push?"
+   ]
+  },
+  {
+   "start": 112.887,
+   "end": 115.057,
+   "lines": [
+    "Use Fleming's left-hand rule."
+   ]
+  },
+  {
+   "start": 115.107,
+   "end": 116.797,
+   "lines": [
+    "First finger for the field."
+   ]
+  },
+  {
+   "start": 116.847,
+   "end": 118.777,
+   "lines": [
+    "Second finger for the current."
+   ]
+  },
+  {
+   "start": 118.827,
+   "end": 120.817,
+   "lines": [
+    "Your thumb shows the force."
+   ]
+  },
+  {
+   "start": 120.867,
+   "end": 125.927,
+   "lines": [
+    "Pause, and predict: what happens to",
+    "the force if the current is reversed?"
+   ]
+  },
+  {
+   "start": 127.633,
+   "end": 129.743,
+   "lines": [
+    "Now look at the whole coil."
+   ]
+  },
+  {
+   "start": 129.793,
+   "end": 134.463,
+   "lines": [
+    "The current flows one way along this side,",
+    "and back the other way along that side."
+   ]
+  },
+  {
+   "start": 134.513,
+   "end": 138.403,
+   "lines": [
+    "So one side is pushed up,",
+    "and the other is pushed down."
+   ]
+  },
+  {
+   "start": 138.453,
+   "end": 141.863,
+   "lines": [
+    "Like a paddle wheel in the",
+    "stream, the coil turns."
+   ]
+  },
+  {
+   "start": 141.913,
+   "end": 145.713,
+   "lines": [
+    "Pause, and predict what",
+    "flipping the magnets would do."
+   ]
+  },
+  {
+   "start": 147.117,
+   "end": 149.467,
+   "lines": [
+    "Watch out for one common mistake."
+   ]
+  },
+  {
+   "start": 149.517,
+   "end": 152.107,
+   "lines": [
+    "The magnets do not pull the coil round."
+   ]
+  },
+  {
+   "start": 152.157,
+   "end": 154.567,
+   "lines": [
+    "Copper is not attracted to magnets."
+   ]
+  },
+  {
+   "start": 154.617,
+   "end": 157.527,
+   "lines": [
+    "Switch the current off,",
+    "and the forces vanish."
+   ]
+  },
+  {
+   "start": 157.577,
+   "end": 159.937,
+   "lines": [
+    "No current, no force."
+   ]
+  },
+  {
+   "start": 160.797,
+   "end": 161.797,
+   "lines": [
+    "Quick check."
+   ]
+  },
+  {
+   "start": 161.837,
+   "end": 165.427,
+   "lines": [
+    "Why do the two sides of the coil",
+    "move in opposite directions?"
+   ]
+  },
+  {
+   "start": 165.477,
+   "end": 168.667,
+   "lines": [
+    "Because the current flows in",
+    "opposite directions in them."
+   ]
+  },
+  {
+   "start": 168.717,
+   "end": 172.797,
+   "lines": [
+    "So, in one line: a current in",
+    "a magnetic field feels a force,"
+   ]
+  },
+  {
+   "start": 172.837,
+   "end": 175.147,
+   "lines": [
+    "and that force turns the motor."
+   ]
+  }
+ ],
+ "corrected": [
+  "29.27 → 29.80  Switch on a current, and the needles swi",
+  "53.65 → 53.02  This is called a solenoid.",
+  "55.13 → 55.74  The swirls from every turn join up insid"
+ ],
+ "worstRemainingOffset": 0.35
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+  @font-face { font-family: "Manrope"; font-weight: 800; src: url("assets/fonts/manrope-latin-800-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Manrope"; font-weight: 700; src: url("assets/fonts/manrope-latin-700-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 400; src: url("assets/fonts/source-sans-3-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Source Sans 3"; font-weight: 600; src: url("assets/fonts/source-sans-3-latin-600-normal.woff2") format("woff2"); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0d1320; }
+  #root { position: relative; width: 1920px; height: 1080px; background: radial-gradient(1200px 700px at 50% 40%, #16213a 0%, #0d1320 70%); color: #F4F5FA; font-family: "Source Sans 3", sans-serif; }
+  .clip { position: absolute; inset: 0; }
+  .abs { position: absolute; }
+  .h { font-family: "Manrope", sans-serif; font-weight: 800; letter-spacing: -0.02em; line-height: 1.12; }
+  .kicker { font-family: "Manrope", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.08em; text-transform: uppercase; color: #B9BCCB; }
+  .muted { color: #B9BCCB; }
+  .amber { color: #E9B949; }
+  .brand { position: absolute; left: 96px; bottom: 64px; display: flex; align-items: center; gap: 18px; font-family: "Manrope", sans-serif; font-weight: 800; font-size: 30px; color: #F4F5FA; }
+  .brand span.mark { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 12px; background: #3B3FB6; }
+  .ainote { position: absolute; right: 96px; bottom: 72px; font-size: 24px; color: #8f94a8; }
+  .badge { display: inline-block; padding: 4px 22px; border-radius: 12px; background: #F4F5FA; color: #14161F; font-family: "Manrope", sans-serif; font-weight: 800; }
+</style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="explain-summary" data-start="0" data-duration="17" data-width="1920" data-height="1080" data-fps="30">
+      <div class="clip" id="stage" data-start="0" data-duration="17" data-track-index="0">
+
+        <div class="abs start-hidden kicker amber" id="k" style="left:160px;top:120px">Quick check</div>
+        <div class="abs start-hidden h" id="q" style="left:160px;top:190px;width:1600px;font-size:84px">Why do the two sides of the coil move in opposite directions?</div>
+        <div class="abs start-hidden" id="a" style="left:160px;top:440px;width:1600px;font-size:60px;color:#3DDC97;font-weight:600">Because the current flows in opposite directions in them.</div>
+        <div class="abs start-hidden" id="line" style="left:160px;top:590px;width:1600px;height:4px;background:#3a4566"></div>
+        <div class="abs start-hidden kicker" id="k2" style="left:160px;top:640px">In one line</div>
+        <div class="abs start-hidden h" id="s1" style="left:160px;top:705px;width:1600px;font-size:76px">A current in a magnetic field feels a force,</div>
+        <div class="abs start-hidden h amber" id="s2" style="left:160px;top:805px;width:1600px;font-size:76px">and that force turns the motor.</div>
+        <div class="ainote" style="bottom:40px">AI narration · AIM Smart Education</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const show = (sel, t, from = { y: 30 }, d = 0.5) => tl.fromTo(sel, { autoAlpha: 0, ...from }, { autoAlpha: 1, x: 0, y: 0, scale: 1, duration: d, ease: "power2.out" }, t);
+      const hide = (sel, t, d = 0.35) => tl.to(sel, { autoAlpha: 0, duration: d, ease: "power1.in" }, t);
+      gsap.set(".start-hidden", { autoAlpha: 0 });
+
+      show("#k", 0.33, { y: 20 }, 0.35);
+      show("#q", 1.37, { y: 30 }, 0.5);
+      show("#a", 5.01, { y: 30 }, 0.5);
+      show("#line", 8.05, { y: 0 }, 0.3);
+      show("#k2", 8.25, { y: 20 }, 0.35);
+      show("#s1", 9.55, { y: 30 }, 0.5);
+      show("#s2", 12.25, { y: 30 }, 0.5);
+      tl.set({}, {}, 17);
+      window.__timelines["explain-summary"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

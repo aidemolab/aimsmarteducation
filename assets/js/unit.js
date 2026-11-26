@@ -1,16 +1,14 @@
 // Interactive unit pages: the seven-stage learner journey.
 // Runs entirely in the browser: no network requests and no forms. The guide
 // questions and Exam Coach feedback are fixed examples until the real AI
-// service exists. The only thing stored is the chosen route (Foundation or
-// Higher), in this browser's local storage, so every stage page remembers it.
+// service exists. Nothing is stored by this script.
 (() => {
   const html = document.documentElement;
   const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches || html.classList.contains('a11y-reduce-motion');
   const app = document.querySelector('.aim-app[data-scene]');
 
   const store = {
-    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
-    set(key, value) { try { localStorage.setItem(key, value); } catch { /* storage blocked: fine */ } },
+    remove(key) { try { localStorage.removeItem(key); } catch { /* storage blocked: fine */ } },
   };
 
   const say = (box, nodes, tone) => {
@@ -22,23 +20,9 @@
     return t ? [...t.content.cloneNode(true).childNodes] : null;
   };
 
-  // ---- Route: Foundation or Higher ------------------------------------------
-  const routeButtons = [...document.querySelectorAll('[data-route]')];
-  const routeNote = document.querySelector('[data-route-note]');
-  function setRoute(route, save) {
-    document.body.classList.toggle('route-foundation', route === 'foundation');
-    document.body.classList.toggle('route-higher', route !== 'foundation');
-    routeButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.route === route)));
-    for (const d of document.querySelectorAll('details.ht-block')) d.open = route !== 'foundation';
-    if (routeNote) {
-      routeNote.textContent = route === 'foundation'
-        ? 'Foundation route: everything on the field around a wire and a solenoid is open. Higher-tier (HT) sections are closed; open any of them to see the motor in action.'
-        : 'Higher route: everything is open. Higher-tier (HT) sections are marked.';
-    }
-    if (save) store.set('aim-route', route);
-  }
-  routeButtons.forEach((b) => b.addEventListener('click', () => setRoute(b.dataset.route, true)));
-  setRoute(store.get('aim-route') === 'foundation' ? 'foundation' : 'higher', false);
+  // There is no route switch: everything is open to everyone and Higher-tier
+  // parts are labelled HT. Clear the route that older versions stored.
+  store.remove('aim-route');
 
   // ---- "Try it in 3D": move the living model to a stage ----------------------
   function tryIn3D(stage, settings) {
@@ -67,6 +51,7 @@
       u.searchParams.set('stage', b.dataset.tryStage);
       if (settings) u.searchParams.set('set', JSON.stringify(settings));
       u.searchParams.set('from', thisPage);
+      if (b.dataset.resume) u.searchParams.set('resume', b.dataset.resume); // come back to this moment of the video
       location.href = u.href;
       return;
     }
@@ -94,11 +79,12 @@
       p.textContent = `You came here from ${name} to try it in 3D.`;
       const back = document.createElement('a');
       back.className = 'u-btn u-btn-primary';
-      back.href = from;
+      const resume = Number(params.get('resume'));
+      back.href = resume > 0 ? `${from}?t=${resume}` : from;
       back.textContent = `← Back to ${name}`;
       back.addEventListener('click', (ev) => {
         const ref = document.referrer && new URL(document.referrer);
-        if (ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
+        if (!(resume > 0) && ref && ref.origin === location.origin && ref.pathname.endsWith('/' + from)) { ev.preventDefault(); history.back(); }
       });
       bar.append(p, back);
       document.querySelector('#stage-explore .stage-head')?.after(bar);
@@ -149,19 +135,40 @@
     const original = [...pool.children];
     const total = original.length;
     let next = 1;
+    // The diagram beside the chain: each placed link lights its part (data-part="n").
+    const model = root.querySelector('[data-chain-model]');
+    const light = () => {
+      if (!model) return;
+      for (const p of model.querySelectorAll('[data-part]')) p.classList.toggle('is-lit', Number(p.dataset.part) < next);
+      model.dataset.lit = String(next - 1);
+      model.classList.toggle('is-complete', next > total);
+    };
+    const setBroken = (on) => {
+      model?.classList.toggle('is-broken', on);
+      list.querySelector('.chain-broken')?.remove();
+    };
+    light();
     pool.addEventListener('click', (e) => {
       const b = e.target.closest('button[data-step]');
       if (!b) return;
       if (Number(b.dataset.step) !== next) {
-        say(status, [document.createTextNode(root.dataset.hint || 'Not yet. What has to happen before that?')], 'try');
+        // A wrong order visibly breaks the chain (and stalls the diagram).
+        setBroken(true);
+        const broken = document.createElement('li');
+        broken.className = 'chain-broken';
+        broken.textContent = `✗ ${b.textContent}`;
+        list.append(broken);
+        say(status, [document.createTextNode(root.dataset.hint || 'The chain breaks: that link cannot happen yet. What has to happen before it?')], 'try');
         return;
       }
+      setBroken(false);
       const index = [...pool.children].indexOf(b);
       const li = document.createElement('li');
       li.textContent = b.textContent;
       list.append(li);
       b.remove();
       next += 1;
+      light();
       if (!pool.children.length) {
         say(status, [document.createTextNode(`✓ Chain complete: ${total} links, cause to effect. Each link is a marking point, so this is the shape of a full-mark answer.`)], 'good');
         reset.focus();
@@ -174,6 +181,8 @@
       list.replaceChildren();
       pool.replaceChildren(...original);
       next = 1;
+      setBroken(false);
+      light();
       say(status, []);
       original[0].focus();
     });
@@ -296,11 +305,232 @@
     const boxes = [...root.querySelectorAll('input[type="checkbox"]')];
     const out = root.querySelector('[data-selfmark-score]');
     const max = Number(root.dataset.selfmark) || boxes.length;
+    const unit = root.dataset.selfmarkLabel; // for example "indicative points" on a levels question
+    const missing = document.createElement('ul');
+    missing.className = 'selfmark-missing';
     const update = () => {
       const n = Math.min(max, boxes.filter((b) => b.checked).length);
-      out.textContent = `You gave yourself ${n} of ${max} mark${max === 1 ? '' : 's'}.`;
+      const left = boxes.filter((b) => !b.checked).map((b) => b.closest('label').textContent.trim());
+      out.textContent = unit
+        ? `You covered ${n} of ${max} ${unit}.${left.length ? ' To add:' : ' Nothing to add.'}`
+        : `You gave yourself ${n} of ${max} mark${max === 1 ? '' : 's'}.${left.length ? ' To add for full marks:' : ' Full marks.'}`;
+      missing.replaceChildren(...left.map((t) => { const li = document.createElement('li'); li.textContent = t; return li; }));
+      if (!missing.isConnected) out.after(missing);
     };
     boxes.forEach((b) => b.addEventListener('change', update));
+  }
+
+  // ---- Exit check: "Got it" / "Not yet" builds a revisit list (nothing is stored) ---
+  for (const root of document.querySelectorAll('[data-exit]')) {
+    const plan = root.querySelector('[data-exit-plan]');
+    const items = [...root.querySelectorAll('[data-revisit-href]')];
+    const render = () => {
+      const answered = items.filter((li) => li.dataset.result);
+      const missed = items.filter((li) => li.dataset.result === 'no');
+      if (!answered.length) { plan.replaceChildren(); return; }
+      const p = document.createElement('p');
+      const strong = document.createElement('strong');
+      if (!missed.length) {
+        strong.textContent = answered.length === items.length ? '✓ All secure. Come back on day 3 to check it has stuck.' : `${answered.length} of ${items.length} answered: nothing to revisit so far.`;
+        p.append(strong);
+        plan.replaceChildren(p);
+        return;
+      }
+      strong.textContent = 'Revisit these first:';
+      p.append(strong);
+      const ul = document.createElement('ul');
+      const seen = new Set();
+      for (const li of missed) {
+        if (seen.has(li.dataset.revisitHref)) continue;
+        seen.add(li.dataset.revisitHref);
+        const a = document.createElement('a');
+        a.href = li.dataset.revisitHref;
+        a.textContent = li.dataset.revisitLabel;
+        const item = document.createElement('li');
+        item.append(a);
+        ul.append(item);
+      }
+      plan.replaceChildren(p, ul);
+    };
+    root.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-exit-mark]');
+      if (!b) return;
+      const li = b.closest('[data-revisit-href]');
+      li.dataset.result = b.dataset.exitMark;
+      for (const x of li.querySelectorAll('[data-exit-mark]')) x.setAttribute('aria-pressed', String(x === b));
+      render();
+    });
+  }
+
+  // ---- Adaptive F = B I l practice: the level steps up or down with each answer -----
+  // Questions are generated here, so they are original and different every time.
+  for (const root of document.querySelectorAll('[data-adaptive]')) {
+    const qEl = root.querySelector('[data-adaptive-q]');
+    const levelEl = root.querySelector('[data-adaptive-level]');
+    const symEl = root.querySelector('[data-adaptive-symbol]');
+    const unitEl = root.querySelector('[data-adaptive-unit]');
+    const input = root.querySelector('.calc-input');
+    const box = root.querySelector('[data-feedback]');
+    const hintsEl = root.querySelector('[data-adaptive-hints]');
+    const hintBtn = root.querySelector('[data-adaptive-hint]');
+    const checkBtn = root.querySelector('[data-adaptive-check]');
+    const nextBtn = root.querySelector('[data-adaptive-next]');
+    const LEVELS = ['Core: find the force', 'Units: convert first', 'Rearrange the equation', 'Stretch: rearrange and convert'];
+    const pick = (list) => list[Math.floor(Math.random() * list.length)];
+    const B = ['0.10', '0.20', '0.25', '0.40', '0.50'];
+    const I = ['1.0', '2.0', '3.0', '4.0', '5.0'];
+    const LM = ['0.10', '0.20', '0.30', '0.50'];
+    const LCM = ['5.0', '8.0', '10', '12', '20', '25', '40', '50'];
+    const fmt = (x) => String(Number(x.toPrecision(3)));
+    const text = (s) => document.createTextNode(s);
+    let level = 0; let q = null; let tries = 0; let hintsShown = 0; let done = false; let right = 0;
+
+    function make(lv) {
+      const b = pick(B); const i = pick(I);
+      const cm = lv === 1 || lv === 3;
+      const lShown = cm ? pick(LCM) : pick(LM);
+      const l = cm ? Number(lShown) / 100 : Number(lShown);
+      const lText = `${lShown} ${cm ? 'cm' : 'm'}`;
+      const lWork = cm ? fmt(l) : lShown; // keep the given figures in the working
+      const art = /^8/.test(lShown) ? 'An' : 'A';
+      const f = Number(b) * Number(i) * l;
+      const convert = cm ? `Convert the length to metres: ${lShown} cm = ${fmt(l)} m.` : 'The values are already in tesla, amperes and metres, so there is nothing to convert.';
+      if (lv < 2) {
+        return { symbol: 'F', unit: 'N', answer: f, slip: cm ? [f * 100] : [],
+          text: `A wire carries a current of ${i} A. A length of ${lText} of the wire is at right angles to a magnetic field of flux density ${b} T. Calculate the force on the wire.`,
+          hints: ['Write the equation: F = B I l.', convert, `Substitute: F = ${b} × ${i} × ${lWork}.`],
+          working: `F = B I l = ${b} × ${i} × ${lWork} = ${fmt(f)} N` };
+      }
+      // Rearranged: find the current or the flux density. At the stretch level the force may be in millinewtons.
+      const mN = lv === 3 && Math.random() < 0.5;
+      const fText = mN ? `${fmt(f * 1000)} mN` : `${fmt(f)} N`;
+      const conv = mN ? `${convert} Convert the force to newtons: ${fmt(f * 1000)} mN = ${fmt(f)} N.` : convert;
+      if (Math.random() < 0.5) {
+        return { symbol: 'I', unit: 'A', answer: Number(i), slip: cm ? [Number(i) / 100] : [],
+          text: `${art} ${lText} length of wire is at right angles to a magnetic field of flux density ${b} T. The force on the wire is ${fText}. Calculate the current in the wire.`,
+          hints: ['Rearrange F = B I l to make I the subject: I = F ÷ (B l).', conv, `Substitute: I = ${fmt(f)} ÷ (${b} × ${lWork}).`],
+          working: `I = F ÷ (B l) = ${fmt(f)} ÷ (${b} × ${lWork}) = ${fmt(Number(i))} A` };
+      }
+      return { symbol: 'B', unit: 'T', answer: Number(b), slip: cm ? [Number(b) / 100] : [],
+        text: `${art} ${lText} length of wire carries a current of ${i} A at right angles to a magnetic field. The force on the wire is ${fText}. Calculate the magnetic flux density.`,
+        hints: ['Rearrange F = B I l to make B the subject: B = F ÷ (I l).', conv, `Substitute: B = ${fmt(f)} ÷ (${i} × ${lWork}).`],
+        working: `B = F ÷ (I l) = ${fmt(f)} ÷ (${i} × ${lWork}) = ${fmt(Number(b))} T` };
+    }
+    function show() {
+      q = make(level); tries = 0; hintsShown = 0; done = false;
+      qEl.textContent = q.text;
+      symEl.textContent = `${q.symbol} =`;
+      unitEl.textContent = q.unit;
+      levelEl.textContent = `Level ${level + 1} of ${LEVELS.length}: ${LEVELS[level]} · ${right} right so far`;
+      root.dataset.level = String(level + 1);
+      root.dataset.answer = String(Number(q.answer.toPrecision(6)));
+      input.value = ''; input.disabled = false; checkBtn.disabled = false;
+      hintsEl.replaceChildren();
+      hintBtn.hidden = false; hintBtn.disabled = false; hintBtn.textContent = 'Show hint 1';
+      nextBtn.hidden = true;
+      say(box, []);
+    }
+    function finish(message, tone, newLevel) {
+      done = true; input.disabled = true; checkBtn.disabled = true; hintBtn.disabled = true;
+      const p1 = document.createElement('p'); p1.textContent = message;
+      const p2 = document.createElement('p'); p2.textContent = q.working;
+      const p3 = document.createElement('p');
+      p3.textContent = newLevel > level ? 'Next question: one level harder.' : newLevel < level ? 'Next question: one level easier, to rebuild the method.' : 'Next question: the same level.';
+      say(box, [p1, p2, p3], tone);
+      level = newLevel;
+      nextBtn.hidden = false; nextBtn.focus();
+    }
+    const close = (a, b) => Math.abs(a - b) <= Math.abs(b) * 0.02 + 1e-9;
+    const check = () => {
+      if (done) return;
+      const v = parseNumber(input.value);
+      if (Number.isNaN(v)) { say(box, [text('Type a number first (you can leave the unit off).')], 'try'); return; }
+      if (close(v, q.answer)) {
+        right += 1;
+        const clean = tries === 0 && hintsShown === 0;
+        finish(clean ? '✓ Correct, first time and without hints.' : '✓ Correct.', 'good', clean ? Math.min(LEVELS.length - 1, level + 1) : level);
+        return;
+      }
+      tries += 1;
+      if (tries >= 2) { finish('Not this time. Here is the working:', 'try', Math.max(0, level - 1)); return; }
+      const slip = q.slip.some((s) => close(v, s));
+      say(box, [text(slip ? 'That is 100 times out. Did you leave the length in centimetres? Try once more.' : 'Not quite. Take a hint, then try once more.')], 'try');
+    };
+    checkBtn.addEventListener('click', check);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); check(); } });
+    hintBtn.addEventListener('click', () => {
+      if (hintsShown >= q.hints.length) return;
+      const li = document.createElement('li');
+      const label = document.createElement('span'); label.className = 'ladder-label'; label.textContent = `Hint ${hintsShown + 1}`;
+      li.append(label, text(q.hints[hintsShown]));
+      hintsEl.append(li);
+      hintsShown += 1;
+      if (hintsShown >= q.hints.length) { hintBtn.textContent = 'All hints shown'; hintBtn.disabled = true; } else hintBtn.textContent = `Show hint ${hintsShown + 1}`;
+    });
+    nextBtn.addEventListener('click', () => { show(); input.focus(); });
+    show();
+  }
+
+  // ---- Videos that talk to the model: pause points with a question and "Try it in 3D" ----
+  for (const root of document.querySelectorAll('[data-video]')) {
+    const video = root.querySelector('video');
+    const panel = root.querySelector('[data-video-panel]');
+    const points = [...root.querySelectorAll('[data-video-pauses] [data-at]')].map((li) => ({ li, at: Number(li.dataset.at) }));
+    if (!video || !panel) continue;
+    const play = () => { const p = video.play(); if (p && p.catch) p.catch(() => { /* interrupted by a pause: fine */ }); };
+    // Captions follow the accessibility panel's setting
+    const syncCaptions = () => { for (const t of video.textTracks) t.mode = html.classList.contains('a11y-captions-off') ? 'disabled' : 'showing'; };
+    syncCaptions();
+    document.addEventListener('aim-a11y-change', syncCaptions);
+    let last = 0;
+    const done = new Set();
+    const showPanel = (pt) => {
+      const q = document.createElement('p'); q.className = 'video-pause-q'; q.textContent = pt.li.querySelector('[data-q]').textContent;
+      const row = document.createElement('div'); row.className = 'button-row';
+      if (pt.li.dataset.pauseStage) {
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'u-btn u-btn-primary try3d';
+        b.dataset.tryStage = pt.li.dataset.pauseStage; if (pt.li.dataset.pauseSet) b.dataset.set = pt.li.dataset.pauseSet;
+        b.dataset.resume = String(Math.ceil(pt.at + 0.3)); b.textContent = 'Try it in 3D'; // resume just after the pause point, in the gap before the next scene
+        row.append(b);
+      }
+      if (pt.li.dataset.goto) {
+        const a = document.createElement('a'); a.className = 'u-btn u-btn-primary'; a.href = pt.li.dataset.goto; a.textContent = pt.li.dataset.gotoLabel || 'Go on';
+        row.append(a);
+      }
+      const go = document.createElement('button'); go.type = 'button'; go.className = 'u-btn'; go.textContent = video.ended || video.duration - pt.at < 3 ? 'Watch again' : 'Continue the video';
+      go.addEventListener('click', () => { panel.hidden = true; if (video.ended || video.duration - pt.at < 3) video.currentTime = 0; play(); video.focus(); });
+      row.append(go);
+      panel.replaceChildren(q, row);
+      panel.hidden = false;
+      row.firstElementChild.focus();
+    };
+    video.addEventListener('seeking', () => { last = video.currentTime; });
+    video.addEventListener('play', () => { panel.hidden = true; last = video.currentTime; });
+    video.addEventListener('timeupdate', () => {
+      const now = video.currentTime;
+      if (!video.paused && !video.seeking && now - last < 1.5) {
+        const pt = points.find((p) => last < p.at && now >= p.at && !done.has(p.at));
+        if (pt) { done.add(pt.at); video.pause(); showPanel(pt); }
+      }
+      last = now;
+    });
+    // The list of pause points doubles as chapter links
+    for (const pt of points) {
+      const b = pt.li.querySelector('[data-seek]');
+      b?.addEventListener('click', () => { done.delete(pt.at); panel.hidden = true; video.currentTime = Math.max(0, Number(b.dataset.seek)); play(); video.focus(); });
+    }
+    // Back from "Try it in 3D": carry on from where the video paused
+    const t = Number(new URLSearchParams(location.search).get('t'));
+    if (t > 0) {
+      points.forEach((p) => { if (p.at <= t) done.add(p.at); });
+      const seek = () => { video.currentTime = t; last = t; };
+      if (video.readyState >= 1) seek(); else video.addEventListener('loadedmetadata', seek, { once: true });
+      const p = document.createElement('p'); p.className = 'video-pause-q'; p.textContent = 'Welcome back. Carry on from where you paused.';
+      const go = document.createElement('button'); go.type = 'button'; go.className = 'u-btn u-btn-primary'; go.textContent = 'Continue the video';
+      go.addEventListener('click', () => { panel.hidden = true; play(); video.focus(); });
+      panel.replaceChildren(p, go);
+      panel.hidden = false;
+    }
   }
 
   // ---- Example Exam Coach feedback (static, no AI call) ----------------------------

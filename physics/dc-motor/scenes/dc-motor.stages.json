@@ -8,6 +8,7 @@
     "clockwise": "clockwise (from the front)",
     "noTurning": "no turning effect right now",
     "notToScale": "arrows not to scale",
+    "currentOff": "Current off: no current, so no force on the coil. The magnets alone do not move it.",
     "commOn": "Commutator on: the current reverses every half turn, so the coil keeps turning one way.",
     "commOff": "Commutator off: the forces push the coil back at the vertical, so it rocks and stops there."
   },
@@ -157,7 +158,7 @@
     "layout": [
       ["play", "restart", "speed"],
       ["slider:current", "slider:motorCurrent", "slider:turns"],
-      ["toggle:ironCore", "toggle:reverseCurrent", "toggle:flipMagnets", "toggle:commutator", "toggle:fieldLines", "labels"],
+      ["toggle:ironCore", "toggle:currentOn", "toggle:reverseCurrent", "toggle:flipMagnets", "toggle:commutator", "toggle:fieldLines", "labels"],
       ["tour", "resetCamera"]
     ],
     "sliders": [
@@ -167,6 +168,7 @@
     ],
     "toggles": [
       { "option": "ironCore", "label": "Iron core", "value": false, "stages": [1] },
+      { "option": "currentOn", "label": "Current on", "value": true, "stages": [3, 4, 5, 6] },
       { "option": "reverseCurrent", "label": "Reverse current", "value": false, "stages": [3, 4, 5, 6] },
       { "option": "flipMagnets", "label": "Flip magnets", "value": false, "stages": [2, 3, 4, 5, 6] },
       { "option": "commutator", "label": "Commutator", "value": true, "stages": [6] },
