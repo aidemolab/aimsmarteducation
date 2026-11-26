@@ -7,7 +7,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex">
   <title>Simulation | GCSE Maths | AIM Smart Education</title>
-  <meta name="description" content="Simulation: GCSE Maths 3.1.1 Structure and calculation (coming soon).">
+  <meta name="description" content="Simulation: GCSE Maths 3.1.1 Structure and calculation. Predict, then move a pin on a zoomable number scale to write a number in standard form.">
   <link rel="icon" href="data:,">
   <link rel="preload" href="../../assets/fonts/manrope/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../../assets/fonts/source-sans-3/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../assets/css/site-nav.css">
   <link rel="stylesheet" href="../../assets/css/unit-hub.css">
   <script src="../../assets/js/site-nav.js"></script>
+  <script type="module" src="sim.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -100,10 +101,25 @@
         <h1>Simulation</h1>
         <p class="lede">One simulation for the whole unit: predict what will happen, then test it and check.</p>
       </header>
-      <div class="placeholder-box" role="note">
-        <span class="placeholder-tag">Placeholder</span>
-        <p>The simulation goes here: one living model for the whole unit.</p>
-      </div>
+      <section class="q-card" aria-labelledby="sim-title">
+        <h2 class="hub-section-title" id="sim-title">The Zoomable Number Scale</h2>
+        <p data-sim="goal"><strong>Goal:</strong> write the target number in standard form, A × 10ⁿ with 1 ≤ A &lt; 10, without changing its value. The target pin never moves.</p>
+        <p class="q-stem">Your cards: <strong data-card="coef">35</strong> × <strong data-card="power">10⁴</strong> <span data-card="value">= 350 000</span></p>
+        <canvas data-sim="canvas" width="340" height="240" aria-describedby="sim-scene">A number scale with a target pin and your pin.</canvas>
+        <p class="nl-value" id="sim-scene" data-sim="scene">Scale from 10³ to 10⁷; each step to the right is ten times bigger. Target pin at 350 000. Your pin is on the target.</p>
+        <p class="q-stem" id="sim-prompt" data-sim="prompt">Predict first: if you divide the coefficient 35 by 10 and keep 10⁴, where will your pin land? Choose below or drag the dashed pin on the scale.</p>
+        <div class="q-choices" data-sim="prediction" role="group" aria-labelledby="sim-prompt">
+          <button class="q-choice" type="button" aria-pressed="false" data-choice="-1">Moves one step left: 35 000</button>
+          <button class="q-choice" type="button" aria-pressed="false" data-choice="0">Stays on the target: 350 000</button>
+          <button class="q-choice" type="button" aria-pressed="false" data-choice="1">Moves one step right: 3 500 000</button>
+        </div>
+        <div class="button-row">
+          <button class="button button-primary" type="button" data-sim="action" disabled>Divide the coefficient by 10</button>
+          <button class="button button-secondary" type="button" data-sim="reset">Start again</button>
+        </div>
+        <p class="q-feedback" data-sim="feedback" role="status" aria-live="polite"></p>
+        <p class="nl-value">This model goes with the N9 explainers on standard form. Watch <a href="explainer-n9.html">Explainer N9</a> for the full explanation.</p>
+      </section>
       <nav class="hub-pager" aria-label="Unit navigation">
         <a class="pager-link pager-prev" href="explainer-n1.html" rel="prev"><span class="pager-kicker">Previous</span><span class="pager-title">← Explainer N1</span></a>
         <a class="pager-link pager-back" href="./"><span class="pager-kicker">Back to</span><span class="pager-title">Unit overview</span></a>

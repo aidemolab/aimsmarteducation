@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Explainer N5.3 | GCSE Maths | AIM Smart Education</title>
+  <meta name="description" content="GCSE Maths N5.3: Count combined choices using the product rule. Video with transcript and questions with instant feedback.">
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="../../assets/fonts/manrope/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/source-sans-3/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="../../assets/css/site-nav.css">
+  <link rel="stylesheet" href="../../assets/css/unit-hub.css">
+  <script src="../../assets/js/site-nav.js"></script>
+  <script src="../../assets/js/unit-hub.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="../../" aria-label="AIM Smart Education home">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span class="wordmark">AIM Smart Education</span>
+      </a>
+      <button class="a11y-toggle" type="button" aria-expanded="false" aria-controls="a11y-panel"><span class="a11y-icon" aria-hidden="true">Aa</span><span class="a11y-label">Accessibility</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+      <div class="site-menu" id="site-menu">
+        <nav class="site-nav" aria-label="Main">
+          <ul class="nav-list">
+            <li class="has-subnav">
+              <button class="subnav-toggle" type="button" aria-expanded="false" aria-controls="subjects-menu" aria-current="true">Subjects <span class="subnav-caret" aria-hidden="true">▾</span></button>
+              <ul class="subnav" id="subjects-menu">
+                <li><a href="../../maths/" aria-current="true"><span><span class="subject-dot dot-maths" aria-hidden="true"></span>Maths</span></a></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Physics</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Chemistry</span><span class="soon-tag">Coming soon</span></span></li>
+                <li><span class="subnav-soon" aria-disabled="true"><span><span class="subject-dot dot-soon" aria-hidden="true"></span>Biology</span><span class="soon-tag">Coming soon</span></span></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="../../#loop">Learner journey</a></li>
+            <li><a class="nav-link" href="../../#research">Research</a></li>
+          </ul>
+        </nav>
+        <a class="header-cta" href="../../#partners">Schools &amp; partners</a>
+      </div>
+    </div>
+    <div class="a11y-panel" id="a11y-panel" role="region" aria-labelledby="a11y-title" hidden>
+      <div class="a11y-inner">
+        <div class="a11y-head">
+          <h2 class="a11y-title" id="a11y-title">Accessibility</h2>
+          <button class="a11y-close" type="button" data-a11y-close>Close</button>
+        </div>
+        <div class="a11y-grid">
+          <div class="a11y-group" role="group" aria-labelledby="a11y-size-label">
+            <p class="a11y-group-label" id="a11y-size-label">Text size</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" aria-pressed="true" data-a11y-size="0">Standard</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="1">Large</button>
+              <button class="a11y-option" type="button" aria-pressed="false" data-a11y-size="2">Larger</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-display-label">
+            <p class="a11y-group-label" id="a11y-display-label">Display</p>
+            <div class="a11y-options">
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="contrast">High contrast</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="dyslexia">Dyslexia-friendly text</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="false" data-a11y="reduceMotion">Reduce motion</button>
+              <button class="a11y-option a11y-switch" type="button" aria-pressed="true" data-a11y="captions">Captions on videos</button>
+            </div>
+          </div>
+          <div class="a11y-group" role="group" aria-labelledby="a11y-read-label">
+            <p class="a11y-group-label" id="a11y-read-label">Read aloud</p>
+            <div class="a11y-options">
+              <button class="a11y-option" type="button" data-a11y-read>Read aloud</button>
+              <button class="a11y-option" type="button" data-a11y-stop>Stop</button>
+            </div>
+            <p class="a11y-hint" role="status" data-a11y-read-status>Select some text first to hear just that part.</p>
+          </div>
+        </div>
+        <p class="a11y-hint">Your settings stay in this browser. Nothing is sent anywhere. <button class="a11y-reset" type="button" data-a11y-reset>Reset all</button></p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="hub-main">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../">Home</a></li>
+          <li><a href="../">Maths</a></li>
+          <li><a href="./">3.1.1 Structure and calculation</a></li>
+          <li><a href="explainers.html">Explainers</a></li>
+          <li><span aria-current="page">N5.3</span></li>
+        </ol>
+      </nav>
+      <p class="unit-strip"><a href="./">3.1.1 Structure and calculation</a> <span>· GCSE Maths · AQA 8300 · N1–N9</span></p>
+      <header class="part-head">
+        <p class="hub-kicker">Part 2 · Explainers · Lesson N5.3 <span class="badge badge-tier">HT</span> <span class="placeholder-tag">Draft for Alaa's review</span></p>
+        <h1>Counting choices without listing them all</h1>
+        <p class="lede">In this video you'll learn to count combined choices using the product rule. Higher tier only: Foundation students can skip this part.</p>
+      </header>
+      <div class="explainer-grid">
+        <div>
+        <figure class="video-frame">
+          <div class="video-box">
+            <video class="stage-frame" controls preload="metadata">
+              <source src="media/n5-3.mp4" type="video/mp4">
+              <track kind="captions" src="media/n5-3.vtt" srclang="en" label="English" default>
+              Your browser cannot play this video. The transcript below has every word.
+            </video>
+          </div>
+          <figcaption>Explainer video (Higher tier): a hand draws a 4 by 3 meal grid, crosses out 4 + 3 = 7, then fills slots to count codes and odd numbers with the product rule.</figcaption>
+        </figure>
+        <details>
+          <summary>Transcript</summary>
+            <p>Counting choices without listing them all</p>
+            <p>Higher tier only. Foundation students can skip this part.</p>
+            <p>Goal: Count combined choices using the product rule.</p>
+            <p>In this video you'll learn one thing.</p>
+            <p>How to count outcomes without writing them all down.</p>
+            <p>Here's a puzzle.</p>
+            <p>A restaurant has four starters and three mains.</p>
+            <p>A meal is one starter and one main.</p>
+            <p>How many different meals are there? Lock in one card.</p>
+            <p>Hold on to your guess.</p>
+            <p>Listing works when there are only a few outcomes.</p>
+            <p>But a four-digit PIN has far too many to write down, so we need a way to count without listing.</p>
+            <p>In N5.1 you listed outcomes in rows, holding one choice fixed in each row.</p>
+            <p>Every row had the same length.</p>
+            <p>And from N2 you know that equal groups can be added or multiplied.</p>
+            <p>Three groups of two is two, plus two, plus two, which is three times two.</p>
+            <p>First, we draw one row for each starter, because every meal begins with exactly one starter.</p>
+            <p>Next, we give each row one slot for each main, because any main can follow any starter.</p>
+            <p>Every row has three slots, because the choice of main does not depend on the starter.</p>
+            <p>So we add equal rows: three, plus three, plus three, plus three, makes twelve.</p>
+            <p>Four equal rows of three is four times three: twelve meals.</p>
+            <p>Let's slow down here, because this is the key step.</p>
+            <p>Back to the puzzle.</p>
+            <p>If you locked in seven, you added four and three.</p>
+            <p>But seven counts the dishes on the menu, not the meals.</p>
+            <p>Each meal is a pair of dishes, so we count the cells inside the rectangle, not the labels round its edge.</p>
+            <p>This is the product rule.</p>
+            <p>If the first choice can be made in m ways, and for each of those the second can be made in n ways, there are m times n ways to make both.</p>
+            <p>The rule also works with more slots, and when a choice cannot be repeated.</p>
+            <p>Think of three-letter codes from A, B, C, D and E, with no letter used twice.</p>
+            <p>The first slot can use any of the five letters.</p>
+            <p>The second slot has four left, because one has been used.</p>
+            <p>Pause point. Pause the video now. Predict how many letters are left for the third slot. Lock in one card, then press play.</p>
+            <p>The third slot has three left, because two have been used.</p>
+            <p>Five times four is twenty, and twenty times three is sixty codes.</p>
+            <p>How many odd three-digit numbers can be made from the digits 1, 2, 3, 4 and 5, if no digit is used more than once?</p>
+            <p>A number is odd when its last digit is odd, so the units slot has a rule of its own.</p>
+            <p>Pause point. Pause the video now. Which slot should we fill first? Lock in one card, then press play.</p>
+            <p>We fill the units slot first, because it is the slot with the rule.</p>
+            <p>If we left it until last, the number of odd digits still free would depend on what we had already used.</p>
+            <p>Filling it first gives it a fixed number of choices.</p>
+            <p>The odd digits are 1, 3 and 5, so the units slot has three choices.</p>
+            <p>One digit is now used, so the hundreds slot has four choices.</p>
+            <p>Two digits are used, so the tens slot has three choices.</p>
+            <p>By the product rule, we multiply: four times three is twelve, and twelve times three is thirty-six.</p>
+            <p>Let's check.</p>
+            <p>Each of the three odd units digits leaves the same twelve ways to fill the other two slots, and three times twelve is thirty-six.</p>
+            <p>So there are thirty-six odd numbers.</p>
+            <p>You've learned to count combined choices using the product rule.</p>
+            <p>Find how many ways each choice can be made.</p>
+            <p>Fill any slot with a rule first.</p>
+            <p>Reduce the choices when an item cannot be used again.</p>
+            <p>Then multiply, because each choice splits every earlier outcome into equal rows.</p>
+            <p>Adding counts the options, not the combinations.</p>
+        </details>
+        </div>
+        <div class="q-list">
+          <section class="q-card" data-q="line" aria-labelledby="q1-stem">
+            <p class="q-meta"><span class="badge badge-tier">HT</span> Hook puzzle · Predict, then check (shown on a number line)</p>
+            <h2 class="q-stem" id="q1-stem">A restaurant has four starters and three mains. A meal is one starter and one main. Lock in your guess: move the marker to the number of different meals. Is it 7, 12 or 24?</h2>
+            <div class="number-line">
+              <input class="nl-input" type="range" min="0" max="24" step="1" value="0" aria-labelledby="q1-stem" aria-describedby="q1-value">
+              <div class="nl-ticks" aria-hidden="true"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
+              <p class="nl-value" id="q1-value">Marker at: <output data-nl-out>0</output></p>
+            </div>
+            <button class="button button-secondary q-check" type="button">Check</button>
+            <div class="q-feedback" role="status" data-target="12" data-right="Correct: 12. One row for each starter, and each row has a slot for each of the 3 mains: 3 + 3 + 3 + 3 = 4 × 3 = 12 meals." data-wrong="Good start: let&#x27;s fix it together. If you chose 7, you added 4 + 3, which counts the dishes on the menu, not the meals. Each meal is a pair of dishes: draw 4 rows (starters) of 3 slots (mains) and count the cells, 4 × 3 = 12."></div>
+          </section>
+          <section class="q-card" data-q="choice" aria-labelledby="q2-stem">
+            <p class="q-meta"><span class="badge badge-tier">HT</span> Pause point 1 · Predict, then check</p>
+            <h2 class="q-stem" id="q2-stem">Three-letter codes from A, B, C, D and E, with no letter used twice. The first slot has 5 choices and the second has 4. How many letters are left for the third slot?</h2>
+            <div class="q-choices" role="group" aria-labelledby="q2-stem">
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="false">5</button>
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="false">4</button>
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="true">3</button>
+            </div>
+            <div class="q-feedback" role="status" data-right="Correct. Two letters have been used, so 3 are left. 5 × 4 = 20 and 20 × 3 = 60 codes." data-wrong="Good start: let&#x27;s fix it together. Each slot uses up one letter, and a used letter cannot come back. After two slots, two of the five letters are gone, so the third slot has 3 choices: 5 × 4 × 3 = 60."></div>
+          </section>
+          <section class="q-card" data-q="choice" aria-labelledby="q3-stem">
+            <p class="q-meta"><span class="badge badge-tier">HT</span> Pause point 2 · Multiple choice</p>
+            <h2 class="q-stem" id="q3-stem">How many odd three-digit numbers can be made from 1, 2, 3, 4 and 5, with no digit used twice? Which slot should we fill first?</h2>
+            <div class="q-choices" role="group" aria-labelledby="q3-stem">
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="false">Hundreds first, because it comes first</button>
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="true">Units first, because it has the rule</button>
+              <button class="q-choice" type="button" aria-pressed="false" data-correct="false">It doesn't matter</button>
+            </div>
+            <div class="q-feedback" role="status" data-right="Correct. The units digit must be odd (1, 3 or 5), so it has a fixed 3 choices if we fill it first. Then hundreds has 4 and tens has 3: 4 × 3 × 3 = 36." data-wrong="Good start: let&#x27;s fix it together. If we left the units slot until last, the number of odd digits still free would depend on what we had already used. Filling the slot with the rule first gives it a fixed 3 choices (1, 3 or 5). Then hundreds has 4 and tens has 3: 4 × 3 × 3 = 36."></div>
+          </section>
+        </div>
+      </div>
+      <nav class="hub-pager" aria-label="Unit navigation">
+        <a class="pager-link pager-prev" href="explainer-n5-2.html" rel="prev"><span class="pager-kicker">Previous</span><span class="pager-title">← N5.2 explainer</span></a>
+        <a class="pager-link pager-back" href="./"><span class="pager-kicker">Back to</span><span class="pager-title">Unit overview</span></a>
+        <a class="pager-link pager-next" href="guided-practice-n5.html" rel="next"><span class="pager-kicker">Next</span><span class="pager-title">Guided Practice: N5 →</span></a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer site-footer-compact">
+    <div class="site-footer-inner">
+      <p class="footer-compact-legal">Resources are aligned to exam board specifications but are not endorsed by AQA, Pearson Edexcel, OCR or Cambridge International.</p>
+      <nav class="footer-compact-nav" aria-label="Footer"><a href="../../">Home</a><a href="../">Maths</a><a href="mailto:dralaa@aimsmarteducation.co.uk">Contact</a></nav>
+    </div>
+  </footer>
+</body>
+</html>
