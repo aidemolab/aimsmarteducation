@@ -337,3 +337,101 @@ a.sub-card:hover { background: #E1E1F7; color: var(--ink); }
   .mu-card { flex-direction: column; gap: 12px; padding: var(--space-2); }
   .mu-thumb { flex-basis: auto; width: 100%; max-width: 360px; }
 }
+
+/* Maths subject page: units grouped by specification area (open and close, no script) */
+.mu-area { margin-bottom: 12px; }
+.mu-area-summary {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px;
+  min-height: 56px; padding: 10px 52px 10px 20px; position: relative;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-card);
+  cursor: pointer; list-style: none;
+}
+.mu-area-summary::-webkit-details-marker { display: none; }
+.mu-area-summary::after {
+  content: ""; position: absolute; right: 22px; top: 50%;
+  width: 10px; height: 10px; margin-top: -7px;
+  border-right: 2px solid var(--brand); border-bottom: 2px solid var(--brand);
+  transform: rotate(45deg);
+}
+.mu-area[open] > .mu-area-summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.mu-area-summary:hover { border-color: var(--brand); }
+.mu-area-summary:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.mu-area-title { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.02em; font-size: 1.25rem; color: var(--ink); }
+.mu-area-meta { color: var(--ink-muted); font-size: 0.95rem; }
+.mu-area > .mu-path { margin-top: var(--space-2); }
+
+/* Maths subject page: keep it to about three screens */
+.mu-units { padding-top: var(--space-4); }
+.mu-thumb { flex-basis: 200px; }
+.mu-card { padding: 20px var(--space-3); }
+.mu-card .unit-label { margin-bottom: 2px; }
+.mu-parts { gap: 4px; }
+.mu-parts li { padding: 0 6px; font-size: 0.75rem; line-height: 20px; }
+.mu-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+#explainers.section { padding-top: var(--space-4); }
+#explainers .section-head { margin-bottom: var(--space-2); }
+#explainers .card-grid { grid-template-columns: minmax(0, 1fr); max-width: 760px; }
+#explainers .card { flex-direction: row; }
+#explainers .card-media { flex: 0 0 200px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+#explainers .card-body { padding: 20px var(--space-3); }
+#explainers .card-body h3 { margin-bottom: 4px; }
+#explainers .card-body p { margin-bottom: 8px; }
+#explainers .card-facts { margin-bottom: 12px; }
+@media (max-width: 720px) {
+  .mu-card { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .mu-thumb { flex: 0 0 132px; width: 132px; }
+  .mu-body { flex: 1 1 100%; }
+  .mu-card .mu-goal { font-size: 1rem; line-height: 24px; }
+  #explainers .card-media { flex-basis: 96px; }
+  #explainers .card-media svg { width: 70%; }
+  #explainers .media-label { display: none; }
+  #explainers .card-body { padding: 16px; }
+}
+@media (max-width: 720px) and (min-width: 0) {
+  .mu-thumb .placeholder-tag { display: none; }
+  .mu-thumb .video-play { width: 36px; height: 36px; }
+  .mu-thumb .video-play::after { left: 14px; top: 10px; border-width: 8px 0 8px 13px; }
+}
+
+/* Unit box as a grid: thumbnail | details | action (wide); thumbnail beside the title (narrow) */
+.mu-card {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr) auto;
+  grid-template-areas: "thumb head action" "thumb goal action" "thumb parts action";
+  grid-template-rows: auto auto 1fr;
+  column-gap: var(--space-3);
+  align-items: start;
+}
+.mu-card > * { max-width: none; }
+.mu-thumb { grid-area: thumb; width: 100%; }
+.mu-head { grid-area: head; }
+.mu-card .mu-goal { grid-area: goal; }
+.mu-parts { grid-area: parts; margin-bottom: 0; }
+.mu-action { grid-area: action; align-self: center; }
+.mu-area-summary { min-height: 48px; padding-top: 6px; padding-bottom: 6px; }
+.mu-area { margin-bottom: 8px; }
+@media (max-width: 900px) {
+  .mu-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-areas: "thumb head" "goal goal" "parts parts" "action action";
+    grid-template-rows: auto;
+    column-gap: 14px;
+  }
+  .mu-thumb { flex: none; width: 100%; max-width: none; }
+  .mu-head h3 { font-size: 1.15rem; margin-bottom: 0; }
+  .mu-card .mu-goal { margin: 8px 0; }
+  .mu-action { align-self: start; margin-top: 12px; }
+}
+@media (max-width: 600px) {
+  .mu-units { padding-top: var(--space-3); }
+  .mu-card { grid-template-columns: 88px minmax(0, 1fr); padding: 14px; }
+  .unit-path.mu-path::before { left: 15px; }
+  .mu-unit { grid-template-columns: 32px minmax(0, 1fr); gap: 8px; }
+  .mu-unit .unit-node { width: 32px; height: 32px; font-size: 0.95rem; }
+}
+.mu-card { row-gap: 0; }
+.mu-card .mu-goal { margin: 6px 0 10px; }
+@media (min-width: 901px) {
+  .mu-card { grid-template-columns: 184px minmax(0, 1fr) auto; }
+  .mu-parts li { padding: 0 5px; font-size: 0.72rem; }
+}
